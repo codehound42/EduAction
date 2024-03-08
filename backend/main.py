@@ -4,6 +4,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import uvicorn
 from rag.rag import generate_chat, generate_transcript_summary
+from youtube_transcript_api import YouTubeTranscriptApi
+import re
 
 from settings import settings
 
@@ -41,6 +43,23 @@ async def chat(input_text: str = Body(...)):
 async def summary(input_text: str = Body(...)):
     transcript_summary = generate_transcript_summary(input_text)
     return {"response": transcript_summary}
+
+@app.post("/api/yt_link/")
+async def yt_link(url: str = Body(...)):
+    if "&list" in url:
+        url = url.split("&list")[0]
+    video_id = url.split("?v=")[1]
+    raw_subtitles = YouTubeTranscriptApi.get_transcript(video_id)
+    processed_subtitles = ""
+    for row in raw_subtitles:
+        processed_row = re.sub(r'\n+', ' ', row['text'])
+        processed_subtitles += processed_row + " "
+
+    transcript_summary = generate_transcript_summary(processed_subtitles)
+
+    return transcript_summary
+
+
 
 
 if __name__ == "__main__":
