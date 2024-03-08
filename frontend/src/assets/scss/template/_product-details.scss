@@ -1,0 +1,246 @@
+/*----------------------------
+    Product Details Styles 
+------------------------------*/
+.edu-product-details-style {
+    .content {
+        .subtitle {
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 28px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .title {
+            margin-bottom: 15px;
+        }
+        p {
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        .product-action {
+            display: flex;
+            @media #{$large-mobile} {
+                display: block;
+            }
+            .add-to-cart-btn {
+                @media #{$large-mobile} {
+                    margin-top: 20px;
+                }
+            }
+        }
+
+        .product-feature {
+            @extend %liststyle;
+            margin-top: 40px;
+            li {
+                font-weight: 400;
+                margin: 5px 0;
+                span {
+                    font-weight: 700;
+                    color: var(--color-heading);
+                }
+                a {
+                    position: relative;
+                    display: inline-block;
+                    &::after {
+                        position: absolute;
+                        content: ",";
+                        right: -3px;
+                    }
+                    
+                }
+                a:last-child:after { 
+                    display: none;
+                }
+            }
+        }
+    }
+
+    img.eduvibe-product-main-img {
+        border-radius: 5px;
+    }
+}
+
+.pro-qty {
+    position: relative;
+    display: inline-block;
+    input {
+        height: 60px;
+        border: 0 none;
+        background: #F5F5F5;
+        border-radius: 5px;
+        max-width: 144px;
+        margin-right: 15px;
+        text-align: center;
+        color: var(--color-heading);
+        font-weight: 700;
+        @media #{$md-layout} {
+            text-align: left;
+        }
+        @media #{$sm-layout} {
+            text-align: left;
+        }
+    }
+    .qtybtn {
+        position: absolute;
+        top: 10px;
+        right: 38px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .dec {
+        &.qtybtn {
+            top: auto;
+            bottom: 10px;
+        }
+    }
+    .inc {
+        &.qtybtn {
+            
+        }
+    }
+}
+
+.product-description-nav {
+    border-bottom: 1px solid #EEEEEE;
+    justify-content: center;
+    margin-bottom: 35px;
+
+    .nav-item {
+        margin: 0 25px;
+        button {
+            &.nav-link {
+                background: transparent;
+                border: 0 none;
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 28px;
+                padding: 0;
+                padding-bottom: 15px;
+                color: var(--color-heading);
+                position: relative;
+                transition: 0.4s;
+                &::after {
+                    position: absolute;
+                    content: "";
+                    bottom: 0;
+                    left: 0;
+                    height: 2px;
+                    background: var(--color-primary);
+                    transition: 0.4s;
+                    width: 0;
+                }
+                &:hover,
+                &.active {
+                    color: var(--color-primary);
+                    &::after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.product-description-content {
+    p {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .comment-top {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .notification-text {
+        .title {
+            font-size: 16px;
+            line-height: 26px;
+            margin-right: 10px;
+        }
+    }
+}
+
+// Modal Style 
+.edu-product-modal {
+    .modal-dialog {
+        max-width: 1170px;
+        @media #{$laptop-device} {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        @media #{$lg-layout} {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        @media #{$md-layout} {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        @media #{$sm-layout} {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        @media #{$small-mobile} {
+            max-width: 320px;
+            margin: 0 auto;
+        }
+    }
+    .edu-modal-body {
+        padding: 70px;
+        @media #{$lg-layout} {
+            padding: 30px;
+        }
+        @media #{$md-layout} {
+            padding: 30px;
+        }
+        @media #{$sm-layout} {
+            padding: 20px;
+        }
+    }
+    .edu-modal-header {
+        position: absolute;
+        left: calc(100% + 20px);
+        z-index: 2;
+        button {
+            padding: 0;
+            background: transparent;
+            margin: 0;
+            outline: none;
+            opacity: 1;
+            width: 25px;
+            height: 25px;
+            @media #{$sm-layout} {
+                width: 20px;
+                height: 20px;
+            }
+            &:focus {
+                box-shadow: none;
+            }
+            i {
+                color: var(--color-white);
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,190 @@
+/*-------------------------
+    Newsletter Styles  
+-------------------------*/
+.newsletter-form-style-1 {
+    .input-box {
+        position: relative;
+        display: inline-block;
+        @media #{$sm-layout} {
+            display: block;
+        }
+        input {
+            height: 60px;
+            background: var(--color-white);
+            border: 0 none;
+            padding: 0 52px;
+            min-width: 570px;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 26px;
+            border-radius: 5px;
+            @media #{$sm-layout} {
+                min-width: 100%;
+                height: 60px;
+            }
+            &.large-input-box {
+                height: 80px;
+                min-width: 670px;
+                padding-right: 190px;
+                @media #{$sm-layout} {
+                    min-width: 100%;
+                    padding-right: 20px;
+                    padding-left: 20px;
+                }
+            }
+        }
+        .mail-icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 26px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            @media #{$sm-layout} {
+                display: none;
+            }
+        }
+        .send-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 27px;
+            border: 0 none;
+            padding: 0;
+            background: transparent;
+            i {
+                font-size: 20px;
+                color: var(--color-primary);
+            }
+        }
+
+        .edu-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 10px;
+            @media #{$sm-layout} {
+                position: static;
+                transform: none;
+                margin-left: 0;
+                margin-top: 20px;
+            }
+        }
+
+    }
+}
+
+// Newsletter Style 2
+
+.newsletter-style-2 {
+    position: relative;
+    input {
+        height: 60px;
+        background: var(--color-white);
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 26px;
+        color: var(--color-body);
+        border-radius: 5px;
+        border: 0 none;
+        padding-right: 146px;
+    }
+    .subscribe-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 5px;
+        z-index: 2;
+    }
+}
+
+
+// Newsletter Style 3
+.newsletter-style-3 {
+    background-image: url(../../images/bg/home-two-cta.jpg);
+    position: relative;
+    .contact-info {
+        margin-left: 43px;
+        @media #{$large-mobile} {
+            margin-left: 0;
+            margin-top: 20px;
+        }
+        a {
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 28px;
+            color: var(--color-white);
+            transition: 0.4s;
+            position: relative;
+            display: inline-block;
+            z-index: 1;
+            &::after {
+                position: absolute;
+                content: "";
+                left: auto;
+                right: 0;
+                bottom: 0;
+                width: 0;
+                height: 2px;
+                background: var(--color-white);
+                transition: 0.3s;
+            }
+            i {
+                margin-right: 5px;
+            }
+            &:hover {
+                &::after {
+                    width: 100%;
+                    left: 0;
+                    right: auto;
+                }
+            }
+        }
+    }
+
+}
+
+// Newsletter Style 5 
+.newsletter-style-5 {
+    position: relative;
+    z-index: 1;
+    border-radius: 5px;
+    min-width: 1400px;
+    padding: 100px 115px;
+    background-image: url(../../images/bg/newsletter-home-4-bg.jpg);
+
+    @media #{$laptop-device} {
+        min-width: auto;
+    }
+    @media #{$lg-layout} {
+        min-width: auto;
+        padding: 50px 40px;
+    }
+    @media #{$md-layout} {
+        min-width: auto;
+        padding: 50px 40px;
+    }
+    @media #{$sm-layout} {
+        min-width: auto;
+        padding: 50px 40px;
+    }
+}
+
+.newsletter-overlay-to-another {
+    position: relative;
+    margin-top: -145px;
+    @media #{$small-tablet} {
+        margin-top: -80px;
+    }
+}
+
+.newsletter-to-top {
+    padding-top: 273px !important;
+    @media #{$lg-layout} {
+        padding-top: 224px !important;
+    }
+    @media #{$sm-layout} {
+        padding-top: 224px !important;
+    }
+}

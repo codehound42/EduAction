@@ -1,0 +1,139 @@
+/*-----------------------
+ Badge Style  
+------------------------*/
+.badge-transparent {
+    display: inline-block;
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.status-group {
+    margin: -5px;
+    .eduvibe-status {
+        margin: 5px;
+    }
+}
+
+.status-style-5 {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -5px -17px;
+    
+    .eduvibe-status {
+        margin: 5px 17px;
+    }
+}
+
+.eduvibe-status {
+    
+    &.status-01 {
+        color: var(--color-primary);
+        font-size: 14px;
+        font-weight: 600;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 12px;
+        background: var(--color-white);
+        display: inline-block;
+        border-radius: 2px;
+        &.bg-primary-color {
+            color: var(--color-white);
+        }
+        &.bg-secondary-color {
+            color: var(--color-white);
+        }
+    }
+
+    &.status-02 {
+        color: var(--color-white);
+        font-size: 14px;
+        font-weight: 600;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 12px;
+        background: var(--color-secondary);
+        border-radius: 0 2px 2px 0;
+        display: flex;
+        align-items: center;
+        i {
+            margin-right: 5px;
+        }
+    }
+
+    &.status-03 {
+        color: var(--color-white);
+        font-size: 14px;
+        font-weight: 600;
+        height: 34px;
+        line-height: 30px;
+        padding: 0 15px;
+        background: var(--color-primary);
+        border-radius: 2px;
+        display: inline-block;
+        border: 2px solid var(--color-white);
+    }
+
+    &.status-04 {
+        color: var(--color-white);
+        font-size: 14px;
+        font-weight: 600;
+        height: 27px;
+        line-height: 27px;
+        padding: 0 10px;
+        background: var(--color-secondary);
+        border-radius: 2px;
+        display: inline-block;
+        text-transform: uppercase;
+    }
+
+    &.status-05 {
+        color: var(--color-body);
+        font-size: 16px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        transition: 0.4s;
+        i {
+            color: var(--color-primary);
+            margin-right: 9px;
+        }
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
+    
+    &.status-06 {
+        color: var(--color-white);
+        font-size: 16px;
+        font-weight: 700;
+        height: 36px;
+        line-height: 36px;
+        padding: 0 20px 0 15px;
+        background: var(--color-primary);
+        display: inline-block;
+        border-radius: 0px 18px 18px 0px;
+    }
+
+}
+
+
+.badge-default {
+    border-radius: 3px;
+    background: var(--color-primary);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--color-white);
+    height: 36px;
+    line-height: 36px;
+    padding: 0 15px;
+    display: inline-block;
+}
+
+
+
+
+
+
+
+

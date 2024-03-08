@@ -1,0 +1,35 @@
+[
+    {
+        "title": "The First Steps",
+        "content": [
+            "Introduction",
+            "Course Overview",
+            "Local Development Environment Tools",
+            "Course Excercise",
+            "Embedding PHP in HTML",
+            "Using Dynamic Data"
+        ]
+    },
+    {
+        "title": "Data Types and More",
+        "content": [
+            "Introduction",
+            "Course Overview",
+            "Local Development Environment Tools",
+            "Course Excercise",
+            "Embedding PHP in HTML",
+            "Using Dynamic Data"
+        ]
+    },
+    {
+        "title": "Control Structure",
+        "content": [
+            "Introduction",
+            "Course Overview",
+            "Local Development Environment Tools",
+            "Course Excercise",
+            "Embedding PHP in HTML",
+            "Using Dynamic Data"
+        ]
+    }
+]

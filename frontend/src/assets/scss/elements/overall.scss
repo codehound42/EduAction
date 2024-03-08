@@ -1,0 +1,415 @@
+/*-------------------------------
+    Overall React Specific Styles  
+---------------------------------*/
+body.search-popup-active {
+    overflow-y: hidden;
+}
+
+.eduvibe-google-map {
+    width: 100%;
+    height: 500px;
+    @media #{$sm-layout} {
+        height: 350px;
+    }
+}
+
+.edu-contact-map-area .eduvibe-google-map {
+    div {
+        border-radius: 5px;
+    }
+}
+
+.event-widget .eduvibe-google-map {
+    height: 290px;
+    div {
+        border-radius: 5px;
+    }
+}
+
+.banner-style-5 .rating i,
+.eduvibe-testimonial-three .rating i,
+.eduvibe-testimonial-four .rating i,
+.eduvibe-course-rating-stars i:not(:last-child) {
+    margin-right: 4px;
+}
+
+.video-play-btn.eduvibe-video-play-icon {
+    color: var(--color-primary);
+    font-size: 18px;
+}
+
+.video-play-btn.btn-theme-color.eduvibe-video-play-icon {
+    color: var(--color-white);
+}
+
+.video-play-btn.btn-secondary-color.eduvibe-video-play-icon {
+    color: var(--color-secondary);
+}
+
+body .about-style-4 .gallery-wrapper .image-3 img {
+    border: 0;
+}
+
+.eduvibe-gallery-items.mt--5 {
+    margin-top: 35px !important;
+}
+
+.eduvibe-gallery-items .edu-gallery-grid-item {
+    padding: 0 !important;
+}
+
+.eduvibe-masonry-grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: auto;
+    margin: 65px 0 -15px;
+}
+
+.eduvibe-masonry-grid_column {
+    padding: 0 15px;
+    background-clip: padding-box;
+}
+
+.eduvibe-masonry-grid_column .edu-gallery-grid-item {
+    padding: 0 !important;
+    margin-bottom: 30px;
+}
+
+.edu-gallery-grid-item .edu-gallery-grid .zoom-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: inherit !important;
+    transition: 0.4s;
+    opacity: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    border: 0;
+    cursor: pointer;
+    background: transparent;
+}
+
+.eduvibe-countdown-ending-notice {
+    color: var(--color-primary);
+}
+
+.banner-style-5 .video-btn-wrapper,
+.banner-style-1 .scroll-down-btn .round-btn,
+.banner-style-3 .scroll-down-btn .round-btn {
+    cursor: pointer;
+}
+
+.edu-blog-widget.edu-instagram-widget-2,
+.edu-blog-widget.edu-about-widget-2 {
+    background: transparent;
+    padding: 0;
+}
+
+.edu-blog-widget.edu-instagram-widget-2 .widget-title,
+.edu-blog-widget.edu-about-widget-2 .widget-title {
+    padding-bottom: 0px;
+    margin-bottom: 30px;
+    border-bottom: 0;
+}
+
+.edu-blog.blog-type-2.variation-2.bg-color-gray {
+    background: var(--color-shade);
+}
+
+.eduvibe-blog-standard-wrapper .eduvibe-post-standard:first-child {
+    margin-top: 0 !important;
+}
+
+.eduvibe-post-one-carousel-item,
+.eduvibe-event-one-carousel-item {
+    padding: 15px;
+}
+
+.eduvibe-post-one-carousel-item .edu-blog.blog-type-2:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0 , 0.05);
+}
+
+.edu-event.event-grid-1.bg-shade .inner {
+    background: var(--color-shade);
+    box-shadow: inherit !important;
+}
+
+.edu-card.card-type-2:hover {
+    background-color: var(--color-white);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0 , 0.06);
+}
+
+.eduvibe-course-two-single .edu-card.card-type-2:hover {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0 , 0.06);
+}
+
+.eduvibe-event-one-carousel-item .edu-event.event-grid-1.bg-shade .inner:hover {
+    background: var(--color-white);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0 , 0.05);
+}
+
+button.edu-btn .eduvibe-spin-icon {
+    padding-left: 10px;
+    position: relative;
+}
+
+.eduvibe-event-two-shadow .inner {
+    box-shadow: 0px 10px 30px rgba(0, 0, 0 , 0.07);
+}
+
+.slick-slide .author-meta .author-thumb a img {
+    display: initial;
+}
+
+.edu-card.card-type-4 .inner .thumbnail a img {
+    object-fit: cover;
+}
+
+.eduvibe-course-style-four .edu-meta.meta-03 li:last-child {
+    margin-right: 0px;
+}
+
+.eduvibe-course-one-carousel .edu-card.card-type-3 {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0 , 0.05);
+}
+
+.eduvibe-course-one-carousel .single-slick-card {
+    margin-bottom: 20px;
+}
+
+.eduvibe-course-price-filter input {
+    padding: 0;
+}
+
+.landing-demo-nav-btn:hover {
+    cursor: pointer;
+}
+
+.landing-inner-pages img {
+    padding: 0 15px;
+    border-radius: 10px;
+}
+
+.eduvibe-post-share {
+    span {
+        font-weight: 600;
+        color: var(--color-dark);
+        margin-right: 15px;
+    }
+    a {
+        color: var(--body-color);
+    }
+    a:not(:last-child) {
+        margin-right: 25px;
+    }
+}
+
+.rn-back-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    z-index: 999;
+    width: 50px;
+    height: 50px;
+    line-height: 46px;
+    border-radius: 50%;
+    text-align: center;
+    z-index: 999 !important;
+    background-color: var(--color-secondary);
+    svg {
+        transition: 0.3s;
+        color: #fff;
+        width: 27px;
+        height: 27px;
+        font-size: 14px !important;
+    }
+}
+
+.testimonial-style-1 {
+    @media #{$small-tablet} {
+        margin-bottom: 50px;
+    }
+}
+
+/* course filter range CSS starts */
+input[type="range"] {
+	font-size: 1.5rem;
+}
+
+input[type="range"] {
+	color: var(--color-primary);
+}
+
+input[type="range"].win10-thumb {
+	color: var(--color-primary);
+	--thumb-width: 0.5em;
+}
+
+input[type="range"] {
+	position: relative;
+	background: transparent;
+	overflow: hidden;
+}
+
+input[type="range"]:active {
+	cursor: grabbing;
+}
+
+/* === WebKit specific styles === */
+input[type="range"],
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	transition: all ease 100ms;
+	height: 1.125em;
+}
+
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-webkit-slider-thumb {
+	position: relative;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+	--thumb-radius: calc((1.125em * 0.5) - 1px);
+	--clip-top: calc((1.125em - 0.125em) * 0.5 - 0.5px);
+	--clip-bottom: calc(1.125em - var(--clip-top));
+	--clip-further: calc(100% + 1px);
+	--box-fill: calc(-100vmax - var(--thumb-width, 1.125em)) 0 0
+		100vmax var(--color-primary);
+
+	width: var(--thumb-width, 1.125em);
+	background: linear-gradient(var(--color-primary) 0 0) scroll no-repeat left center /
+		50% calc(0.125em + 1px);
+	background-color: var(--color-primary);
+	box-shadow: var(--box-fill);
+	border-radius: var(--thumb-width, 1.125em);
+
+	filter: brightness(100%);
+	clip-path: polygon(
+		100% -1px,
+		0.125em -1px,
+		0 var(--clip-top),
+		-100vmax var(--clip-top),
+		-100vmax var(--clip-bottom),
+		0 var(--clip-bottom),
+		0.125em 100%,
+		var(--clip-further) var(--clip-further)
+	);
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+	cursor: grab;
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+	cursor: grabbing;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+	background: linear-gradient(rgba(0, 0, 0, 0.2) 0 0) scroll no-repeat center /
+		100% calc(0.125em + 1px);
+}
+
+input[type="range"]:disabled::-webkit-slider-thumb {
+	cursor: not-allowed;
+}
+
+/* === Firefox specific styles === */
+input[type="range"],
+input[type="range"]::-moz-range-track,
+input[type="range"]::-moz-range-thumb {
+	appearance: none;
+	transition: all ease 100ms;
+	height: 1.125em;
+}
+
+input[type="range"]::-moz-range-track,
+input[type="range"]::-moz-range-thumb,
+input[type="range"]::-moz-range-progress {
+	background: transparent;
+}
+
+input[type="range"]::-moz-range-thumb {
+	background: var(--color-primary);
+	border: 0;
+	width: var(--thumb-width, 1.125em);
+	border-radius: var(--thumb-width, 1.125em);
+	cursor: grab;
+}
+
+input[type="range"]:active::-moz-range-thumb {
+	cursor: grabbing;
+}
+
+input[type="range"]::-moz-range-track {
+	width: 100%;
+	background: rgba(0, 0, 0, 0.2);
+}
+
+input[type="range"]::-moz-range-progress {
+	appearance: none;
+	background: var(--color-primary);
+	transition-delay: 30ms;
+}
+
+input[type="range"]::-moz-range-track,
+input[type="range"]::-moz-range-progress {
+	height: calc(0.125em + 1px);
+	border-radius: 0.125em;
+}
+
+input[type="range"]:disabled::-moz-range-thumb {
+	cursor: not-allowed;
+}
+
+/* course filter range CSS ends */
+
+@-webkit-keyframes eduvibeFadeInUp {
+    0%{
+        opacity:0;
+        -webkit-transform:translateY(30%);
+        transform:translateY(30%);
+    }to{
+        opacity:1;
+        -webkit-transform:none;
+        transform:none;
+    }
+}
+
+@keyframes eduvibeFadeInUp {
+    0%{
+        opacity:0;
+        -webkit-transform:translateY(30%);
+        transform:translateY(30%);
+    }to{
+        opacity:1;
+        -webkit-transform:none;
+        transform:none;
+    }
+}
+
+.eduvibeFadeInUp {
+    -webkit-animation-name:eduvibeFadeInUp;
+    animation-name:eduvibeFadeInUp;
+}
+
+@media (max-width: 991px) {
+    .eduvibe-masonry-grid {
+        margin-top: 45px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1170px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1170px;
+    }
+}

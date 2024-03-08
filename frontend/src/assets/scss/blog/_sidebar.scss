@@ -1,0 +1,325 @@
+/*--------------------------
+    Blog Sidebar Styles 
+----------------------------*/
+.edu-blog-widget {
+    background: #F5F5F5;
+    border-radius: 5px;
+    padding: 30px;
+    @media #{$sm-layout} {
+        padding: 20px;
+    }
+    .widget-title {
+        padding-bottom: 20px;
+        margin-bottom: 28px;
+        border-bottom: 1px solid rgba(45,40,78,0.07);
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 36px;
+    }
+
+    &.widget-search {
+        .blog-search {
+            position: relative;
+            input {
+                border: 0 none;
+                background: var(--color-white);
+                height: 60px;
+                width: 100%;
+                border-radius: 3px;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 22px;
+                padding: 0 72px 0 25px;
+            }
+            .search-button {
+                position: absolute;
+                right: 0;
+                top: 0;
+                background-color: var(--color-primary);
+                border: 0 none;
+                height: 100%;
+                width: 60px;
+                text-align: center;
+                color: var(--color-white);
+                font-size: 20px;
+                border-radius: 0px 3px 3px 0px;
+            }
+        }
+    }
+
+    &.widget-categories {
+        .category-list {
+            @extend %liststyle;
+            li {
+                margin: 0;
+                a {
+                    background: #FFFFFF;
+                    border-radius: 3px;
+                    height: 60px;
+                    line-height: 60px;
+                    padding: 0 25px;
+                    display: flex;
+                    justify-content: space-between;
+                    position: relative;
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        background: #EEEEEE;
+                        height: 30px;
+                        width: 1px;
+                        right: 60px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                    span {
+
+                    }
+                }
+                & + li {
+                    margin-top: 15px;
+                }
+            }
+        }
+    }
+
+    &.widget-latest-post {
+        .latest-post {
+            display: flex;
+            align-items: center;
+            position: relative;
+            .thumbnail {
+                margin-right: 25px;
+                @media #{$sm-layout} {
+                    margin-right: 10px;
+                }
+                a {
+                    img {
+                        border-radius: 3px;
+                        max-height: 96px;
+                        object-fit: cover;
+                    }
+                }
+            }
+            .post-content {
+                .blog-meta {
+                    li {
+
+                    }
+                }
+                .title {
+                    font-weight: 700;
+                    font-size: 18px;
+                    line-height: 28px;
+                    margin-bottom: 0;
+                }
+            }
+
+            & + .latest-post {
+                padding-top: 20px;
+                margin-top: 20px;
+                &::after {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 1px;
+                    background: rgba(45,40,78,0.07);
+                    content: "";
+                }
+            }
+        }
+    }
+
+    &.widget-about {
+        .about-wrapper {
+            text-align: center;
+            .thumbnail {
+                margin-bottom: 20px;
+                img {
+                    max-height: 160px;
+                    border-radius: 100%;
+                }
+            }
+            .about-content {
+                .title {
+                    margin-bottom: 15px;
+                }
+                p {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+
+    &.widget-instagram {
+        .instagram-list {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -7.5px;
+            a {
+                flex-basis: 33.33%;
+                display: block;
+                padding: 7.5px;
+                @media #{$md-layout} {
+                    flex-basis: 20%;
+                }
+                @media #{$sm-layout} {
+                    flex-basis: 20%;
+                }
+                @media #{$large-mobile} {
+                    flex-basis: 50%;
+                }
+                img {
+                    border-radius: 3px;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.tag-list {
+    margin: -5px;
+    a {
+        background: #FFFFFF;
+        border-radius: 2px;
+        display: inline-block;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 40px;
+        margin: 5px;
+        height: 40px;
+        padding: 0 14px;
+        transition: 0.4s;
+        &:hover {
+            background: var(--color-primary) !important;
+            color: var(--color-white);
+        }
+    }
+    &.bg-shade {
+        a {
+            background: #F5F5F5;
+            
+        }
+    }
+}
+
+
+/*-----------------------------
+    Sidebar Style Two  
+-------------------------------*/
+.edu-blog-widget-2 {
+    .widget-title {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 36px;
+        margin-bottom: 30px;
+    }
+
+    &.widget-search {
+        .blog-search {
+            position: relative;
+            input {
+                border: 0 none;
+                background: #F5F5F5;
+                height: 60px;
+                width: 100%;
+                border-radius: 3px;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 22px;
+                padding: 0 72px 0 25px;
+            }
+            .search-button {
+                position: absolute;
+                right: 0;
+                top: 0;
+                background-color: transparent;
+                border: 0 none;
+                height: 100%;
+                width: 60px;
+                text-align: center;
+                color: var(--color-primary);
+                font-size: 20px;
+                border-radius: 0;
+            }
+        }
+    }
+
+
+    &.widget-categories {
+        .category-list {
+            @extend %liststyle;
+            li {
+                margin: 0;
+                a {
+                    display: flex;
+                    justify-content: space-between;
+                    position: relative;
+                    span {
+
+                    }
+                }
+                & + li {
+                    padding-top: 15px;
+                    margin-top: 15px;
+                    border-top: 1px solid #EEEEEE;
+                }
+            }
+        }
+    }
+
+    &.widget-latest-post {
+        .latest-post {
+            display: flex;
+            align-items: center;
+            position: relative;
+
+            .thumbnail {
+                margin-right: 25px;
+                a {
+                    display: block;
+                    img {
+                        border-radius: 5px;
+                        max-height: 100px;
+                        object-fit: cover;
+                    }
+                }
+            }
+            .post-content {
+                .blog-meta {
+                    li {
+
+                    }
+                }
+                .title {
+                    font-weight: 700;
+                    font-size: 18px;
+                    line-height: 28px;
+                    margin-bottom: 0;
+                }
+            }
+
+            & + .latest-post {
+                padding-top: 20px;
+                margin-top: 20px;
+                &::after {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 1px;
+                    background: rgba(45,40,78,0.07);
+                    content: "";
+                }
+            }
+        }
+    }
+
+
+   
+
+
+
+
+}

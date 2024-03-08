@@ -1,0 +1,242 @@
+/*===========================
+    Start Footer Area 
+=============================*/
+.footer-style-default {
+    position: relative;
+    z-index: 1;
+    .footer-top {
+        padding: 130px 0;
+        @media #{$md-layout} {
+            padding: 80px 0;
+        }
+        @media #{$sm-layout} {
+            padding: 80px 0;
+        }
+    }
+
+    .widget-title {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 36px;
+        color: var(--color-white);
+    }
+
+    .description {
+        color: var(--color-white);
+        margin-top: 34px;
+        margin-bottom: 40px;
+    }
+
+
+    .information-list {
+        @extend %liststyle;
+        li {
+            color: var(--color-white);
+            margin-top: 0;
+            margin-bottom: 0;
+            font-weight: 500;
+            display: flex;
+            i {
+                font-size: 15px;
+                margin-right: 12px;
+                position: relative;
+                top: 5px;
+            }
+            a {
+                color: var(--color-white);
+                transition: 0.3s;
+            }
+            & + li {
+                margin-top: 20px;
+            }
+            &:hover {
+                a {
+                    color: var(--color-primary);
+                }
+            }
+        }
+    }
+
+    .edu-footer-widget {
+        .inner {
+            margin-top: 34px;
+        }
+        .footer-link {
+            list-style: none;
+            padding: 0;
+            li {
+                margin-top: 0;
+                margin-bottom: 0;
+                a {
+                    font-size: 16px;
+                    display: block;
+                    color: var(--color-white);
+                    line-height: 26px;
+                    i {
+                        margin-right: 10px;
+                        font-size: 14px;
+                    }
+                }
+                & + li {
+                    margin-top: 20px;
+                }
+                &:hover {
+                    a {
+                        color: var(--color-primary);
+                    }
+                }
+            }
+        }
+        &.explore-widget {
+            margin-left: 65px;
+            @media #{$lg-layout} {
+                margin-left: 0;
+            }
+
+            @media #{$md-layout} {
+                margin-left: 0;
+            }
+
+            @media #{$sm-layout} {
+                margin-left: 0;
+            }
+        }
+        &.quick-link-widget {
+            margin-left: 65px;
+
+            @media #{$lg-layout} {
+                margin-left: 0;
+            }
+
+            @media #{$md-layout} {
+                margin-left: 0;
+            }
+
+            @media #{$sm-layout} {
+                margin-left: 0;
+            }
+
+        }
+    }
+}
+
+.eduvibe-footer-one {
+    background: #231F40;
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: -11px;
+            left: -263px;
+            @media #{$custom-laptop-device} {
+                top: -51px;
+                left: -130px;
+            }
+            @media #{$lg-layout} {
+                top: -51px;
+                left: -150px;
+            }
+        }
+        &.shape-image-2 {
+            bottom: -83px;
+            right: -200px;
+            @media #{$custom-laptop-device} {
+                bottom: -13px;
+                right: -100px;
+            }
+            @media #{$lg-layout} {
+                bottom: -13px;
+                right: -150px;
+            }
+        }
+    }
+}
+
+/*---------------------------------
+ Footer with Call To Action  
+----------------------------------*/
+.edu-footer-with-cta {
+    position: relative;
+    z-index: 2;
+    margin-top: 138px;
+    background: #231F40;
+    @media #{$sm-layout} {
+        margin-top: 0;
+    }
+    .cta-with-overlay {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -138px;
+        @media #{$sm-layout} {
+            position: static;
+            top: 0;
+            padding-bottom: 80px;
+        }
+    }
+    .footer-style-default {
+        padding-top: 138px;
+        position: static;
+    }
+}
+
+/*---------------------------------
+ Footer 2
+----------------------------------*/
+.eduvibe-footer-two {
+    .edu-btn {
+        margin-bottom: 30px;
+    }
+
+    @media #{$large-mobile} {
+        padding-bottom: 80px;
+        .edu-btn {
+            margin-bottom: 0px;
+        }
+        .call-action-style-1,
+        .call-action-style-1.box-layout {
+            padding: 30px;
+        }
+    }
+
+    .footer-style-default {
+        padding-top: 138px;
+        position: static;
+        @media #{$md-layout} {
+            padding-top: 418px;
+        }
+        @media #{$sm-layout} {
+            padding-top: 0px;
+        }
+    }
+
+    .animate-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: -11px;
+            left: -263px;
+            @media #{$custom-laptop-device} {
+                top: -51px;
+                left: -130px;
+            }
+            @media #{$lg-layout} {
+                top: -51px;
+                left: -150px;
+            }
+        }
+        &.shape-image-2 {
+            bottom: -83px;
+            right: -200px;
+            @media #{$custom-laptop-device} {
+                bottom: -13px;
+                right: -100px;
+            }
+            @media #{$lg-layout} {
+                bottom: -13px;
+                right: -150px;
+            }
+        }
+    }
+    
+}

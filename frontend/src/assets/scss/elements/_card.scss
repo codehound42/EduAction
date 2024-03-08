@@ -1,0 +1,626 @@
+/*---------------------------
+ Card Styles  
+-----------------------------*/
+
+.course-activation-item-2 .edu-card.card-type-2 {
+    margin: 20px 0;
+}
+
+.video-gallery-overlay-area {
+    padding-top: 400px !important;
+    @media #{$md-layout} {
+        padding-top: 80px !important;
+    }
+    @media #{$sm-layout} {
+        padding-top: 80px !important;
+    }
+}
+
+.course-three-wrapper {
+    position: relative;
+    z-index: 1;
+    
+    .video-section-overlayto-another {
+        margin-bottom: -400px;
+        @media #{$md-layout} {
+            margin-bottom: 0;
+        }
+        @media #{$sm-layout} {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+
+.price-list {
+    margin: -7.5px;
+    .price {
+        margin: 7.5px;
+        display: inline-block;
+    }
+    .current-price {
+        font-weight: 700;
+    }
+
+    .old-price {
+        font-weight: 500;
+        text-decoration: line-through;
+    }
+
+    &.price-style-01 {
+        margin: -9px;
+        .price {
+            margin: 9px;
+        }
+        
+        .current-price {
+            border-radius: 3px;
+            background: var(--color-primary);
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--color-white);
+            height: 36px;
+            line-height: 36px;
+            padding: 0 15px;
+            display: inline-block;
+        }
+    }
+
+    &.price-style-02 {
+        margin: -7.5px;
+        .price {
+            margin: 7.5px;
+        }
+        .current-price {
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--color-heading);
+        }
+        .old-price {
+            font-weight: 600;
+        }
+    }
+
+    &.price-style-03 {
+        margin: -6px;
+        .price {
+            margin: 6px;
+        }
+        .current-price {
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--color-primary);
+            font-size: 20px;
+
+        }
+        .old-price {
+            font-weight: 500;
+        }
+    }
+}
+
+.edu-card {
+    overflow: hidden;
+    .thumbnail {
+        position: relative;
+        a {
+            display: block;
+            overflow: hidden;
+            img {
+                transition: 0.4s;
+                overflow: hidden;
+            }
+        }
+        .top-position {
+            position: absolute;
+            z-index: 2;
+        }
+        .wishlist-top-right {
+            position: absolute;
+            z-index: 2;
+        }
+    }
+
+    &.card-type-1 {
+        background-color: var(--color-shade);
+        transition: 0.4s;
+        .inner {
+            .thumbnail {
+                position: relative;
+                a {
+                    display: block;
+                    overflow: hidden;
+                    img {
+                        transition: 0.4s;
+                        overflow: hidden;
+                    }
+                }
+                .top-position { 
+                    &.left-top {
+                        left: 15px;
+                        top: 15px;
+                    }
+                    &.right-top {
+                        right: 15px;
+                        top: 15px;
+                    }
+                }
+                .wishlist-top-right {
+                    right: 20px;
+                    top: 20px;
+                }
+            }
+            .content {
+                padding: 25px 30px 30px;
+                @media #{$sm-layout} {
+                    padding: 25px 20px 25px;
+                }
+                .title {
+                    margin-bottom: 15px;
+                    margin-top: 10px;
+                }
+                .edu-rating {
+                    margin-bottom: 25px;
+                }
+                .card-bottom {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-top: 1px solid var(--color-border);
+                    padding-top: 25px;
+                }
+            }
+        }
+        &:hover {
+            background: var(--color-white);
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.05);
+        }
+        &.bg-white {
+            background-color: var(--color-white);
+            transition: 0.4s;
+            &:hover {
+                background: var(--color-white);
+                box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.06);
+            }
+        }
+    }
+
+    &.card-type-2 {
+        background-color: var(--color-shade);
+        padding: 20px 20px 30px;
+        transition: 0.4s;
+        .inner {
+            .thumbnail {
+                a {
+                    border-radius: 3px;
+                    img {
+                        border-radius: 3px;
+                    }
+                }
+                .top-position { 
+                    &.left-top {
+                        left: 0;
+                        top: 10px;
+                    }
+                }
+                .wishlist-top-right {
+                    right: 20px;
+                    top: 10px;
+                }
+            }
+            .content {
+                padding-top: 25px;
+                .card-top {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 20px;
+                }
+                .title {
+                    margin-bottom: 20px;
+                }
+                .card-bottom {
+                    display: flex;
+                    align-items: center;
+                    padding-top: 20px;
+                    margin-top: 20px;
+                    border-top: 1px solid var(--color-border);
+                }
+            }
+        }
+        &:hover {
+            background-color: var(--color-white);
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06);
+        }
+    }
+    &.card-type-3 {
+        background-color: var(--color-white);
+        box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.06);
+        position: relative;
+        .inner {
+            .thumbnail {
+                a {
+                    border-radius: 3px;
+                    img {
+                        border-radius: 3px;
+                    }
+                }
+                .top-position { 
+                    &.left-bottom {
+                        left: 30px;
+                        bottom: -19px;
+                        @media #{$sm-layout} {
+                            left: 20px;
+                        }
+                    }
+                }
+                .wishlist-top-right {
+                    right: 20px;
+                    top: 20px;
+                }
+            }
+            .content {
+                padding: 44px 30px 30px;
+                @media #{$sm-layout} {
+                    padding: 44px 20px 20px;
+                }
+                .card-top {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 20px;
+                    
+                    @media #{$lg-layout} {
+                        flex-wrap: wrap;
+                    }
+
+                    @media #{$md-layout} {
+                        flex-wrap: wrap;
+                    }
+
+                    @media #{$sm-layout} {
+                        flex-wrap: wrap;
+                    }
+
+                    .author-meta {
+                        margin-right: 10px;
+                    }
+                }
+                .title {
+                    margin-bottom: 20px;
+                }
+                .card-bottom {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-top: 1px solid var(--color-border);
+                    padding-top: 25px;
+                    flex-wrap: wrap;
+                 
+                }
+            }
+        }
+
+        .card-hover-action {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-primary);
+            opacity: 0;
+            transition: 0.4s;
+            box-shadow: 0px 12px 30px rgba(82, 95, 225, 0.1);
+            border-radius: 5px;
+            padding: 30px;
+            z-index: 2;
+            @media #{$lg-layout} {
+                padding: 30px 20px;
+            }
+            @media #{$md-layout} {
+                padding: 30px 20px;
+            }
+            @media #{$sm-layout} {
+                padding: 30px 20px;
+            }
+            .content-top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+                .top-status-bar {
+                    .eduvibe-status {
+                        background: rgba(255,255,255,0.15);
+                        border: 0 none;
+                        line-height: 33px;
+                    }
+                }
+
+                .top-wishlist-bar {
+                    .wishlist-btn {
+                        background: rgba(255,255,255,0.2);
+                        backdrop-filter: blur(10px);
+                    }
+                }
+            } 
+            .title {
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 32px;
+                margin-bottom: 20px;
+                a {
+                    color: var(--color-white);
+                }
+            }
+            .description {
+                color: rgba(255,255,255,0.8);
+                margin-bottom: 25px;
+            }
+            
+            .price-list {
+                margin-bottom: 25px;
+                .price {
+                    color: var(--color-white);
+                    &.old-price {
+                        color: rgba(255,255,255,0.8);
+                    }
+                }
+            }
+
+            .hover-bottom-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 30px;
+                flex-wrap: wrap;
+                .author-meta {
+                    .author-title {
+                        font-weight: 600;
+                        font-size: 16px;
+                        line-height: 26px;
+                        color: var(--color-white);
+                    }
+                }
+                .edu-meta {
+                    li {
+                        color: var(--color-white);
+                        i {
+                            color: var(--color-white);
+                        }
+                    }
+                }
+            }
+        }
+        &:hover {
+            .card-hover-action {
+                opacity: 1;
+            }
+        }
+
+        &.variation-2 {
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05);
+            .inner {
+                .thumbnail {
+                    .top-position { 
+                        &.left-bottom {
+                            left: 30px;
+                            bottom: -13.5px;
+                        }
+                    }
+                }
+                .edu-meta {
+                    &.meta-01 {
+                        margin: 0 -10px;
+                        li {
+                            font-weight: 500;
+                            line-height: 26px;
+                            margin: 0 10px;
+                            display: flex;
+                            align-items: center;
+                            font-size: 14px;
+                        }
+                    }
+                }
+
+                .eduvibe-status {
+                    &.status-03 {
+                        color: var(--color-white);
+                        font-size: 14px;
+                        font-weight: 600;
+                        height: 27px;
+                        line-height: 27px;
+                        padding: 0 10px;
+                        background: var(--color-primary);
+                        border-radius: 4px;
+                        display: inline-block;
+                        border: 0 none;
+                    }
+                }
+                .content {
+                    padding: 32px 30px 30px;
+                    .title {
+                        margin-bottom: 20px;
+                        font-size: 20px;
+                        margin-top: 15px;
+                        line-height: 32px;
+                    }
+                    p {
+                        margin-bottom: 0;
+                    }
+                }
+
+            }
+        }
+    }
+
+    &.card-type-4 {
+        background-color: var(--color-shade);
+        transition: 0.4s;
+        .inner {
+            display: flex;
+            @media #{$md-layout} {
+                display: block;
+            }
+            @media #{$sm-layout} {
+                display: block;
+            }
+
+            .thumbnail {
+                flex-basis: 38.33%;
+                a {
+                    height: 100%;
+                    display: block;
+                    img {
+                        height: 100%;
+                        object-fit: cover;
+                        @media #{$sm-layout} {
+                            max-height: 330px;
+                        }
+                    }
+                }
+                .top-position { 
+                    &.left-top {
+                        left: 10px;
+                        top: 10px;
+                    }
+                }
+                .wishlist-top-right {
+                    right: 10px;
+                    top: 10px;
+                }
+            }
+
+            .content {
+                flex-basis: 61.66%;
+                padding: 30px 25px;
+                
+                @media #{$md-layout} {
+                    padding: 30px 18px;
+                }
+                @media #{$sm-layout} {
+                    padding: 30px 18px;
+                }
+                .card-top {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 20px;
+                }
+                .title {
+                    margin-bottom: 20px;
+                    margin-top: 20px;
+                }
+                .card-bottom {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: wrap;
+                }
+            }
+        }
+        &:hover {
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06);
+            background-color: var(--color-white);
+        }
+
+        &.bg-white {
+            background-color: var(--color-white);
+        }
+    }
+
+    &.card-type-5 {
+        background: var(--color-white);
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06);
+        .inner {
+            padding: 15px 15px 0;
+            .thumbnail {
+                a {
+                    height: 100%;
+                    display: block;
+                    border-radius: 3px;
+                    img {
+                        height: 100%;
+                        border-radius: 3px;
+                    }
+                }
+                .top-position { 
+                    &.left-top {
+                        left: 10px;
+                        top: 10px;
+                    }
+                }
+                .wishlist-top-right {
+                    right: 10px;
+                    top: 10px;
+                }
+            }
+
+            .content {
+                padding: 25px 15px;
+                .card-top {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 20px;
+                }
+                .title {
+                    margin-bottom: 20px;
+                    margin-top: 15px;
+                }
+                .card-bottom {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+
+    &.card-type-6 {
+        background: var(--color-white);
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06);
+        .inner {
+            padding: 15px;
+            .thumbnail {
+                margin-bottom: 15px;
+                a {
+                    height: 100%;
+                    display: block;
+                    border-radius: 3px;
+                    img {
+                        height: 100%;
+                        border-radius: 3px;
+                    }
+                }
+                .top-position { 
+                    &.left-top {
+                        left: 10px;
+                        top: 10px;
+                    }
+                }
+            }
+            .content {
+                .title {
+                    margin-bottom: 12px;
+                    margin-top: 10px;
+                    font-size: 18px;
+                    line-height: 28px;
+                }
+                p {
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 22px;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+
+    &:hover {
+        .thumbnail {
+            a {
+                img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}

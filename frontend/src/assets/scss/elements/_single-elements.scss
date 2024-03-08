@@ -1,0 +1,108 @@
+/*-----------------------------
+    Single Elements Styles  
+------------------------------*/
+// Short By 
+.short-by {
+    p {
+        margin: 0;
+        font-weight: 500;
+        font-size: 16px;
+        span {
+            font-weight: 600;
+            color: var(--color-heading);
+        }
+    }
+}
+
+// Search Box 
+.edu-search-box {
+    position: relative;
+    display: inline-block;
+    input {
+        height: 60px;
+        background: var(--color-shade);
+        font-weight: 600;
+        font-size: 16px;
+        color: var(--color-body);
+        padding: 0 25px;
+        min-width: 350px;
+        border: 0 none;
+        border-radius: 5px;
+        padding-right: 48px;
+        @media #{$small-mobile} {
+            min-width: 100%;
+        }
+    }
+    .search-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 20px;
+        padding: 0;
+        border: 0 none;
+        background: transparent;
+        i {
+            font-size: 17px;
+        }
+    }
+}
+
+
+// Shoting Style One 
+
+.edu-shorting-style-1 {
+    display: inline-block;
+    position: relative;
+    .icon {
+        display: flex;
+        align-items: center;
+        margin-right: 17px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 22px;
+        i {
+            font-size: 20px;
+            color: var(--color-body);
+        }
+    }
+    .edu-select {
+        transition: 0.3s;
+        line-height: 28px;
+        outline: none;
+        color: var(--color-body);
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        border: 0 none;
+        border-radius: var(--radius);
+        font-size: 16px;
+        line-height: 28px;
+        font-weight: 400;
+        padding-right: 30px;
+        background: url(../../images/icons/arrow-icon.png) 92% center no-repeat transparent;
+        border-radius: 5px;
+        background-color: #F5F5F5;
+        max-width: 256px;
+        align-items: center;
+        padding: 0 30px;
+        height: 60px;
+        cursor: pointer;
+        min-width: 256px;
+        cursor: pointer;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

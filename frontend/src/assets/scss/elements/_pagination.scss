@@ -1,0 +1,70 @@
+/*--------------------------
+    Pagination Styles  
+----------------------------*/
+
+.edu-pagination {
+    margin: -5px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    li {
+        margin: 5px;
+        list-style: none;
+        a {
+            width: 40px;
+            height: 40px;
+            background: var(--color-shade);
+            display: inline-block;
+            line-height: 40px;
+            border-radius: 100%;
+            text-align: center;
+            color: var(--color-body);
+            transition: 0.4s;
+            font-size: 16px;
+            font-weight: 500;
+            i {
+                font-size: 22px;
+                font-weight: 500;
+            }
+        }
+        button {
+            width: 40px;
+            height: 40px;
+            background: var(--color-shade);
+            display: inline-block;
+            line-height: 40px;
+            border-radius: 100%;
+            text-align: center;
+            color: var(--color-body);
+            transition: 0.4s;
+            font-size: 16px;
+            font-weight: 500;
+            border: 0;
+            border-color: transparent;
+            i {
+                font-size: 22px;
+                font-weight: 500;
+            }
+        }
+        &.active ,
+        &:hover {
+            a,
+            button {
+                background: var(--color-primary);
+                color: var(--color-white);
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

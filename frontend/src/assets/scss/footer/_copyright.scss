@@ -1,0 +1,23 @@
+/*-------------------------
+    Copyright Styles  
+--------------------------*/
+.copyright-default {
+    p {
+        color: var(--color-white);
+        a {
+            color: var(--color-white);
+            transition: 0.4s;
+            &:hover {
+                color: var(--color-primary);
+            } 
+        }
+    }
+}
+
+
+
+
+
+
+
+

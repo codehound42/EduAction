@@ -1,0 +1,24 @@
+/*--------------------------------
+    Brands Area  
+------------------------------*/
+
+.eduvibe-home-five-brands {
+    .client-logo {
+        transition: all .4s;
+        display: inline-block;
+        @media #{$small-tablet} {
+            margin-bottom: 30px;
+        }
+        &:hover .logo-main,
+        & .logo-hover {
+            display: none;
+        }
+        &:hover .logo-hover {
+            display: block !important;
+        }
+        img {
+            display: flex;
+        }
+    }
+}
+

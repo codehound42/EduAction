@@ -1,0 +1,260 @@
+/*----------------------
+    Animation Css  
+-----------------------*/
+.post-scale {
+    overflow: hidden;
+    @extend %radius;
+    img {
+        transition: 0.5s;
+    }
+    &:hover {
+        img {
+            transform: scale(1.1);
+        }
+    }
+}
+
+@keyframes line1 {
+    0% {
+        opacity: 1;
+        bottom: 0
+    }
+    30% {
+        bottom: 30%
+    }
+    50% {
+        bottom: 50%
+    }
+    70% {
+        bottom: 70%
+    }
+    100% {
+        bottom: 100%;
+        opacity: 0.5;
+    }
+}
+
+
+@keyframes bounceSlide {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+}
+
+.bounce-slide {
+    animation-duration: 4s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-name: bounceSlide;
+}
+
+@keyframes line5 {
+    0% {
+        opacity: 1;
+        bottom: 400px
+    }
+    50% {
+        bottom: 50%
+    }
+    100% {
+        bottom: 100%;
+        opacity: 0.5;
+    }
+}
+@keyframes line2 {
+    0% {
+        opacity: 1;
+        top: 0
+    }
+    30% {
+        bottom: 30%
+    }
+
+    50% {
+        bottom: 50%
+    }
+
+    70% {
+        bottom: 70%
+    }
+    
+    100% {
+        top: 100%;
+        opacity: 0.5;
+    }
+}
+@keyframes line3 {
+    0% {
+        opacity: 1;
+        top: 500px
+    }
+    50% {
+        top: 50%
+    }
+    100% {
+        top: 100%;
+        opacity: 0.5;
+    }
+}
+
+@keyframes line4 {
+    0% {
+        opacity: 1;
+        top: 300px;
+    }
+    50% {
+        top: 50%
+    }
+    100% {
+        top: 100%;
+        opacity: 0.5;
+    }
+}
+
+
+
+@keyframes customOne {
+    from {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.90);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes customTwo {
+    0% {
+        transform: (translate(0.0px, 0.0px));
+    }
+
+    50% {
+        transform: (translate(100.0px, 0.0px));
+    }
+
+    100% {
+        transform: (translate(50.0px, 50.0px));
+    }
+}
+
+.customOne {
+    animation: customOne 2s infinite;
+}
+
+
+
+
+/* ------------------------
+    Custom Animation 01 
+----------------------------*/
+
+@-webkit-keyframes headerSlideDown {
+    0% {
+        margin-top: -100px
+    }
+
+    to {
+        margin-top: 0
+    }
+}
+
+@keyframes headerSlideDown {
+    0% {
+        margin-top: -100px
+    }
+
+    to {
+        margin-top: 0
+    }
+}
+
+
+/*------------------------
+	slidefadeinup
+--------------------------*/
+
+@-webkit-keyframes slideFadeInUp {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 20%, 0);
+        transform: translate3d(0, 20%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes slideFadeInUp {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 20%, 0);
+        transform: translate3d(0, 20%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.slideFadeInUp {
+    -webkit-animation-name: slideFadeInUp;
+    animation-name: slideFadeInUp;
+}
+
+/* -----------------------------------
+    Custom Animation For All Page
+---------------------------------------*/
+
+@-webkit-keyframes moveVertical {
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0)
+    }
+}
+
+@keyframes moveVertical {
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+
+
+
+
+
+/*--------------------------------
+Scroll Down Button Animation  
+----------------------------------*/
+@keyframes scrollDown {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+}

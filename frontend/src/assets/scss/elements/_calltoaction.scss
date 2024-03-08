@@ -1,0 +1,56 @@
+/*----------------------------
+    Call To Action Styles  
+-----------------------------*/
+
+
+.call-action-style-1 {
+    padding-top: 24px;
+    padding-left: 50px;
+    .inner {
+        .content {
+            .pre-title {
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 18px;
+                display: block;
+                margin-bottom: 5px;
+            }
+            .title {
+                font-size: 24px;
+                line-height: 36px;
+            }    
+        }
+    }
+    .thumbnail {
+        position: relative;
+        z-index: 1;
+        .shape-image {
+            position: absolute;
+            top: 18px;
+            right: 13px;
+            z-index: -1;
+        }
+        img.main-img {
+            @media #{$lg-layout} {
+                margin-bottom: -15px;
+            }
+        }
+    }
+    &.box-layout {
+        padding: 46px 50px;
+        position: relative;
+        .inner {
+            .shape-image-2 {
+                position: absolute;
+                top: 26px;
+                right: 30px;
+                pointer-events: none;
+                @media #{$large-mobile} {
+                    display: none;
+                }
+            }
+        }
+    }
+}

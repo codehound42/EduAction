@@ -1,0 +1,292 @@
+/*---------------------
+ Feature Styles  
+-------------------------*/
+.feature-list-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
+    .feature-list {
+        flex-basis: 50%;
+        padding: 15px;
+        @media #{$large-mobile} {
+            flex-basis: 100%;
+        }
+    }
+}
+
+.feature-list {
+    .icon {
+        margin-bottom: 25px;
+        i {
+            font-size: 50px;
+            color: var(--color-secondary);
+        }
+    }
+    .content {
+        .title {
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 32px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.feature-thumbnail {
+    position: relative;
+    z-index: 2;
+    right: -60px;
+    
+    @media #{$lg-layout} {
+        right: 0;
+    }
+
+    @media #{$md-layout} {
+        right: 0;
+    }
+
+    @media #{$sm-layout} {
+        right: 0;
+    }
+
+    .circle-image {
+        position: absolute;
+        top: -11px;
+        right: 7px;
+        z-index: -1;
+        width: 97%;
+        @media #{$sm-layout} {
+            display: none;
+        }
+    }
+}
+
+
+.radius-round {
+    border-radius: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*----------------------
+ Feature Style Two  
+-------------------------*/
+
+.feature-style-2 {
+    display: flex;
+    flex-wrap: wrap;
+    .single-feature {
+        flex-basis: 50%;
+        display: flex;
+        align-items: center;
+        margin-top: 25px;
+        flex-wrap: wrap;
+        .icon {
+            width: 40px;
+            min-width: 40px;
+            height: 40px;
+            background: rgba(251,124,86,0.15);
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            i {
+                color: var(--color-secondary);
+            }
+        }
+        .content {
+            .feature-title {
+                font-size: 18px;
+                line-height: 28px;
+                font-weight: 700;
+                margin-bottom: 0;
+                @media #{$lg-layout} {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+/*----------------------
+    Feature Style Three  
+-------------------------*/
+
+.feature-style-3 {
+    .feature-content {
+        .feature-title {
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 44px;
+            color: var(--color-secondary);
+            margin-bottom: 5px;
+        }
+        .feature-description {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+/*----------------------
+    Feature Style Four  
+-------------------------*/
+
+.feature-style-4 {
+    .edu-feature-list {
+        display: flex;
+        .icon {
+            min-width: 60px;
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            background: rgba(251, 124, 86, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            i {
+                color: var(--color-secondary);
+                font-size: 26px;
+            }
+        }
+        .content {
+            .title {
+                margin-bottom: 5px;
+            }
+            p {
+                margin-bottom: 30px;
+            }
+        }
+
+        &.color-var-2 { 
+            .icon {
+                background: rgba(82,95,225, 0.1);
+                i {
+                    color: var(--color-primary);
+                }
+            }
+        }
+    }
+}
+
+
+/*----------------------
+    Feature Style 5  
+-------------------------*/
+
+.feature-style-5 {
+    .edu-feature-list {
+        display: flex;
+        .icon {
+            min-width: 60px;
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            background: var(--color-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            i {
+                color: var(--color-white);
+                font-size: 30px;
+            }
+        }
+        .content {
+            .title {
+                margin-bottom: 5px;
+            }
+            p {
+                margin-bottom: 0;
+            }
+        }
+
+        &.color-var-2 { 
+            .icon {
+                background: #FFA41B;
+                i {
+                    color: var(--color-white);
+                }
+            }
+        }
+
+    }
+}
+
+
+
+/*----------------------
+    Feature Style 6  
+-------------------------*/
+
+.feature-style-6 {
+    .edu-feature-list {
+        display: flex;
+        .icon {
+            min-width: 60px;
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            background: rgba(251, 124, 86, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            i {
+                color: var(--color-secondary);
+                font-size: 30px;
+            }
+        }
+        .content {
+            .title {
+                margin-bottom: 5px;
+            }
+            p {
+                margin-bottom: 30px;
+            }
+        }
+
+        &.color-var-2 { 
+            .icon {
+                background: rgba(82,95,225, 0.1);
+                i {
+                    color: var(--color-primary);
+                }
+            }
+        }
+
+        &.color-variation-1 {
+            .icon {
+                background: rgba(255,164,27,0.1)
+            }
+        }
+
+        &.color-variation-2 {
+            .icon {
+                background: rgba(82,95,225,0.1)
+            }
+        }
+
+        &.color-variation-3 {
+            .icon {
+                background: rgba(251,124,86,0.1)
+            }
+        }
+
+    }
+}
+
+

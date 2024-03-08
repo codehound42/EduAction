@@ -1,0 +1,44 @@
+.edu-privacy-policy {
+    p {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-bottom: 15px;
+    }
+}
+
+
+
+
+
+/* Purchase Guide  */
+
+.gallery-column {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
+    &.gallery-column-2 {
+        .gallery-image {
+            flex-basis: 50%;
+            padding: 15px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+

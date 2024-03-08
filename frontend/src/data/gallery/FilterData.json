@@ -1,0 +1,18 @@
+[
+    {
+      "id": 1,
+      "text": "All"
+    },
+    {
+      "id": 2,
+      "text": "Trending"
+    },
+    {
+      "id": 3,
+      "text": "Popularity"
+    },
+    {
+      "id": 4,
+      "text": "Featured"
+    }
+]

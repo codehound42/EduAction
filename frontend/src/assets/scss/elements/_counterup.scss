@@ -1,0 +1,140 @@
+/*----------------------------
+    Counterup Styles  
+-----------------------------*/
+.edu-counterup {
+    background: var(--color-white);
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.06);
+    border-radius: 5px;
+    text-align: center;
+    padding: 50px 30px;
+    
+    @media #{$lg-layout} {
+        padding: 30px 15px;
+    }
+
+    @media #{$md-layout} {
+        padding: 30px 15px;
+    }
+
+    @media #{$sm-layout} {
+        padding: 30px 15px;
+    }
+    .inner {
+        .icon {
+            margin-bottom: 25px;
+            img {
+                max-height: 60px;
+            }
+        }
+        .content {
+            .counter {
+                font-weight: 800;
+                font-size: 40px;
+                line-height: 56px;
+                margin-bottom: 0;
+            }
+            span {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+
+// Counterup Style Two  
+.counterup-overlay-top {
+    position: relative;
+    margin-top: -145px;
+    padding-top: 275px !important;
+}
+.counterup-style-2 {
+    position: relative;
+    z-index: 2;
+
+    .line-separator {
+        position: relative;
+        &::after {
+            position: absolute;
+            content: "";
+            height: 160px;
+            background: rgba(255,255,255,0.15);
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            @media #{$large-mobile} {
+                display: none;
+            }
+        }
+        &:last-child {
+            &::after {
+                display: none;
+            }
+        }
+        &.color-var-2 {
+            &::after {
+                background: #2D284E;
+                opacity: 0.1;
+            }
+        }
+    }
+}
+
+.edu-counterup-2 {
+    .inner {
+        text-align: center;
+        .icon {
+            margin-bottom: 7px;
+            i {
+                color: var(--color-white);
+                font-size: 30px;
+            }
+        }
+        .content {
+            .counter {
+                color: var(--color-white);
+                font-weight: 800;
+                font-size: 40px;
+                line-height: 56px;
+                margin-bottom: 5px;
+                .after-icon {
+                    color: var(--color-white);
+                    position: relative;
+                    display: inline-block;
+                    left: -7px;
+                }
+            }
+            .subtitle {
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                font-weight: 800;
+                font-size: 16px;
+                line-height: 26px;
+                color: var(--color-white);
+            }
+        }
+    }
+
+    &.variation-2 {
+        .inner {
+            text-align: center;
+            .icon {
+                i {
+                    color: var(--color-primary);
+                    font-size: 50px;
+                }
+            }
+            .content {
+                .counter {
+                    color: var(--color-heading);
+                    .after-icon {
+                        color: var(--color-heading);
+                    }
+                }
+                .subtitle {
+                    color: var(--color-body);
+                }
+            }
+        }
+    }
+}

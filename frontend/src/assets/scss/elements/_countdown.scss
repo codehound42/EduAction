@@ -1,0 +1,152 @@
+// count down
+
+.edu-countdown-area {
+    background-image: url(../../images/bg/about-us-two-countdown.jpg);
+
+    .countdown {
+        .countdown-container {
+            .countdown-value {
+                color: var(--color-secondary);
+            }
+        }
+    }
+}
+
+.countdown {
+    display: flex;
+    margin: -15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    .countdown-container {
+        margin: 15px !important;
+        position: relative;
+        background-color: var(--color-white);
+        padding: 15px 28px;
+        border-radius: 5px;
+        
+        .countdown-heading {
+            display: block;
+            color: var(--color-body);
+            font-size: 14px;
+            text-align: center;
+            text-transform: uppercase;
+            margin-top: 0;
+            display: block;
+            line-height: 18px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        .countdown-value {
+            display: block;
+            font-size: 32px;
+            color: var(--color-heading);
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+            line-height: 1.38;
+        }
+        &:after {
+            content: ":";
+            top: 50%;
+            transform: translateY(-50%);
+            right: -17px;
+            position: absolute;
+            font-size: 32px;
+            color: var(--color-white);
+            font-weight: 700;
+        }
+        &:last-child {
+            &::after {
+                display: none;
+            }
+        }
+    }
+}
+
+.countdown-style-2 {
+    .countdown {
+        display: flex;
+        margin: -15px;
+        justify-content: center;
+        flex-wrap: wrap;
+        @media #{$sm-layout} {
+            margin: -5px !important;
+        }
+        .countdown-container {
+            margin: 15px !important;
+            position: relative;
+            background: #FFFFFF;
+            box-shadow: 0px 10px 35px rgba(0, 0, 0, 0.07);
+            border-radius: 5px;
+            padding: 40px 10px;
+            border-radius: 5px;
+            transition: 0.4s;
+            min-width: 180px;
+            text-align: center;
+            @media #{$sm-layout} {
+                padding: 10px;
+                min-width: auto;
+                margin: 5px !important;
+            }
+            .countdown-heading {
+                display: block;
+                color: var(--color-heading);
+                text-align: center;
+                text-transform: uppercase;
+                margin-top: 0;
+                display: block;
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 36px;
+                transition: 0.4s;
+                @media #{$sm-layout} {
+                    font-size: 14px;
+                }
+            }
+            .countdown-value {
+                display: block;
+                font-weight: 800;
+                font-size: 68px;
+                line-height: 1.24;
+                color: var(--color-heading);
+                text-align: center;
+                position: relative;
+                transition: 0.4s;
+                @media #{$sm-layout} {
+                    font-size: 24px;
+                }
+            }
+            &:after {
+                display: none;
+            }
+            &:last-child {
+                &::after {
+                    display: none;
+                }
+            }
+
+            &:hover {
+                background: var(--color-primary);
+                box-shadow: 0px 10px 30px rgba(82, 95, 225, 0.3);
+                .countdown-heading {
+                    color: var(--color-white);
+                }
+                .countdown-value {
+                    color: var(--color-white);
+                }
+            }
+        }
+    }
+}
+
+.eduvibe-about-two-countdown {
+    .countdown-style-1 {
+        padding: 0 290px;
+        @media #{$lg-layout} {
+            padding: 0 60px;
+        }
+        @media #{$small-tablet} {
+            padding: 0px;
+        }
+    }
+}

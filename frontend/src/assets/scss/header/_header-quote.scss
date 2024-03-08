@@ -1,0 +1,49 @@
+/*------------------------
+    Header Quote  
+-------------------------*/
+
+.header-quote {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 -17px;
+    align-items: center;
+    @media #{$sm-layout} {
+        margin: 0 -10px;
+    }
+    .quote-icon {
+        margin: 0 17px;
+        @media #{$sm-layout} {
+            margin: 0 10px;
+        }
+        a ,
+        button {
+            padding: 0;
+            border: 0 none;
+            width: auto;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            i {
+                color: var(--color-heading);
+                font-size: 16px;
+                transition: 0.3s;
+            }
+            &:hover {
+                i {
+                    color: var(--color-primary);
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

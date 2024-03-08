@@ -1,0 +1,113 @@
+/*-------------------------
+    Profile Details 
+--------------------------*/
+.instructor-profile-left {
+    background: #F5F5F5;
+    border-radius: 5px;
+    padding: 40px 20px;
+    .inner {
+        text-align: center;
+        .thumbnail {
+            max-width: 230px;
+            max-height: 230px;
+            margin: 0 auto;
+            margin-bottom: 30px;
+            img {
+                border-radius: 100%;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .content {
+            .title {
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 36px;
+                margin-bottom: 2px;
+            }
+            .subtitle {
+                font-weight: 600;
+                line-height: 26px;
+                color: var(--color-primary);
+                display: block;
+                margin-bottom: 25px;
+            }
+            .contact-with-info {
+                margin-bottom: 25px;
+                p {
+                    margin-bottom: 5px;
+                    span {
+                        font-weight: 600;
+                        color: var(--color-heading);
+                    }
+                    a {
+                        color: var(--color-body);
+                    }
+                }
+            }
+            .contact-btn {
+                margin-top: 40px;
+            }
+        }
+
+    }
+}
+
+
+
+
+
+/* Course Statictatic  */
+.course-statistic-wrapper {
+    .line-separator {
+        position: relative;
+        & + .line-separator {
+            &::before {
+                position: absolute;
+                content: "";
+                background: #FFFFFF;
+                height: 66px;
+                width: 1px;
+                top: 50%;
+                transform: translateY(-50%);
+                opacity: 0.15;
+                left: 0;
+            }
+        }
+    }
+}
+
+
+.course-statistic {
+    .inner {
+        .total {
+            font-weight: 800;
+            font-size: 40px;
+            line-height: 56px;
+            color: var(--color-white);
+            margin-bottom: 0;
+        }
+        p {
+            font-weight: 800;
+            font-size: 16px;
+            line-height: 26px;
+            color: var(--color-white);
+            margin-bottom: 0;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

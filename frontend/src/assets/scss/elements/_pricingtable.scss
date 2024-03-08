@@ -1,0 +1,149 @@
+/*--------------------------
+    Pricing Table  
+----------------------------*/
+.edu-pricing-area {
+    background-image: url(../../images/bg/pricing-plan.jpg);
+}
+
+.pricing-billing-duration {
+    text-align: right;
+    @media #{$sm-layout} {
+        text-align: left;
+    }
+    ul {
+        @extend %liststyle;
+        background: rgba(82, 95, 225, .08);
+        border-radius: 5px;
+        padding: 10px;
+        display: inline-block;
+        .nav-item {
+            float: left;
+            margin: 0;
+            .nav-link {
+                height: 40px;
+                line-height: 40px;
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 28px;
+                color: var(--color-heading);
+                border: 0 none;
+                background: transparent;
+                padding: 0 25px;
+                border-radius: 3px;
+                &.active {
+                    background: var(--color-primary);
+                    color: var(--color-white);
+                }
+            }
+        }
+    }
+}
+
+// Pricing Table Styles 
+.pricing-table {
+    background: #FFFFFF;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.03);
+    border-radius: 5px;
+    padding: 60px 64px;
+    position: relative;
+
+    @media #{$md-layout} {
+        padding: 60px 30px;
+    }
+
+    @media #{$sm-layout} {
+        padding: 60px 30px;
+    }
+
+    .pricing-header {
+        margin-bottom: 40px;
+        text-align: center;
+        .price-wrap {
+            .monthly-pricing {
+                display: none;
+            }
+            .amount {
+                font-weight: 800;
+                font-size: 40px;
+                line-height: 56px;
+                color: var(--color-primary);
+            }
+            .duration {
+                color: var(--color-primary);
+                font-size: 16px;
+                font-weight: 500;
+                text-transform: capitalize;
+                display: inline-block;
+                margin-left: -4px;
+            }
+        }
+
+        .title {
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 16px;
+            line-height: 26px;
+            margin-bottom: 10px;
+        }
+    }
+
+    .pricing-body {
+        margin-bottom: 40px;
+        .list-item {
+            @extend %liststyle;
+            li{
+                display: flex;
+                align-items: center;
+                margin: 0;
+                i {
+                    color: var(--color-secondary);
+                    margin-right: 10px;
+                }
+                & + li {
+                    margin-top: 16px;
+                }
+            }
+        }
+    }
+
+    &.active {
+        transform: translateY(-20px);
+        .edu-badge {
+            background: var(--color-secondary);
+            padding: 0 17px;
+            position: absolute;
+            right: 0;
+            top: 15px;
+            height: 30px;
+            line-height: 30px;
+            padding-left: 25px;
+
+            span {
+                font-weight: 700;
+                font-size: 14px;
+                color: var(--color-white);
+                text-align: center;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+            }
+            &::after {
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 24px 0 24px 23px;
+                border-color: transparent transparent transparent #fff;
+                position: absolute;
+                right: 87%;
+                top: 50%;
+                content: "";
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+
+
+}
+
+

@@ -1,0 +1,283 @@
+/*---------------------------
+    Course Details 
+-----------------------------*/
+.edu-course-details-area {
+    .main-image {
+        margin-left: -75px;
+        margin-right: -75px;
+        @media #{$small-tablet} {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+        img {
+            height: 570px;
+            object-fit: cover;
+            width: 100%;
+            @media #{$sm-layout} {
+                height: auto;
+            }
+        }
+    }
+}
+
+.course-details-content {
+    margin-right: 30px;
+    @media #{$smlg-device} {
+        margin-right: 0px;
+    }
+    .content-top {
+        display: flex;
+        margin-top: 60px;
+        margin-bottom: 30px;
+        @media #{$md-layout} {
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        @media #{$sm-layout} {
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        @media #{$large-mobile} {
+            display: block;
+        }
+        .author-meta {
+            margin-right: 50px;
+            @media #{$large-mobile} {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .title {
+        font-weight: 800;
+        font-size: 40px;
+        line-height: 1.4;
+        margin-bottom: 50px;
+        @media #{$md-layout} {
+            font-size: 30px;
+            margin-bottom: 40px;
+        }
+        @media #{$sm-layout} {
+            font-size: 30px;
+            margin-bottom: 40px;
+        }
+    }
+    .edu-course-tab {
+        border: 0 none;
+        background: #F5F5F5;
+        border-radius: 5px;
+        justify-content: space-between;
+        .nav-item {
+            margin: 0 40px;
+            @media #{$smlg-device} {
+                margin: 0 20px;
+            }
+            @media #{$large-mobile} {
+                margin: 0 10px;
+            }
+            .nav-link {
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 28px;
+                border: 0 none;
+                background: transparent;
+                padding: 16px 0;
+                position: relative;
+                color: var(--color-heading);
+                @media #{$sm-layout} {
+                    padding: 10px 0;
+                    font-size: 16px;
+                }
+                &::after {
+                    position: absolute;
+                    content: "";
+                    background: var(--color-primary);
+                    border-radius: 1px 1px 0px 0px;
+                    height: 2px;
+                    width: 0;
+                    transition: 0.4s;
+                    left: 0%;
+                    bottom: 0;
+                    opacity: 0;
+                }
+                &.active,
+                &:hover {
+                    color: var(--color-primary);
+                    &::after {
+                        width: 100%;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    .course-tab-content {
+        margin-top: 40px;
+    }
+
+    .rating-box {
+        background: #FFFFFF;
+        box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.07);
+        border-radius: 5px;
+        text-align: center;
+        min-width: 200px;
+        padding: 29px 10px;
+        .rating-number {
+            font-weight: 800;
+            font-size: 72px;
+            line-height: 90px;
+            color: var(--color-heading);
+        }
+        span {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 26px;
+        }
+    }
+
+}
+
+
+.review-wrapper {
+    .single-progress-bar {
+        position: relative;
+    }
+
+    .rating-text {
+        display: inline-block;
+        position: relative;
+        top: 19px;
+    }
+
+    .progress {
+        max-width: 83%;
+        margin-left: 38px;
+        height: 12px;
+        background: #EEEEEE;
+        @media #{$lg-layout} {
+            max-width: 80%;
+        }
+        .progress-bar {
+            background-color: #FFA41B;
+        }
+    }
+
+    span {
+        &.rating-value {
+            position: absolute;
+            right: 0;
+            top: 50%;
+        }
+    }
+
+}
+
+.course-author-wrapper {
+    padding: 0;
+    display: flex;
+    @media #{$large-mobile} {
+        flex-direction: column;
+        
+    }
+    .thumbnail {
+        min-width: 200px;
+        max-height: 232px;
+        margin-right: 30px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+            @media #{$large-mobile} {
+                width: auto;
+                margin-bottom: 20px;
+            }
+        }
+    }
+    .author-content {
+        .title {
+            margin-bottom: 2px;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 36px;
+        }
+        .subtitle {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 26px;
+            color: var(--color-primary);
+            display: block;
+            margin-bottom: 20px;
+        }
+        p {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 26px;
+            margin-bottom: 30px;
+        }
+        @media #{$large-mobile} {
+            margin-top: 20px;
+        }
+    }
+
+}
+
+.edu-comment {
+    display: flex;
+    @media #{$large-mobile} {
+        flex-direction: column;
+        
+    }
+    .thumbnail {
+        min-width: 70px;
+        width: 70px;
+        max-height: 70px;
+        border-radius: 100%;
+        margin-right: 25px;
+        img {
+            border-radius: 100%;
+            width: 100%;
+        }
+    }
+    .comment-content {
+        .comment-top {
+            display: flex;
+            align-items: center;
+        }
+        .title {
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 32px;
+            margin-bottom: 10px;
+            margin-right: 15px;
+        }
+        .subtitle {
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 26px;
+            display: block;
+            margin-bottom: 10px;
+            color: var(--color-heading);
+        }
+        @media #{$large-mobile} {
+            margin-top: 20px;
+        }
+    }
+    & + .edu-comment {
+        border-top: 1px solid #EEEEEE;
+        padding-top: 30px;
+        margin-top: 30px;
+    }
+}
+
+.course-details-card {
+    border-radius: 8px;
+    border: 1px solid #EEEEEE;
+    padding: 30px;
+    .course-details-two-content {
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

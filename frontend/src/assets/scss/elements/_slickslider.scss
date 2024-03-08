@@ -1,0 +1,241 @@
+/*-----------------------
+    Slick Slider  
+-------------------------*/
+.edu-testimonial-activation {
+    &.edu-slick-button {
+        margin-bottom: 62px;
+        .edu-slick-button .slick-dots {
+            bottom: -74px;
+        }
+    }
+}
+
+
+.course-activation-item-2 .edu-slick-button .slick-dots {
+    bottom: -45px;
+}
+
+.slick-activation-wrapper {
+    margin: 0 -15px;
+    position: relative;
+    @media #{$large-mobile} {
+        margin: 0;
+    }
+    .single-slick-card {
+        padding: 0 15px;
+        @media #{$large-mobile} {
+            padding: 0;
+        }
+    }
+}
+
+.single-slick-card {
+    .edu-card.card-type-5 {
+        box-shadow: none;
+    }
+}
+
+
+.edu-slick-button {
+    .slick-dots {
+        bottom: -84px;
+        @media #{$md-layout} {
+            bottom: -60px;
+        }
+        @media #{$sm-layout} {
+            bottom: -60px;
+        }
+        margin: 0 -7px;
+        li {
+            width: 24px;
+            height: 24px;
+            border-radius: 100%;
+            padding: 0;
+            transition: 0.4s;
+            line-height: 24px;
+            position: relative;
+            margin: 0 1px;
+            display: inline-block;
+            &::before {
+                border: 2px solid transparent;
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 100%;
+                transition: 0.2s;
+                opacity: 0;
+                border-radius: 100%;
+                left: 0;
+                top: 0;
+                transform: scale(0.2);
+            }
+            &.slick-active {
+                margin: 0 3px;
+            }
+
+            button {
+                width: 10px;
+                height: 10px;
+                background: rgba(82, 95, 225, 0.5);
+                border-radius: 100%;
+                padding: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+                &::before {
+                    display: none;
+                }
+            }
+
+            &.slick-active {
+                &::before {
+                    border-color: var(--color-primary);
+                    opacity: 1;
+                    transform: scale(1);
+                }
+                button {
+                    background: var(--color-primary);
+                }
+            }
+        }
+    }
+    &.slick-button-left {
+        .slick-dots {
+            bottom: -80px;
+            margin: 0px -6px;
+            text-align: left;
+            display: flex !important;
+            align-items: center;
+
+            @media #{$md-layout} {
+                bottom: -50px;
+            }
+
+            @media #{$sm-layout} {
+                bottom: -50px;
+            }
+
+            li {
+                border-radius: 100%;
+                transition: 0.4s;
+                position: relative;
+                margin: 0 6px;
+                display: inline-block;
+                width: 20px;
+                min-width: 20px;
+                height: 20px;
+                &::before {
+                    border: 2px solid transparent;
+                    position: absolute;
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    transition: 0.3s;
+                    opacity: 0;
+                    border-radius: 100%;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                &.slick-active {
+                    &::before {
+                        border-color: var(--color-primary);
+                        opacity: 1;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+    &.instructor-profile-courses {
+        .slick-dots {
+            bottom: -46px;
+        }
+        .slick-list {
+            @media #{$smlg-device} {
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
+
+.slick-arrow-style-2 {
+    position: relative;
+    .slide-arrow {
+        position: absolute;
+        right: 50px;
+        width: 50px;
+        height: 50px;
+        background: rgba(82,95,225,0.15);
+        transition: 0.3s;
+        color: var(--color-primary);
+        line-height: 50px;
+        text-align: center;
+        border: 0 none;
+        bottom: 50px;
+        border-radius: 3px;
+        font-size: 18px;
+        z-index: 2;
+
+        @media #{$small-mobile} {
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            bottom: 20px;
+        }
+
+        &:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        &.prev-arrow {
+            right: 115px;
+            @media #{$small-mobile} {
+                right: 74px;
+            }
+        }
+    }
+}
+
+
+
+.edu-slick-arrow-top {
+    .slide-arrow {
+        position: absolute;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+        background: #FFFFFF;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.07);
+        border-radius: 5px;
+        transition: 0.3s;
+        color: var(--color-primary);
+        line-height: 50px;
+        text-align: center;
+        border: 0 none;
+        font-size: 18px;
+        top: -120px;
+        @media #{$sm-layout} {
+            top: auto;
+            bottom: -30px;
+            right: auto;
+            left: 80px;
+        }
+        &:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        &.prev-arrow {
+            right: 80px;
+            @media #{$sm-layout} {
+                right: auto;
+                left: 15px;
+            }
+        }
+    }
+}
+
+

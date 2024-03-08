@@ -1,0 +1,121 @@
+/* Event Details  */
+.edu-event-details {
+    .thumbnail {
+        img {
+            border-radius: 5px;
+        }
+    }
+    .content {
+        margin-top: 60px;    
+        @media #{$md-layout} {
+            margin-top: 30px;
+        }  
+        @media #{$sm-layout} {
+            margin-top: 30px;
+        }  
+        .title {
+            font-weight: 800;
+            font-size: 40px;
+            line-height: 56px;
+            margin-bottom: 30px;
+            @media #{$sm-layout} {
+                font-size: 28px;
+                line-height: 1.4;
+            }
+        }
+        .column-gallery {
+            li {
+                img {
+                    border-radius: 5px;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.eduvibe-widget {
+    background: #FFFFFF;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
+    border-radius: 5px;
+    padding: 30px 40px;
+
+    @media #{$lg-layout} {
+        padding: 30px 20px;
+    }
+
+    @media #{$md-layout} {
+        padding: 30px 20px;
+    }
+
+    @media #{$sm-layout} {
+        padding: 30px 20px;
+    }
+
+    .title {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 36px;
+        margin-bottom: 30px;
+    }
+}
+
+.eduvibe-sidebar {
+    padding: 0 50px;
+    margin-top: -50px;
+    
+    @media #{$md-layout} {
+        margin-top: 30px;
+    }
+
+    @media #{$sm-layout} {
+        margin-top: 30px;
+        padding: 0 20px;
+    }
+    &.course-details-sidebar {
+        padding: 0 0px 0 20px;
+        margin-left: -20px;
+        @media #{$smlg-device} {
+            margin-left: 0px;
+            padding: 0px;
+        }
+        .eduvibe-widget {
+            padding: 20px 20px;
+            border-radius: 10px;
+            .eduvibe-widget-details {
+                padding: 0 20px 20px;
+            }
+        }
+    }
+}
+
+.eduvibe-widget-details {
+    .widget-content {
+        ul {
+            @extend %liststyle;
+            li {
+                display: flex;
+                justify-content: space-between;
+                i {
+                    color: var(--color-primary);
+                    margin-right: 10px;
+                }
+                img.eduvibe-course-sidebar-img-icon {
+                    max-width: 16px;
+                    margin-right: 10px;
+                }
+                span {
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 26px;
+                    display: inline-block;
+                }
+                & + li {
+                    padding-top: 15px;
+                    margin-top: 15px;
+                    border-top: 1px solid #EEEEEE;
+                }
+            }
+        }
+    }
+}

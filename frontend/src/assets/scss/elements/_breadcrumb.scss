@@ -1,0 +1,31 @@
+/*--------------------------------
+    Breadcrumb Area  
+------------------------------*/
+
+.breadcrumb-style-1 {
+    .page-title {
+        .title {
+            margin-bottom: 5px;
+        }
+    }
+    .edu-breadcrumb {
+        align-items: center;
+        li {
+            margin: 0;
+            &.breadcrumb-item {
+                color: var(--color-body);
+            }
+            &.separator {
+                i {
+                    font-size: 20px;
+                    margin: 0 5px;
+                    position: relative;
+                    display: inline-block;
+                    top: 2px;
+                }
+            }
+        }
+    }
+}
+
+

@@ -1,0 +1,119 @@
+/*--------------------------
+    Checkout Page Style  
+----------------------------*/
+
+.checkout-page-style {
+    .title {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #EEEEEE;
+        margin-bottom: 30px;
+    }
+
+    input {
+        background: #F5F5F5;
+        border-radius: 5px;
+        border: 0 none;
+        height: 60px;
+        padding: 0 25px;
+        font-weight: 500;
+        color: var(--color-body);
+        border: 1px solid transparent;
+        &:focus {
+            border-color: var(--color-primary);
+        }
+    }
+    select {
+        border: 1px solid #6F6B80;
+        border-radius: 5px;
+        padding: 0 25px;
+        height: 60px;
+        font-weight: 500;
+        color: var(--color-body);
+        position: relative;
+        background: url(../../images/icons/arrow-icon.png) 95% center no-repeat transparent;
+    }
+    textarea {
+        background: #F5F5F5;
+        border-radius: 5px;
+        border: 0 none;
+        padding: 15px 25px;
+        font-weight: 500;
+        color: var(--color-body);
+        min-height: 170px;
+        resize: none;
+        border: 1px solid transparent;
+        &:focus {
+            border-color: var(--color-primary);
+        }
+    }
+    .box-label {
+        margin-bottom: 8px;
+        display: inline-block;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 26px;
+        color: var(--color-heading);
+    }
+
+
+    .shop_table {
+        margin-bottom: 20px;
+        thead {
+            tr {
+                th {
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 26px;
+                    color: var(--color-heading);
+                    border-bottom: 1px solid #EEEEEE;
+                    padding: 10px 0;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                td {
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 26px;
+                    color: var(--color-body);
+                    border: 0 none;
+                    padding: 5px 0;
+                }
+                &:first-child {
+                    td {
+                        padding-top: 20px;
+                    }
+                }
+            }
+        }
+
+        tfoot {
+            tr {
+                th {
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 26px;
+                    color: var(--color-heading);
+                    padding: 5px 0;
+                }
+                &.order-subtotal {
+                    th {
+                        font-weight: 500;
+                        color: var(--color-body);
+                    }
+                }
+            }
+        }
+
+
+    }
+}
+
+
+

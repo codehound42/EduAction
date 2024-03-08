@@ -1,0 +1,34 @@
+/*------------------------------
+    Choose Us Style  
+-------------------------------*/
+
+.choose-us-style-1 {
+    position: relative;
+    .inner {
+        .section-title {
+            .title {
+                margin-bottom: 40px;
+            }
+        }
+    }
+    .chosse-us-thumbnail {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 236px;
+    }
+    .right-side-thumb {
+        margin-right: -149px;
+        @media #{$small-tablet} {
+            margin-right: 0;
+        }
+    }
+}
+
+.eduvibe-home-two-counter {
+    .choose-us-2 {
+        @media #{$small-tablet} {
+            margin-top: 25px;
+        }
+    }
+}

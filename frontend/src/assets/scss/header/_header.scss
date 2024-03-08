@@ -1,0 +1,146 @@
+/*--------------------------
+    Header Styles  
+--------------------------*/
+
+.edu-header {
+    .logo {
+        a {
+            display: block;
+            height: 118px;
+            line-height: 118px;
+            transition: min-height 1s ease !important;
+            img {
+                max-height: 35px;
+            }
+            @media #{$smlg-device} {
+                height: 80px;
+                line-height: 80px;
+            }
+        }
+    }
+
+    &.disable-transparent {
+        .logo {
+            a {
+                height: 90px;
+                line-height: 90px;
+            }
+        }
+    }
+
+    &.header-relative {
+        position: relative;
+    }
+
+    &.header-transparent {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: auto;
+        background: transparent;
+        backdrop-filter: inherit;
+        z-index: 9;
+    }
+
+    &.header-sticky {
+        transition: height .5s ease-in;
+        max-width: 100%;
+        z-index: 99;
+        &.sticky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: var(--color-white) !important;
+            width: 100%;
+            height: 80px;
+            animation: headerSticky .95s ease forwards;
+            box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.05);
+            z-index: 10;
+            .logo {
+                a {
+                    height: 80px;
+                    line-height: 80px;
+                }
+            }
+        }
+    }
+}
+
+
+/*------------------------
+    Header Style One  
+--------------------------*/
+    
+.header-default {
+    max-width: 100%;
+    background-color: var(--color-white);
+    color: #fff;
+    font-size: 12px;
+    z-index: 99;
+    position: relative;
+   
+    .header-right {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+}
+
+/*------------------------
+    Header Style Two  
+--------------------------*/
+.header-style-2 {
+    padding: 0 200px;
+    
+    @media #{$laptop-device} {
+        padding: 0 30px;
+    }
+    
+    @media #{$lg-layout} {
+        padding: 0 30px;
+    }
+
+    @media #{$md-layout} {
+        padding: 0 30px;
+    }
+
+    @media #{$sm-layout} {
+        padding: 0 15px;
+    }
+
+    .header-menu-bar {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.white-box-icon {
+    height: 50px;
+    line-height: 50px;
+    width: 50px;
+    text-align: center;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.06);
+    border-radius: 5px;
+    outline: none;
+    color: var(--color-primary);
+    border: 0 none;
+    padding: 0;
+    background: var(--color-white);
+    display: block;
+    font-size: 16px;
+    @media #{$sm-layout} {
+        height: 40px;
+        line-height: 40px;
+        width: 40px;
+    }
+}
+
+@keyframes headerSticky {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,124 @@
+.grid-metro3 {
+    margin: 0 -15px;
+    .grid-metro-item {
+        width: 33.33%;
+        padding: 0 15px;
+        margin-top: 30px;
+        @media #{$md-layout} {
+            width: 50%;
+        }
+        @media #{$sm-layout} {
+            width: 50%;
+        }
+        @media #{$large-mobile} {
+            width: 100%;
+        }
+    }
+    .resizer {
+        width: 33.33%;
+        @media #{$md-layout} {
+            width: 50%;
+        }
+        @media #{$sm-layout} {
+            width: 50%;
+        }
+        @media #{$large-mobile} {
+            width: 100%;
+        }
+    }
+}
+
+// home two course filter
+.eduvibe-home-two-course .grid-metro3 {
+    .grid-metro-item {
+        width: 33.33%;
+        @media #{$lg-layout} {
+            width: 50%;
+        }
+        @media #{$md-layout} {
+            width: 50%;
+        }
+        @media #{$sm-layout} {
+            width: 100%;
+        }
+    }
+    .resizer {
+        width: 33.33%;
+        @media #{$lg-layout} {
+            width: 50%;
+        }
+        @media #{$md-layout} {
+            width: 50%;
+        }
+        @media #{$sm-layout} {
+            width: 100%;
+        }
+    }
+}
+
+.grid-metro4 {
+    margin: 0 -15px;
+    .grid-metro-item {
+        width: 25%;
+        padding: 0 15px;
+        margin-top: 30px;
+        @media #{$md-layout} {
+            width: 50%;
+        }
+        @media #{$sm-layout} {
+            width: 50%;
+        }
+        @media #{$large-mobile} {
+            width: 100%;
+        }
+    }
+    .resizer {
+        width: 25%;
+        @media #{$md-layout} {
+            width: 50%;
+        }
+        @media #{$sm-layout} {
+            width: 50%;
+        }
+        @media #{$large-mobile} {
+            width: 100%;
+        }
+    }
+}
+
+
+.grid-metro5 {
+    margin: 0 -15px;
+    .grid-metro-item {
+        width: 20%;
+        padding: 0 15px;
+        margin-top: 30px;
+        @media #{$lg-layout} {
+            width: 33.33%;
+        }
+        @media #{$md-layout} {
+            width: 50%;
+        }
+        @media #{$sm-layout} {
+            width: 50%;
+        }
+        @media #{$large-mobile} {
+            width: 100%;
+        }
+    }
+    .resizer {
+        width: 20%;
+        @media #{$lg-layout} {
+            width: 33.33%;
+        }
+        @media #{$md-layout} {
+            width: 50%;
+        }
+        @media #{$sm-layout} {
+            width: 50%;
+        }
+        @media #{$large-mobile} {
+            width: 100%;
+        }
+    }
+}

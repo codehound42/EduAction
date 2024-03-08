@@ -1,0 +1,87 @@
+[
+    {
+        "id": 1,
+        "title": "Lorem Ipsum Is Simply Dummy Text",
+        "thumb": "gallery-thumb-01.jpg",
+        "category": "popularity",
+        "image": [
+            "./images/gallery/gallery-images/gallery-01.jpg",
+            "./images/gallery/gallery-images/gallery-03.jpg",
+            "./images/gallery/gallery-images/gallery-05.jpg"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Lorem Ipsum Is Not Just A Random Text",
+        "thumb": "gallery-thumb-02.jpg",
+        "category": "trending",
+        "image": [
+            "./images/gallery/gallery-images/gallery-02.jpg",
+            "./images/gallery/gallery-images/gallery-04.jpg",
+            "./images/gallery/gallery-images/gallery-06.jpg"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Lorem ipsum dolor sit amet consectetur",
+        "thumb": "gallery-thumb-03.jpg",
+        "category": "featured",
+        "image": [
+            "./images/gallery/gallery-images/gallery-03.jpg"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Lorem Ipsum Is Simply Dummy Text",
+        "thumb": "gallery-thumb-04.jpg",
+        "category": "popularity",
+        "image": [
+            "./images/gallery/gallery-images/gallery-04.jpg"
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Lorem Ipsum Is Not Just A Random Text",
+        "thumb": "gallery-thumb-05.jpg",
+        "category": "trending",
+        "image": [
+            "./images/gallery/gallery-images/gallery-05.jpg"
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Lorem ipsum dolor sit amet consectetur",
+        "thumb": "gallery-thumb-06.jpg",
+        "category": "popularity",
+        "image": [
+            "./images/gallery/gallery-images/gallery-06.jpg"
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Lorem Ipsum Is Simply Dummy Text",
+        "thumb": "gallery-thumb-07.jpg",
+        "category": "featured",
+        "image": [
+            "./images/gallery/gallery-images/gallery-07.jpg"
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Lorem Ipsum Is Not Just A Random Text",
+        "thumb": "gallery-thumb-08.jpg",
+        "category": "trending",
+        "image": [
+            "./images/gallery/gallery-images/gallery-08.jpg"
+        ]
+    },
+    {
+        "id": 9,
+        "title": "Lorem ipsum dolor sit amet consectetur",
+        "thumb": "gallery-thumb-09.jpg",
+        "category": "popularity",
+        "image": [
+            "./images/gallery/gallery-images/gallery-09.jpg"
+        ]
+    }
+]

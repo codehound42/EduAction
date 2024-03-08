@@ -1,0 +1,110 @@
+[
+    {
+        "id": 1,
+        "title": "Innovation & Technological Entrepreneurship Team",
+        "image": "event-01.jpg",
+        "startDate": "28th Dec 2022",
+        "startTime": "08:00 AM",
+        "endDate": "Same Day",
+        "endTime": "11:00 AM",
+        "location": "Alpaca Way Anaheim, CA 92805",
+        "shortLocation": "Alpaca Way",
+        "going": "140+"
+    },
+    {
+        "id": 2,
+        "title": "Virtual Spring Part-time Jobs Fair for Student",
+        "image": "event-02.jpg",
+        "startDate": "30th Oct 2022",
+        "startTime": "10:00 AM",
+        "endDate": "Same Day",
+        "endTime": "12:00 PM",
+        "location": "Ritter Avenue Detroit, MI 48226",
+        "shortLocation": "Ritter Avenue",
+        "going": "150+"
+    },
+    {
+        "id": 3,
+        "title": "Explorations of Regional Chief Executive Network",
+        "image": "event-03.jpg",
+        "startDate": "18th Sep 2022",
+        "startTime": "05:00 PM",
+        "endDate": "Same Day",
+        "endTime": "07:00 PM",
+        "location": "Stout Street York, PA 17401",
+        "shortLocation": "Stout Street",
+        "going": "220+"
+    },
+    {
+        "id": 4,
+        "title": "Street Performance: Call for Artist",
+        "image": "event-04.jpg",
+        "startDate": "15th Dec 2022",
+        "startTime": "07:00 PM",
+        "endDate": "Same Day",
+        "endTime": "09:00 PM",
+        "location": "Elsie Drive Scranton, SD 58653",
+        "shortLocation": "Elsie Drive",
+        "going": "180+"
+    },
+    {
+        "id": 5,
+        "title": "Consumer Food Safety Education Conference",
+        "image": "event-05.jpg",
+        "startDate": "20th Nov 2022",
+        "startTime": "09:00 AM",
+        "endDate": "Same Day",
+        "endTime": "10:00 AM",
+        "location": "Adams Avenue Chevy, MD 20815",
+        "shortLocation": "Adams Avenue",
+        "going": "160+"
+    },
+    {
+        "id": 6,
+        "title": "Workout routine and Longevity Meetup",
+        "image": "event-06.jpg",
+        "startDate": "15th Dec 2022",
+        "startTime": "11:00 AM",
+        "endDate": "Same Day",
+        "endTime": "01:00 PM",
+        "location": "Mulberry Street Houston, TX 77060",
+        "shortLocation": "Mulberry Street",
+        "going": "230+"
+    },
+    {
+        "id": 7,
+        "title": "Write A Novel Outline From Scratch",
+        "image": "event-07.jpg",
+        "startDate": "18th Nov 2022",
+        "startTime": "09:00 AM",
+        "endDate": "Same Day",
+        "endTime": "01:00 AM",
+        "location": "College Street Atlanta, GA, 30303",
+        "shortLocation": "College Street",
+        "going": "190+"
+    },
+    {
+        "id": 8,
+        "title": "Cyber Bullying Awareness Webinar",
+        "image": "event-08.jpg",
+        "startDate": "10th Dec 2022",
+        "startTime": "02:00 PM",
+        "endDate": "Same Day",
+        "endTime": "03:00 PM",
+        "location": "Swick Hill Street Corner, NC 28217",
+        "shortLocation": "Hill Street",
+        "going": "210+"
+    },
+    {
+        "id": 9,
+        "title": "Mastering The Art Of Communication Skill",
+        "image": "event-09.jpg",
+        "startDate": "19th Dec 2022",
+        "startTime": "11:00 AM",
+        "endDate": "Same Day",
+        "endTime": "02:00 PM",
+        "location": "Aspen Court Boston, MA 02115",
+        "shortLocation": "Aspen Court",
+        "going": "130+"
+    }
+]

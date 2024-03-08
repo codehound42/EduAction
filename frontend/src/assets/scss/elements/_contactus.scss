@@ -1,0 +1,266 @@
+/*-------------------------
+    Contact Us Area  
+---------------------------*/
+
+
+.contact-address-card-1 {
+    background: #FFFFFF;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.06);
+    border-radius: 5px;
+    padding: 50px 20px;
+    text-align: center;
+    transition: 0.4s;
+    .inner { 
+        .icon {
+            background: rgba(82,95,225,0.1);
+            width: 50px;
+            height: 50px;
+            margin: 0 auto;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.4s;
+            i {
+                color: var(--color-primary);
+                font-size: 24px;
+                transition: 0.4s;
+            }
+        }
+        .content {
+            .title {
+                font-weight: 700;
+                margin-top: 25px;
+                margin-bottom: 15px;
+                transition: 0.4s;
+            }
+            p {
+                margin-bottom: 0;
+                transition: 0.4s;
+                a {
+                    color: var(--color-body);
+                    transition: 0.4s;
+                    &:hover {
+                        color: var(--color-primary);
+                    }
+                }
+            }
+        }
+    }
+
+    &.phone {
+        .inner {
+            .icon {
+                background: rgba(251,124,86,0.1);
+                i {
+                    color: var(--color-secondary);
+                }
+            }
+        }
+    }
+
+    &.email {
+        .inner {
+            .icon {
+                background: rgba(255,164,27,0.1);
+                i {
+                    color: #FFA41B;
+                }
+            }
+        }
+    }
+
+    &:hover {
+        background: var(--color-secondary);
+        transform: translateY(-15px);
+        .inner {
+            .icon {
+                background: var(--color-white);
+                i {
+                    color: var(--color-secondary);
+                }
+            }
+            .content {
+                .title {
+                    color: var(--color-white);
+                }
+                p {
+                    color: var(--color-white);
+                    a {
+                        color: var(--color-white);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+.contact-address-card-2 {
+    background: #FFFFFF;
+    box-shadow: 0px 8px 35px rgba(0, 0, 0, 0.06);
+    border-radius: 5px;
+    padding: 70px 40px;
+    text-align: center;
+    transition: 0.4s;
+    @media #{$lg-layout} {
+        padding: 60px 20px;
+    }
+    @media #{$md-layout} {
+        padding: 60px 20px;
+    }
+
+    .inner {
+        .icon {
+            margin-bottom: 45px;
+            img {
+
+            }
+        }
+        .content {
+            .title {
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 36px;
+                margin-bottom: 20px;
+            }
+            p {
+                margin-bottom: 0;
+                line-height: 26px;
+                .subtitle {
+                    font-weight: 600;
+                    color: var(--color-heading);
+                }
+                .text {
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+    &:hover {
+        transform: translateY(-15px);
+    }
+}
+
+
+.contact-address-bottom-shape {
+    position: relative;
+    z-index: 1;
+    .bg-shape-image {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+}
+
+
+
+
+/*------------------------------
+    Contact Form Style One 
+-------------------------------*/ 
+.rwt-dynamic-form {
+    .form-group {
+        input {
+            background: #F5F5F5;
+            border-radius: 5px;
+            padding: 0 30px;
+            border: 1px solid transparent;
+            transition: 0.4s;
+            outline: none;
+            box-shadow: none;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 26px;
+            height: 60px;
+            &:focus {
+                border-color: var(--color-primary);
+            }
+        }
+        textarea {
+            background: #F5F5F5;
+            padding: 17px 30px;
+            min-height: 180px;
+            border: 0 none;
+            border: 1px solid transparent;
+            transition: 0.4s;
+            outline: none;
+            box-shadow: none;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 26px;
+            border-radius: 5px;
+            &:focus {
+                border-color: var(--color-primary);
+            }
+        }
+    }
+    .success-message {
+        margin-top: 20px;
+        color: #019267;
+    }
+}
+
+
+/*---------------------------
+    About Me 
+----------------------------*/ 
+.about-me-1 {
+    .thumbnail {
+        position: relative;
+        border-radius: 5px;
+        &::before {
+            background: linear-gradient(360deg, #2D284E 0%, rgba(45, 40, 78, 0) 70.5%);
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+        }
+        img {
+            border-radius: 5px;
+        }
+        .content-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 50px 20px;
+            @media #{$sm-layout} {
+                padding: 20px 20px;
+            }
+            .title {
+                margin-bottom: 0;
+                color: var(--color-white);
+                font-size: 32px;
+                line-height: 44px;
+                @media #{$sm-layout} {
+                    font-size: 22px;
+                    line-height: 32px;
+                }
+            }
+        }
+    }
+}
+
+.google-map {
+    &.alignwide {
+        margin-left: -105px;
+        margin-right: -105px;
+        min-width: 1170px;
+        width: auto;
+        @media #{$custom-lg-device} {
+            margin-left: 0;
+            margin-right: 0;
+            min-width: auto;
+        }
+        iframe {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,125 @@
+/*--------------------------
+    Navigation Styles 
+----------------------------*/
+.mainmenu-nav {
+    .mainmenu {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+        flex-wrap: wrap;
+        > li {
+            > a {
+                color: var(--color-heading);
+                font-size: 16px;
+                font-weight: 600;
+                padding: 0 23px;
+                display: block;
+                height: 80px;
+                line-height: 80px;
+                transition: 0.3s;
+                @media #{$lg-layout} {
+                    padding: 0 17px;
+                }
+                @media #{$md-layout} {
+                    padding: 0 12px;
+                }
+                &:hover,
+                &.active {
+                    color: var(--color-primary) !important;
+                }
+            }
+        } 
+        li {
+            margin-top: 0;
+            margin-bottom: 0;
+            position: relative;
+            &.has-droupdown {
+                & > a {
+                    position: relative;
+                    &::after {
+                        position: absolute;
+                        content: "\e969";
+                        font-family: 'icomoon';
+                        right: 6px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        font-weight: 600;
+
+                        @media #{$lg-layout} {
+                            right: 0px;
+                        }
+                    }
+                }
+                .submenu {
+                    min-width: 210px;
+                    height: auto;
+                    position: absolute;
+                    top: 90%;
+                    left: 0;
+                    z-index: 90;
+                    opacity: 0;
+                    visibility: hidden;
+                    text-align: left;
+                    padding: 20px 0;
+                    transition: 0.3s;
+                    background-color: var(--color-white);
+                    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.04);
+                    border-bottom: 2px solid var(--color-primary);
+                    li {
+                        position: relative;
+                        a {
+                            font-size: 16px;
+                            font-weight: 600;
+                            padding: 3px 20px;
+                            display: block;
+                            color: var(--color-heading);
+                            margin: 0 10px;
+                            @extend %transition;
+                            &:hover {
+                                color: var(--color-primary) !important;
+                                background: var(--color-darker);
+                            }
+                            &.active {
+                                color: var(--color-primary) !important;
+                                background: var(--color-darker);
+                            }
+                        }
+                        &.has-droupdown {
+                            > a {
+                                &::after {
+                                    content: "\e92c";
+                                    font-family: 'icomoon';
+                                }
+                            }
+                            .submenu {
+                                left: 100%;
+                                top: 90%;
+                                z-index: 90;
+                                opacity: 0;
+                                visibility: hidden;
+                                transition: 0.3s;
+                            }
+                            &:hover {
+                                .submenu {
+                                    left: 100%;
+                                    top: 0;
+                                    z-index: 90;
+                                    opacity: 1;
+                                    visibility: visible;
+                                }
+                            }
+                        }
+                    }
+                }
+                &:hover {
+                    > .submenu {
+                        opacity: 1;
+                        visibility: visible;
+                        top: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

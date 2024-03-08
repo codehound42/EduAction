@@ -1,0 +1,116 @@
+/* Comming Soon Style  */
+
+.edu-coming-soon-style {
+    text-align: center;
+    .content {
+        .logo {
+            margin-bottom: 80px;
+            @media #{$md-layout} {
+                margin-bottom: 40px;
+            }
+            @media #{$sm-layout} {
+                margin-bottom: 40px;
+            }
+            a {
+                display: block;
+            }
+        }
+        .title {
+            font-weight: 800;
+            font-size: 72px;
+            line-height: 1.25;
+            margin-bottom: 80px;
+            @media #{$md-layout} {
+                font-size: 60px;
+                margin-bottom: 40px;
+            }
+            @media #{$sm-layout} {
+                font-size: 40px;
+                margin-bottom: 40px;
+            }
+        }
+        .countdown-style-2 {
+            margin-bottom: 80px;
+            @media #{$small-tablet} {
+                .countdown {
+                    .countdown-container {
+                        min-width: 150px;
+                        padding: 25px 10px;
+                        .countdown-value {
+                            font-size: 55px;
+                        }
+                        .countdown-heading {
+                            font-size: 22px;
+                        }
+                    }
+                }
+            }
+            @media #{$sm-layout} {
+                .countdown {
+                    .countdown-container {
+                        min-width: 100px;
+                        padding: 15px 10px;
+                        .countdown-value {
+                            font-size: 35px;
+                        }
+                        .countdown-heading {
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+            @media #{$large-mobile} {
+                .countdown {
+                    .countdown-container {
+                        min-width: 80px;
+                        padding: 15px 10px;
+                        .countdown-value {
+                            font-size: 25px;
+                        }
+                        .countdown-heading {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+        .description {
+            margin: 0 auto 40px;
+            max-width: 760px;
+        }
+    }
+}
+
+.newsletter-form-style-2 {
+    display: flex;
+    justify-content: center;
+    @media #{$sm-layout} {
+        display: block;
+    }
+    input {
+        min-width: 407px;
+        width: 407px;
+        background: #FFFFFF;
+        box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.05);
+        border-radius: 5px;
+        border: 0 none;
+        padding: 0 25px;
+        font-weight: 500;
+        height: 60px;
+        @media #{$md-layout} {
+            min-width: 300px;
+            width: 300px;
+        }
+        @media #{$sm-layout} {
+            min-width: auto;
+            width: 100%;
+        }
+    }
+    .edu-btn {
+        margin-left: 10px;
+        @media #{$sm-layout} {
+            margin-left: 0;
+            margin-top: 20px;
+        }
+    }
+}

@@ -1,0 +1,113 @@
+/* --------------------
+Gallery Item 
+------------------- */
+.filters-button-group {
+    margin: -7.5px;
+    flex-wrap: wrap;
+    button {
+        height: 36px;
+        padding: 0 20px;
+        width: auto;
+        border: 0 none;
+        background: #F5F5F5;
+        border-radius: 3px;
+        color: var(--color-heading);
+        margin: 7.5px;
+        font-weight: 600;
+        transition: 0.4s;
+
+        &.is-checked,
+        &:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+    }
+}
+
+.edu-gallery-grid-item {
+    display: block;
+    border-radius: 5px;
+    padding: 0 15px !important;
+    .edu-gallery-grid {
+        position: relative;
+        img {
+            border-radius: 5px;
+        }
+        &::before {
+            background: linear-gradient(180deg, rgba(82, 95, 225, 0.3) 10.75%, #525fe1 85%);
+            border-radius: 5px;
+            position: absolute;
+            content: "";
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: 0.4s;
+        }
+        .zoom-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: 0.4s;
+            opacity: 0;
+            i {
+                color: var(--color-white);
+                font-size: 25px;
+            }
+        }
+        .hover-action {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 30px 40px;
+            z-index: 1;
+            transition: 0.4s;
+            opacity: 0;
+            @media #{$sm-layout} {
+                padding: 20px 20px;
+            }
+            .hover-content {
+                .hover-text {
+                    .title {
+                        color: var(--color-white);
+                        text-align: center;
+                        font-weight: 700;
+                        font-size: 24px;
+                        line-height: 36px;
+                        margin-bottom: 0;
+                        @media #{$sm-layout} {
+                            font-size: 20px;
+                            line-height: 32px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &:hover {
+        .edu-gallery-grid  {
+            &::before {
+                opacity: 1;
+            }
+            .zoom-icon {
+                opacity: 1;
+            }
+            .hover-action {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

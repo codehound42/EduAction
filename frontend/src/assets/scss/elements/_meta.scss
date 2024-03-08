@@ -1,0 +1,194 @@
+/*-----------------------
+    Card Styles  
+-------------------------*/
+.edu-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    &.meta-01 {
+        margin: 0 -20px;
+        @media #{$sm-layout} {
+            margin: 0 -6px;
+        }
+        li {
+            font-weight: 500;
+            line-height: 26px;
+            margin: 0 20px;
+            display: flex;
+            align-items: center;
+            @media #{$lg-layout} {
+                &:first-child {
+                    margin-right: 10px;
+                }
+                &:last-child {
+                    margin-left: 10px;
+                }
+                
+            }
+            @media #{$sm-layout} {
+                margin: 0 6px;
+            }
+            i {
+                color: var(--color-body);
+                margin-right: 8px;
+            }
+        }
+    }
+    &.meta-02 {
+        margin: 0 -20px;
+        li {
+            font-weight: 500;
+            line-height: 26px;
+            margin: 0 20px;
+            display: flex;
+            align-items: center;
+            i {
+                color: var(--color-primary);
+                margin-right: 10px;
+            }
+        }
+    }
+
+    &.meta-03 {
+        margin: -5px -12px;
+        li {
+            font-weight: 600;
+            line-height: 22px;
+            margin: 5px 12px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            i {
+                color: var(--color-primary);
+                margin-right: 10px;
+                width: 24px;
+                height: 24px;
+                position: relative;
+                z-index: 1;
+                text-align: center;
+                line-height: 24px;
+                border-radius: 2px;
+
+                &::after {
+                    position: absolute;
+                    content: "";
+                    left: 0;
+                    top: 0;
+                    background: var(--color-primary);
+                    width: 100%;
+                    height: 100%;
+                    z-index: -1;
+                    opacity: 0.1;
+                    border-radius: 2px;
+                }
+            }
+
+            &.meta-lessons { 
+                i {
+                    color: var(--color-secondary);
+                    &::after {
+                        background: var(--color-secondary);
+                    }
+                }
+            }
+            &.meta-clock { 
+                i {
+                    color: var(--color-primary);
+                    &::after {
+                        background: var(--color-primary);
+                    }
+                }
+            }
+            &.meta-user { 
+                i {
+                    color: var(--color-tertiary);
+                    &::after {
+                        background: var(--color-tertiary);
+                    }
+                }
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &.meta-04 {
+        margin: -5px -6px;
+        li {
+            font-weight: 600;
+            line-height: 22px;
+            margin: 5px 6px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            i {
+                color: var(--color-secondary);
+                margin-right: 8px;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+
+.edu-rating {
+    &.rating-default {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        .rating {
+            @extend %liststyle;
+            margin-right: 10px;
+        }
+    }
+}
+
+
+/*----------------------
+    Author Meta  
+-----------------------*/
+
+.author-meta {
+    display: flex;
+    align-items: center;
+    .author-thumb {
+        a {
+            display: block;
+            transition: 0.4s;
+            img {
+                max-height: 34px;
+                border-radius: 100%;
+                margin-right: 10px;
+                display: inline-block;
+            }
+            .author-title {
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 26px;
+                color: var(--color-heading);
+                transition: 0.4s;
+            }
+            &:hover {
+                .author-title {
+                    color: var(--color-primary);
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,118 @@
+/*----------------------
+    Search Popup  
+-----------------------*/
+
+.edu-search-popup {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    transform: scale(0.95);
+    &.open {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+    .close-button {
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        .close-trigger {
+            background: var(--color-white);
+            border: 0 none;
+            color: var(--color-heading);
+            width: 40px;
+            height: 40px;
+            font-size: 21px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 100%;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06);
+        }
+    }
+
+    .inner {
+        position: absolute;
+        top: 46%;
+        width: 100%;
+        .search-form {
+            text-align: center;
+            max-width: 1170px;
+            margin: 0 auto;
+            position: relative;
+            @media #{$laptop-device} {
+                padding: 0 20px;
+            }
+            @media #{$lg-layout} {
+                padding: 0 20px;
+            }
+            @media #{$md-layout} {
+                padding: 0 20px;
+            }
+            @media #{$sm-layout} {
+                padding: 0 20px;
+            }
+            input {
+                height: 60px;
+                border: 0 none;
+                border-radius: 5px;
+                background: #FFFFFF;
+                padding: 0 30px;
+                padding-right: 55px;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 26px;
+            }
+            .submit-button {
+                position: absolute;
+                right: 30px;
+                padding: 0;
+                margin: 0;
+                border: 0 none;
+                outline: none;
+                color: var(--color-heading);
+                background: transparent;
+                top: 50%;
+                transform: translateY(-50%);
+
+            }
+        }
+    }
+    &::before {
+        position: absolute;
+        background: #2D284E;
+        opacity: 0.7;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+        z-index: -1;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

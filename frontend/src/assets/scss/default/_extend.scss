@@ -1,0 +1,142 @@
+/*=====================
+All Extend Here
+=======================*/
+%color-primary {
+    color: var(--color-primary) !important;
+}
+%color-secondary {
+    color: var(--color-secondary) !important;
+}
+%color-tertiary {
+    color: var(--color-tertiary) !important;
+}
+%color-heading {
+    color: var(--color-heading) !important;
+}
+%color-body {
+    color: var(--color-body) !important;
+}
+%color-dark {
+    color: var(--color-dark) !important;
+}
+%color-border {
+    color: var(--color-border) !important;
+}
+%color-white {
+    color: var(--color-white) !important;
+}
+
+
+
+//===== BG Ncc Colors =====//
+
+%bg-color-primary {
+    background: var(--color-primary);
+}
+
+%bg-color-secondary {
+    background: var(--color-secondary)
+}
+
+%bg--color-tertiary {
+    background-color: var(--color-tertiary)
+}
+
+%bg-color-secondary {
+    background-color: var(--color-secondary) !important;
+}
+%bg-color-tertiary {
+    background-color: var(--color-tertiary) !important;
+}
+%bg-color-heading {
+    background-color: var(--color-heading) !important;
+}
+%bg-color-body {
+    background-color: var(--color-body) !important;
+}
+%bg-color-border {
+    background-color: var(--color-border) !important;
+}
+
+%bg-color-white {
+    background-color: var(--color-white) !important;
+}
+
+
+
+/* Radius */
+%radius-small {
+    border-radius: var(--radius-small);
+}
+
+%radius {
+    border-radius: var(--radius);
+}
+
+%radius-big {
+    border-radius: var(--radius-big);
+}
+
+/* Font Weight */
+
+%w-300 {
+    font-weight: 300 !important;
+}
+%w-400 {
+    font-weight: 400 !important;
+}
+%w-500 {
+    font-weight: 500 !important;
+}
+%w-600 {
+    font-weight: 600 !important;
+}
+%w-700 {
+    font-weight: 700 !important;
+}
+%w-800 {
+    font-weight: 800 !important;
+}
+%w-900 {
+    font-weight: 900 !important;
+}
+
+/* Shadows */
+
+%shadow-primary {
+    box-shadow: var(--shadow-primary);
+}
+%shadow-light {
+    box-shadow: var(--shadow-light);
+}
+%shadow-lighter {
+    box-shadow: var(--shadow-lighter);
+}
+
+// Others 
+
+%box-shadow {
+    box-shadow: var(--shadow-primary);
+}
+
+/*=============== Style Css =============*/
+
+%liststyle {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+%transition {
+    transition: var(--transition);
+}
+
+%bgImagePosition {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.bgImagePosition {
+    @extend %bgImagePosition;
+}

@@ -1,0 +1,781 @@
+/*------------------------
+    Service Style  
+--------------------------*/
+.service-wrapper-1 {
+    position: relative;
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: -28px;
+            left: -206px;
+        }
+        &.shape-image-2 {
+            top: -51px;
+            right: -257px;
+        }
+        &.shape-image-3 {
+            bottom: 80px;
+            right: -37px;
+        }
+        &.shape-image-4 {
+            bottom: -25px;
+            left: -201px;
+        }
+    }
+}
+
+.home-one-cat {
+    background-image: url(../../images/bg/home-one-service.jpg);
+}
+
+.service-card-1 {
+    background: var(--color-white);
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    transition: 0.4s;
+    &::after {
+        position: absolute;
+        content: "";
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--color-primary);
+        transition: 0.4s;
+        bottom: 0;
+    }
+    .inner {
+        .thumbnail {
+            a {
+                img {
+                    width: 100%;
+                }
+            }
+        }
+        .content {
+            padding: 30px;
+
+            @media #{$lg-layout} {
+                padding: 25px 20px;
+            }
+
+            @media #{$md-layout} {
+                padding: 25px 20px;
+            }
+
+            @media #{$sm-layout} {
+                padding: 25px 20px;
+            }
+
+            .course-total {
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 26px;
+                display: inline-block;
+                margin-bottom: 5px;
+                color: var(--color-primary);
+            }
+            .title {
+                margin-bottom: 20px;
+                
+                @media #{$lg-layout} {
+                    margin-bottom: 6px;
+                }
+
+                @media #{$md-layout} {
+                    margin-bottom: 6px;
+                }
+
+                @media #{$sm-layout} {
+                    margin-bottom: 6px;
+                }
+            }
+            .description {
+                margin-bottom: 0;
+            }
+        }
+    }
+    &:hover {
+        transform: translateY(-15px);
+        &::after {
+            width: 100%;
+        }
+    }
+}
+
+/*----------------------
+    Service Style Two  
+-----------------------*/
+.service-card-2 {
+    padding: 40px 30px;
+    background: #EAF8F6;
+    border-radius: 5px;
+    
+    @media #{$lg-layout} {
+        padding: 40px 20px;
+    }
+    
+    @media #{$md-layout} {
+        padding: 40px 20px;
+    }
+    
+    @media #{$sm-layout} {
+        padding: 40px 20px;
+    }
+    .inner {
+        text-align: center;
+        .icon {
+            position: relative;
+            display: inline-block;
+            a {
+                width: 80px;
+                height: 80px;
+                background: var(--color-white);
+                line-height: 80px;
+                text-align: center;
+                border-radius: 100%;
+                margin: 0 auto;
+                display: block;
+            }
+            img {
+                
+            }
+            .shape-list {
+                .shape {
+                    position: absolute;
+                    z-index: 2;
+                    &.shape-1 {
+                        bottom: 0;
+                        right: 0;
+                        transition: 0.4s;
+                        opacity: 0;
+                    }
+                    &.shape-2 {
+                        left: 0;
+                        top: 50%;
+                        transition: 0.4s;
+                        opacity: 0;
+                    }
+                    &.shape-3 {
+                        top: 0;
+                        right: 0;
+                        transition: 0.4s;
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+        .content {
+            .title {
+                font-size: 20px;
+                line-height: 32px;
+                margin-bottom: 15px;
+                margin-top: 25px;
+            }
+            .description {
+                margin-bottom: 0;
+            }
+        }
+    }
+    
+    &.card-bg-2 {
+        background: #FFF3EE;
+    }
+    &.card-bg-3 {
+        background: #EFF4FC;
+    }
+    &.card-bg-4 {
+        background: #FFF1F1;
+    }
+
+    &:hover {
+        .inner {
+            .icon {
+                .shape-list {
+                    .shape {
+                        &.shape-1 {
+                            bottom: -8px;
+                            right: 3px;
+                            opacity: 1;
+                        }
+                        &.shape-2 {
+                            left: -20px;
+                            top: 50%;
+                            opacity: 1;
+                        }
+                        &.shape-3 {
+                            top: -5px;
+                            right: -1px;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+/*----------------------
+    Service Style Three  
+-----------------------*/
+
+.video-section-overlayto-another {
+    position: relative;
+    margin-bottom: -281px;
+    z-index: 1;
+}
+
+.service-wrapper-3 {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 281px;
+    .about-us-two-service-wrapper {
+        background-image: url(../../images/bg/about-us-two-service.jpg);
+    }
+}
+
+
+.service-card-3 {
+    padding: 30px 30px;
+    background: var(--color-white);
+    border-radius: 5px;
+    transition: 0.4s;
+    position: relative;
+    z-index: 2;
+    .inner {
+        text-align: center;
+        .icon {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 25px;
+            a {
+                width: 70px;
+                height: 70px;
+                background: var(--color-primary);
+                text-align: center;
+                margin: 0 auto;
+                border-radius: 35px 35px 3px 3px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                i {
+                    font-size: 32px;
+                    color: var(--color-white);
+                }
+            }
+        }
+        .content {
+            .title {
+                font-size: 20px;
+                line-height: 32px;
+                margin-bottom: 15px;
+            }
+            .description {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    &.shape-bg-1 {
+        .inner {
+            .icon {
+                a {
+                    background: rgba(113, 82, 233, .15);
+                    i {
+                        color: var(--color-tertiary-2);
+                    }
+                }
+            }
+        }
+        &:hover {
+            .inner {
+                .icon {
+                    a {
+                        background: var(--color-tertiary-2);
+                    }
+                }
+            }
+        }
+    }
+
+    &.shape-bg-2 {
+        .inner {
+            .icon {
+                a {
+                    background: rgba(255, 164, 27, .15);
+                    i {
+                        color: var(--color-tertiary);
+                    }
+                }
+            }
+        }
+        &:hover {
+            .inner {
+                .icon {
+                    a {
+                        background: var(--color-tertiary);
+                    }
+                }
+            }
+        }
+    }
+
+    &.shape-bg-3 {
+        .inner {
+            .icon {
+                a {
+                    background: rgba(82, 95, 225, .15);
+                    i {
+                        color: var(--color-primary);
+                    }
+                }
+            }
+        }
+        &:hover {
+            .inner {
+                .icon {
+                    a {
+                        background: var(--color-primary);
+                    }
+                }
+            }
+        }
+    }
+
+    &.shape-bg-4 {
+        .inner {
+            .icon {
+                a {
+                    background: rgba(248, 111, 3, .15);
+                    i {
+                        color: var(--color-secondary);
+                    }
+                }
+            }
+        }
+        &:hover {
+            .inner {
+                .icon {
+                    a {
+                        background: var(--color-secondary);
+                    }
+                }
+            }
+        }
+    }
+
+
+    &.text-left {
+        .inner {
+            text-align: left;
+        }
+    }
+    &.bg-grey {
+        background: #F5F5F5;
+        height: 100%;
+        &:hover {
+            background: var(--color-white);
+            box-shadow: 0px 12px 35px rgba(0, 0, 0, 0.07);
+        }
+    }
+    &:hover {
+        transform: translateY(-20px);
+        box-shadow: 0px 12px 35px rgba(0, 0, 0, 0.07);
+        .inner {
+            .icon {
+                a {
+                    i {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*-------------------------------
+    Service Style Four  
+---------------------------------*/
+
+.service-card-4 {
+    height: 100%;
+    .inner {
+        background: #F5F5F5;
+        border-radius: 5px;
+        padding: 40px 35px;
+        text-align: center;
+        transition: 0.4s;
+        height: 100%;
+
+        @media #{$lg-layout} {
+            padding: 25px 14px;
+        }
+
+        @media #{$md-layout} {
+            padding: 25px 14px;
+        }
+
+        @media #{$sm-layout} {
+            padding: 25px 14px;
+        }
+
+        .icon {
+            position: relative;
+            i {
+                display: block;
+                color: var(--color-primary);
+                font-size: 35px;
+            }
+            .subtitle {
+                opacity: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                transition: 0.4s;
+            }
+        }
+        .content {
+            .title {
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 32px;
+                margin-bottom: 15px;
+                margin-top: 25px;
+                a {
+                    transition: 0.4s;
+                    color: var(--color-heading);
+                }
+            }
+            .description {
+                margin-bottom: 0;
+                transition: 0.4s;
+            }
+        }
+    }
+    &:hover {
+        .inner {
+            background: var(--color-primary);
+            .icon {
+                i {
+                    opacity: 0;
+                }
+                .subtitle {
+                    opacity: 1;
+                    color: var(--color-white);
+                }
+            }
+            .content {
+                .title {
+                    a {
+                        color: var(--color-white);
+                    }
+                }
+                .description {
+                    color: var(--color-white);
+                }
+            }
+        }
+    }
+}
+
+
+/*-------------------------------
+    Service Style Five  
+---------------------------------*/
+.service-card-5 {
+    .inner {
+        background: #F5F5F5;
+        border-radius: 5px;
+        padding: 20px;
+        transition: 0.4s;
+        display: flex;
+        align-items: center;
+        .icon {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            background: #FFFFFF;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.02);
+            border-radius: 2px;
+            transition: 0.4s;
+            justify-content: center;
+            margin-right: 20px;
+            @media #{$lg-layout} {
+                margin-right: 15px;
+            }
+            i {
+                color: var(--color-primary);
+                font-size: 30px;
+                transition: 0.4s;
+            }
+        }
+        .content {
+            .title {
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 32px;
+                margin-bottom: 0;
+                transition: 0.4s;
+                @media #{$lg-layout} {
+                    font-size: 17px;
+                    line-height: 28px;
+                }
+            }
+            .description {
+                margin-bottom: 0;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 26px;
+                transition: 0.4s;
+            }
+        }
+    }
+    &:hover {
+        .inner {
+            background: var(--color-primary);
+            .icon {
+                box-shadow: none;
+                background: rgba(255,255,255,0.15);
+                i {
+                    color: var(--color-white);
+                }
+            }
+            .content {
+                .title {
+                    a {
+                        color: var(--color-white);
+                    }
+                }
+                .description {
+                    color: var(--color-white);
+                }
+            }
+        }
+    }
+}
+
+/*-------------------------------
+    Service Style 8  
+---------------------------------*/
+
+.service-activation-item5 {
+    .single-slick-card {
+        margin-bottom: 20px;
+    }
+}
+
+
+
+.service-card-8 {
+    .inner {
+        background: #EAF8F6;
+        border-radius: 5px;
+        text-align: center;
+        padding: 30px;
+        position: relative;
+        transition: 0.4s;
+        margin-bottom: 20px;
+        .icon {
+            position: relative;
+            width: 75px;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            background: #FFFFFF;
+            border-radius: 100%;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .content {
+            margin-top: 20px;
+            .title {
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 28px;
+                margin-bottom: 5px;
+            }
+            span {
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 26px;
+            }
+        }
+
+        .hover-action {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: 0.4s;
+            opacity: 0;
+            .read-more-btn {
+                width: 40px;
+                height: 40px;
+                background: var(--color-primary);
+                color: var(--color-white);
+                display: inline-block;
+                line-height: 43px;
+                border-radius: 100%;
+                font-size: 20px;
+            }
+        }
+    }
+
+    &.shape-bg-2 {
+        .inner {
+            background: #FFF3EE;
+        }
+    }
+
+    &.shape-bg-3 {
+        .inner {
+            background: #FAEFFA;
+        }
+    }
+
+    &.shape-bg-4 {
+        .inner {
+            background: #FFF1F1;
+        }
+    }
+    &.shape-bg-5 {
+        .inner {
+            background: #EFF4FC;
+        }
+    }
+
+
+    &:hover {
+        .inner {
+            padding-bottom: 50px;
+            margin-bottom: -20px;
+            .hover-action {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+
+
+
+/*-------------------------------
+    Service Style 7  
+---------------------------------*/
+
+.service-card-single {
+    position: relative;
+    &:first-child {
+        &::after {
+            background-image: url(../../images/shape/arrow-down.png);
+            content: "";
+            width: 155px;
+            height: 43px;
+            right: -19%;
+            top: 40px;
+            background-size: cover;
+            background-position: center center;
+            position: absolute;
+            @media #{$md-layout} {
+                display: none;
+            }
+            @media #{$sm-layout} {
+                display: none;
+            }
+        }
+    }
+    &:last-child {
+        &::after {
+            background-image: url(../../images/shape/arrow-top.png);
+            content: "";
+            width: 155px;
+            height: 43px;
+            left: -19%;
+            top: 0;
+            background-size: cover;
+            background-position: center center;
+            position: absolute;
+            @media #{$md-layout} {
+                display: none;
+            }
+            @media #{$sm-layout} {
+                display: none;
+            }
+        }
+    }
+}
+.service-card-7 {
+    position: relative;
+    .arrow-icon {
+        position: absolute;
+        left: 100%;
+        top: 40px;
+        z-index: 1;
+    }
+
+
+    .inner {
+       text-align: center;
+        .icon {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            background: var(--color-secondary);
+            border-radius: 100%;
+            justify-content: center;
+            margin: 0 auto;
+            color: var(--color-white);
+            margin-bottom: 35px;
+            i {
+                color: var(--color-white);
+                font-size: 32px;
+                display: flex;
+            }
+        }
+
+        .content {
+            .title {
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 36px;
+                margin-bottom: 15px;
+            }
+            p {
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 26px;
+            }
+        }
+    }
+    &.shape-bg-2 {
+        .inner {
+            .icon {
+                background: var(--color-primary);
+            }
+        }
+    }
+
+    &.shape-bg-3 {
+        .inner {
+            .icon {
+                background: #FFA41B;
+            }
+        }
+    }
+    &:hover {
+        .inner {
+            
+        }
+    }
+}

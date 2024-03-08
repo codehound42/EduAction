@@ -1,0 +1,102 @@
+/**************************************
+    Default Styles
+***************************************/
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import url('../css/eduvibe-font.css');
+@import url('../css/remixicon.css');
+@import url('../css/animation.css');
+@import url('../css/slick.css');
+@import url('../css/slicktheme.css');
+
+@import 'default/variables';
+@import 'default/mixins';
+@import 'default/reset';
+@import 'default/typography';
+@import 'default/extend';
+@import 'default/animations';
+@import 'default/shortcode';
+@import 'default/spacing';
+@import 'default/common';
+@import 'default/forms';
+
+/**************************************
+    Header Styles
+***************************************/
+@import 'header/header';
+@import 'header/nav';
+@import 'header/header-quote';
+@import 'header/mobilemenu';
+@import 'header/search-popup';
+
+
+/**************************************
+    Elemnts Styles
+***************************************/
+@import 'elements/button';
+@import 'elements/brands';
+@import 'elements/section-title';
+@import 'elements/section-animation';
+@import 'elements/card';
+@import 'elements/meta';
+@import 'elements/badge';
+@import 'elements/pagination';
+@import 'elements/event';
+@import 'elements/team';
+@import 'elements/service';
+@import 'elements/single-elements';
+@import 'elements/coursesidebar';
+@import 'elements/testimonial';
+@import 'elements/feature';
+@import 'elements/about';
+@import 'elements/newsletter';
+@import 'elements/social-share';
+@import 'elements/backtotop';
+@import 'elements/workshop';
+@import 'elements/video-popup';
+@import 'elements/chooseus';
+@import 'elements/calltoaction';
+@import 'elements/slickslider';
+@import 'elements/winner';
+@import 'elements/counterup';
+@import 'elements/countdown';
+@import 'elements/breadcrumb';
+@import 'elements/masonaryitem';
+@import 'elements/accordion';
+@import 'elements/privacy-policy';
+@import 'elements/404';
+@import 'elements/coming-soon';
+@import 'elements/gallery';
+@import 'elements/pricingtable';
+@import 'elements/profile-details';
+@import 'elements/progressbar';
+@import 'elements/contactus';
+@import 'elements/shop';
+@import 'elements/brand';
+@import 'elements/checkout';
+@import 'elements/overall';
+
+
+
+/**************************************
+    Blog Styles
+***************************************/
+@import 'blog/blog-grid';
+@import 'blog/sidebar';
+@import 'blog/blog-details';
+@import 'blog/comments';
+
+/**************************************
+    Template Styles
+***************************************/
+@import 'template/banner';
+@import 'template/event-details';
+@import 'template/product-details';
+@import 'template/cart';
+@import 'template/course-details';
+@import 'template/preview';
+
+/**************************************
+    Footer Styles
+***************************************/
+@import 'footer/footer';
+@import 'footer/copyright';

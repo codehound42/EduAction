@@ -1,0 +1,1677 @@
+/*---------------------------
+ * Home 1 Course
+----------------------------*/
+
+.eduvibe-home-one-course {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 59px;
+            left: -246px;
+        }
+        &.shape-image-2 {
+            top: 144px;
+            right: -194px;
+            animation: eduvibe-vsm-y-move 3.5s alternate infinite linear;
+        }
+        &.shape-image-3 {
+            bottom: 53px;
+            right: -163px;
+        }
+        &.shape-image-4 {
+            bottom: 157px;
+            left: -226px;
+            animation: eduvibe-vsm-y-reverse-move 3.5s alternate infinite linear;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 1 Testimonial
+----------------------------*/
+.eduvibe-testimonial-one {
+    background-image: url(../../images/bg/home-one-testimonial.jpg);
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 2px;
+            left: -232px;
+        }
+        &.shape-image-2 {
+            top: 19px;
+            right: -167px;
+        }
+        &.shape-image-3 {
+            bottom: 2px;
+            right: -265px;
+        }
+        &.shape-image-4 {
+            bottom: -68px;
+            left: -49px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 1 Video
+----------------------------*/
+.eduvibe-home-one-video {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            bottom: 80px;
+            left: -232px;
+            animation: eduvibe-rotate-x 15s infinite linear;
+        }
+        &.shape-image-2 {
+            top: 20px;
+            right: -262px;
+        }
+        &.shape-image-3 {
+            bottom: 80px;
+            right: -242px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 1 Instructor
+----------------------------*/
+.eduvibe-home-one-instructor {
+    background-image: url(../../images/bg/home-one-instructor.jpg);
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            bottom: 29px;
+            left: -59px;
+        }
+        &.shape-image-2 {
+            top: 49px;
+            right: -53px;
+        }
+    }
+}
+
+/*---------------------------
+ * Newsletter 1
+----------------------------*/
+.newsletter-style-1 {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: -68px;
+            left: -20px;
+        }
+        &.shape-image-2 {
+            top: -34px;
+            right: -263px;
+        }
+        &.shape-image-3 {
+            bottom: -95px;
+            left: -178px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 1 Blog
+----------------------------*/
+.eduvibe-home-one-blog {
+    background-image: url(../../images/bg/home-one-blog.jpg);
+    position: relative;
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 71px;
+            left: -228px;
+            animation: eduvibe-vsm-y-move 5.6s alternate infinite linear;
+        }
+        &.shape-image-2 {
+            top: -20px;
+            right: -215px;
+            z-index: 0;
+            @media #{$custom-lg-device} {
+                right: 5px;
+                top: 45px;
+            }
+            @media #{$custom-laptop-device} {
+                display: none;
+            }
+        }
+        &.shape-image-3 {
+            bottom: -102px;
+            right: -260px;
+            
+        }
+        &.shape-image-4 {
+            bottom: -74px;
+            left: -208px;
+            
+        }
+    }
+}
+
+/*---------------------------
+ * Home 2 Service
+----------------------------*/
+.eduvibe-service-four {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            bottom: 92px;
+            left: -180px;
+        }
+        &.shape-image-2 {
+            top: 71px;
+            right: -52px;
+        }
+        &.shape-image-3 {
+            bottom: -39px;
+            right: -219px;
+        }
+    }
+}
+
+/*---------------------------
+ * About 3
+----------------------------*/
+.about-style-3 {
+    background-image: url(../../images/bg/home-two-about-us.jpg);
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: -3px;
+            left: -259px;
+        }
+        &.shape-image-2 {
+            top: -31px;
+            right: -269px;
+        }
+        &.shape-image-3 {
+            bottom: -31px;
+            right: -209px;
+        }
+        &.shape-image-4 {
+            bottom: -61px;
+            left: -269px;
+        }
+    }
+
+    .shape-dot-wrapper {
+        .shape {
+            position: absolute;
+            z-index: -1;
+            .shape-dot {
+                display: inline-block;
+                border-radius: 100%;
+            }
+
+            &.shape-1 {
+                bottom: -44px;
+                left: -272px;
+                .shape-dot {
+                    width: 50px;
+                    height: 50px;
+                    background: var(--color-extra06);
+                    opacity: 0.8;
+                }
+            }
+
+            &.shape-2 {
+                top: 14px;
+                right: -228px;
+                .shape-dot {
+                    width: 26px;
+                    height: 26px;
+                    background: var(--color-extra08);
+                    opacity: 0.35;
+                }
+            }
+        }
+    }
+}
+
+/*---------------------------
+ * Home 2 Course
+----------------------------*/
+.eduvibe-home-two-course {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 177px;
+            left: -203px;
+            animation: eduvibe-vsm-y-move 4.5s alternate infinite linear;
+        }
+        &.shape-image-2 {
+            bottom: 390px;
+            right: -262px;
+        }
+        &.shape-image-3 {
+            bottom: -40px;
+            right: -17px;
+            animation: eduvibe-vsm-y-reverse-move 4s alternate infinite linear;
+        }
+        &.shape-image-4 {
+            bottom: -65px;
+            left: -38px;
+            animation: eduvibe-sm-x-move 4s alternate infinite linear;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 2 Event
+----------------------------*/
+.eduvibe-home-two-event {
+    background-image: url(../../images/bg/home-two-events.jpg);
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: -263px;
+            left: -153px;
+        }
+        &.shape-image-2 {
+            top: 101px;
+            right: -28px;
+        }
+        &.shape-image-3 {
+            bottom: -40px;
+            right: -78px;
+        }
+        &.shape-image-4 {
+            bottom: -90px;
+            left: -208px;
+        }
+    }
+    .shape-dot-wrapper {
+        .shape {
+            position: absolute;
+            z-index: -1;
+            .shape-dot {
+                display: inline-block;
+                border-radius: 100%;
+            }
+
+            &.shape-1 {
+                top: -232px;
+                right: -124px;
+                .shape-dot {
+                    width: 48px;
+                    height: 48px;
+                    border: 8px solid rgba(248, 111, 3, 0.3);
+                }
+            }
+        }
+    }
+}
+
+/*---------------------------
+ * Home 2 Testimonial
+----------------------------*/
+.eduvibe-home-two-testimonial {
+    background-image: url(../../images/bg/home-two-testimonial.jpg);
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            bottom: -53px;
+            left: -193px;
+        }
+        &.shape-image-2 {
+            top: 27px;
+            right: -183px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 2 Counter
+----------------------------*/
+.eduvibe-home-two-counter {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            bottom: -33px;
+            left: -33px;
+        }
+        &.shape-image-2 {
+            bottom: 143px;
+            right: -243px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 2 Blog
+----------------------------*/
+.eduvibe-home-two-blog {
+    background-image: url(../../images/bg/home-two-blog.jpg);
+    position: relative;
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: -50px;
+            left: -198px;
+            img {
+                max-width: 60%;
+            }
+        }
+        &.shape-image-2 {
+            top: 112px;
+            right: 107px;
+            z-index: 0;
+        }
+        &.shape-image-2 {
+            top: 112px;
+            right: 107px;
+            z-index: 0;
+            @media #{$custom-lg-device} {
+                right: 30px;
+                top: 45px;
+            }
+        }
+        &.shape-image-3 {
+            bottom: -84px;
+            right: -218px;
+        }
+        &.shape-image-4 {
+            bottom: -62px;
+            left: -50px;
+            
+        }
+    }
+}
+
+
+/*---------------------------
+ * Home 3 Service
+----------------------------*/
+.eduvibe-service-five {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 81px;
+            right: -46px;
+        }
+        &.shape-image-2 {
+            bottom: -40px;
+            left: -250px;
+            img {
+                max-width: 80%;
+            }
+        }
+    }
+    .shape-dot-wrapper {
+        .shape {
+            position: absolute;
+            z-index: -1;
+            .shape-dot {
+                display: inline-block;
+                border-radius: 100%;
+            }
+            &.shape-1 {
+                top: 111px;
+                right: -50px;
+                .shape-dot {
+                    width: 130px;
+                    height: 130px;
+                    background: var(--color-tertiary);
+                    opacity: 0.4;
+                }
+            }
+        }
+    }
+}
+
+/*---------------------------
+ * Home 3 About
+----------------------------*/
+.home-three-about {
+    position: relative;
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 54px;
+            right: -196px;
+        }
+        &.shape-image-2 {
+            bottom: 27px;
+            right: -108px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 3 Course
+----------------------------*/
+.eduvibe-home-three-course {
+    background-image: url(../../images/bg/home-three-course.jpg);
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            img {
+                transform: rotate(90deg);
+            }
+            top: -260px;
+            left: -130px;
+            animation: eduvibe-sm-x-move 6s alternate infinite linear;
+        }
+        &.shape-image-2 {
+            top: 484px;
+            left: -282px;
+            animation: eduvibe-vsm-y-reverse-move 5.5s alternate infinite linear;
+        }
+        &.shape-image-3 {
+            top: 152px;
+            right: -211px;
+            animation: eduvibe-vsm-y-move 3.5s alternate infinite linear;
+        }
+        &.shape-image-4 {
+            bottom: 49px;
+            right: -224px;
+        }
+        &.shape-image-5 {
+            bottom: -47px;
+            left: -289px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 3 Video
+----------------------------*/
+.eduvibe-home-three-video {
+    background-image: url(../../images/bg/video-home-3-bg.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: top 15px left 10%;
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: -59px;
+            right: -199px;
+        }
+        &.shape-image-2 {
+            bottom: -47px;
+            right: -63px;
+        }
+        &.shape-image-3 {
+            bottom: -91px;
+            left: -229px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 3 Accordion
+----------------------------*/
+.eduvibe-home-three-accordion {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-2 {
+            bottom: inherit;
+            left: -170px;
+            top: 56px;
+        }
+        &.shape-image-3 {
+            bottom: 16px;
+            left: inherit;
+            right: -200px;
+            top: inherit;
+        }
+    }
+    .shape-dot-wrapper {
+        .shape {
+            position: absolute;
+            z-index: -1;
+            .shape-dot {
+                display: inline-block;
+                border-radius: 100%;
+            }
+            &.shape-1 {
+                top: 195px;
+                left: -91px;
+                .shape-dot {
+                    width: 200px;
+                    height: 200px;
+                    border: 34px solid rgba(248, 111, 3, .3);
+                }
+            }
+        }
+    }
+}
+
+/*---------------------------
+ * Home 3 Testimonial
+----------------------------*/
+.eduvibe-home-three-testimonial {
+    background-image: url(../../images/bg/home-three-testimonial.jpg);
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            left: -173px;
+            top: 16px;
+            animation: eduvibe-vsm-y-move 3.5s alternate infinite linear;
+        }
+        &.shape-image-2 {
+            top: -34px;
+            right: -268px;
+        }
+        &.shape-image-3 {
+            bottom: -45px;
+            left: -37px;
+        }
+        &.shape-image-4 {
+            bottom: -25px;
+            right: -218px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 3 Event
+----------------------------*/
+.eduvibe-home-three-event {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            left: -173px;
+            top: 16px;
+        }
+        &.shape-image-2 {
+            top: -34px;
+            right: -180px;
+        }
+        &.shape-image-3 {
+            bottom: -45px;
+            right: -237px;
+        }
+        &.shape-image-4 {
+            bottom: -25px;
+            left: -218px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 3 Nesletter
+----------------------------*/
+.eduvibe-home-three-newsletter {
+    background-image: url(../../images/bg/home-three-newsletter.jpg);
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            left: -63px;
+            top: -24px;
+            animation: eduvibe-vsm-y-move 3.5s alternate infinite linear;
+        }
+        &.shape-image-2 {
+            top: -4px;
+            right: 100px;
+        }
+        &.shape-image-3 {
+            right: -194px;
+            bottom: -104px;
+        }
+        &.shape-image-4 {
+            left: 216px;
+            bottom: -48px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 4 Service
+----------------------------*/
+.eduvibe-home-four-service {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 56px;
+            left: -180px;
+            animation: eduvibe-rotate-x 7s infinite linear;
+        }
+        &.shape-image-2 {
+            top: 12px;
+            right: -180px;
+        }
+        &.shape-image-3 {
+            bottom: -38px;
+            right: -25px;
+        }
+        &.shape-image-4 {
+            bottom: -48px;
+            left: -55px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 4 About
+----------------------------*/
+.eduvibe-home-four-about {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            bottom: 231px;
+            left: -190px;
+        }
+        &.shape-image-2 {
+            top: -59px;
+            right: -297px;
+        }
+        &.shape-image-3 {
+            bottom: 10px;
+            right: -185px;
+        }
+    }
+    .shape-dot-wrapper {
+        .shape {
+            position: absolute;
+            z-index: -1;
+            .shape-dot {
+                display: inline-block;
+                border-radius: 100%;
+            }
+            &.shape-1 {
+                bottom: 140px;
+                left: -21px;
+                z-index: 2;
+                .shape-dot {
+                    width: 40px;
+                    height: 40px;
+                    border: 5.4px solid rgba(248, 111, 3, .5);
+                    animation: eduvibe-zoom2 2s infinite alternate;
+                }
+            }
+        }
+    }
+}
+
+/*---------------------------
+ * Home 4 Course
+----------------------------*/
+.eduvibe-home-four-courses {
+    background-image: url(../../images/bg/home-four-courses.jpg);
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 6px;
+            left: -150px;
+        }
+        &.shape-image-2 {
+            top: 38px;
+            right: -175px;
+        }
+        &.shape-image-3 {
+            bottom: 30px;
+            right: -230px;
+        }
+        &.shape-image-4 {
+            bottom: 80px;
+            left: -189px;
+            animation: eduvibe-vsm-y-move 3.5s alternate infinite linear;
+        }
+    }
+    .shape-dot-wrapper {
+        .shape {
+            position: absolute;
+            z-index: -1;
+            .shape-dot {
+                display: inline-block;
+                border-radius: 100%;
+            }
+            &.shape-1 {
+                bottom: 13px;
+                right: -196px;
+                .shape-dot {
+                    width: 40px;
+                    height: 40px;
+                    border: 5.4px solid rgba(251, 124, 86, .3);
+                    animation: eduvibe-zoom2 2s infinite alternate;
+                }
+            }
+        }
+    }
+}
+
+/*---------------------------
+ * Home 4 Video PopUp
+----------------------------*/
+.eduvibe-home-four-video {
+    background-image: url(../../images/bg/home-four-video.jpg);
+    @media #{$small-tablet} {
+        background-image: none;
+    }
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: -33px;
+            left: -30px;
+        }
+        &.shape-image-2 {
+            bottom: -50px;
+            left: -48px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 4 Team
+----------------------------*/
+.eduvibe-home-four-team {
+    padding: 130px 0 275px;
+    background-image: url(../../images/bg/home-four-instructor.jpg);
+    @media #{$small-tablet} {
+        padding: 80px 0 160px;
+    }
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 38px;
+            left: -181px;
+            animation: eduvibe-sm-x-move 3.5s alternate infinite linear;
+        }
+        &.shape-image-2 {
+            top: -24px;
+            right: -216px;
+        }
+        &.shape-image-3 {
+            bottom: -30px;
+            right: -151px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 4 Testimonial
+----------------------------*/
+.eduvibe-home-four-testimonial {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            bottom: 5px;
+            left: -200px;
+        }
+        &.shape-image-2 {
+            top: 0px;
+            right: -200px;
+        }
+        &.shape-image-3 {
+            bottom: 0px;
+            right: -121px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 4 Blog
+----------------------------*/
+.eduvibe-home-four-blog {
+    background-image: url(../../images/bg/home-four-blog.jpg);
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 5px;
+            left: -200px;
+        }
+        &.shape-image-2 {
+            bottom: -34px;
+            right: -35px;
+        }
+        &.shape-image-3 {
+            bottom: -54px;
+            left: -56px;
+        }
+    }
+}
+
+/*---------------------------
+ * FAQ Page
+----------------------------*/
+.eduvibe-faq-page {
+    .animated-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 60px;
+            left: -59px;
+            animation: eduvibe-sm-x-move 3s alternate infinite linear;
+            img {
+                transform: rotate(90deg);
+            }
+        }
+        &.shape-image-2 {
+            top: 56px;
+            right: -223px;
+        }
+        &.shape-image-3 {
+            bottom: 56px;
+            right: -223px;
+            animation: eduvibe-vsm-y-move 3.5s alternate infinite linear;
+        }
+    }
+    .shape-dot-wrapper {
+        .shape {
+            position: absolute;
+            z-index: -1;
+            .shape-dot {
+                display: inline-block;
+                border-radius: 100%;
+            }
+            &.shape-1 {
+                bottom: 89px;
+                left: -184px;
+                .shape-dot {
+                    width: 48px;
+                    height: 48px;
+                    border: 8px solid var(--color-extra07);
+                    animation: eduvibe-zoom1 2.6s infinite alternate;
+                }
+            }
+        }
+    }
+}
+
+
+/*---------------------------
+ * 404 Page
+----------------------------*/
+.eduvibe-404-page {
+    background-image: url(../../images/bg/404.jpg);
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 165px;
+            left: -21px;
+        }
+        &.shape-image-2 {
+            top: 100px;
+            right: -247px;
+        }
+        &.shape-image-3 {
+            top: 520px;
+            right: 50px;
+        }
+        &.shape-image-4 {
+            bottom: -61px;
+            right: -247px;
+        }
+        &.shape-image-5 {
+            left: 40px;
+            bottom: -63px;
+        }
+        &.shape-image-6 {
+            bottom: 180px;
+            left: -200px;
+        }
+    }
+}
+
+/*---------------------------
+ * Coming Soon Page
+----------------------------*/
+.eduvibe-coming-soon {
+    background-image: url(../../images/bg/coming-soon.jpg);
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: -6px;
+            left: -110px;
+        }
+        &.shape-image-2 {
+            top: -83px;
+            right: -107px;
+        }
+        &.shape-image-3 {
+            bottom: 252px;
+            right: -111px;
+        }
+        &.shape-image-4 {
+            bottom: -100px;
+            right: -234px;
+        }
+        &.shape-image-5 {
+            bottom: -60px;
+            left: -84px;
+        }
+        &.shape-image-6 {
+            top: 390px;
+            left: 0;
+        }
+    }
+}
+
+/*---------------------------
+ * Contact Us Page
+----------------------------*/
+.eduvibe-contact-us {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 132px;
+            left: -40px;
+        }
+        &.shape-image-2 {
+            top: 95px;
+            right: -59px;
+        }
+        &.shape-image-3 {
+            bottom: 79px;
+            right: -197px;
+        }
+    }
+}
+
+/*---------------------------
+ * Contact Me Page
+----------------------------*/
+.eduvibe-contact-me-top {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            bottom: 113px;
+            left: -200px;
+        }
+        &.shape-image-2 {
+            right: -40px;
+            top: 100px;
+        }
+        &.shape-image-3 {
+            top: 0;
+            right: -250px;
+        }
+        &.shape-image-4 {
+            bottom: 6px;
+            right: -200px;
+        }
+    }
+}
+
+.eduvibe-contact-me-bottom {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 94px;
+            left: -56px;
+        }
+        &.shape-image-2 {
+            top: 173px;
+            right: -147px;
+        }
+        &.shape-image-3 {
+            bottom: -80px;
+            right: -269px;
+        }
+        &.shape-image-4 {
+            bottom: -40px;
+            left: -29px;
+        }
+        &.shape-image-5 {
+            bottom: -90px;
+            left: -219px;
+        }
+    }
+}
+
+
+/*---------------------------
+ * Pricing Plan Page
+----------------------------*/
+.eduvibe-pricing-plan-page {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 324px;
+            left: -199px;
+            animation: eduvibe-vsm-y-move 3.5s alternate infinite linear;
+        }
+    }
+    .shape-dot-wrapper {
+        .shape {
+            position: absolute;
+            z-index: -1;
+            .shape-dot {
+                display: inline-block;
+                border-radius: 100%;
+            }
+            &.shape-1 {
+                bottom: -6px;
+                right: -46px;
+                .shape-dot {
+                    width: 110px;
+                    height: 110px;
+                    border: 18px solid rgba(255, 164, 27, .15);
+                }
+            }
+        }
+    }
+}
+
+/*---------------------------
+ * Home 5 Categories
+----------------------------*/
+.eduvibe-home-five-cats {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 80px;
+            left: -235px;
+            animation: eduvibe-vsm-y-move 3.5s alternate infinite linear;
+        }
+        &.shape-image-2 {
+            top: 70px;
+            right: -239px;
+        }
+        &.shape-image-3 {
+            bottom: 12px;
+            right: 5px;
+        }
+    }
+    .shape-dot-wrapper {
+        .shape {
+            position: absolute;
+            z-index: -1;
+            .shape-dot {
+                display: inline-block;
+                border-radius: 100%;
+            }
+            &.shape-1 {
+                bottom: -6px;
+                right: -46px;
+                .shape-dot {
+                    width: 110px;
+                    height: 110px;
+                    border: 18px solid rgba(255, 164, 27, .15);
+                }
+            }
+        }
+    }
+}
+
+/*---------------------------
+ * Home 5 About
+----------------------------*/
+.eduvibe-home-five-about {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 58px;
+            left: -24px;
+        }
+        &.shape-image-2 {
+            top: 48px;
+            right: -224px;
+        }
+        &.shape-image-3 {
+            bottom: -62px;
+            right: -164px;
+        }
+        &.shape-image-4 {
+            bottom: 28px;
+            left: -104px;
+        }
+        &.shape-image-5 {
+            top: 188px;
+            left: -224px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 5 Course
+----------------------------*/
+.eduvibe-home-five-course {
+    background-image: url(../../images/bg/home-five-courses.jpg);
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: -62px;
+            left: -296px;
+        }
+        &.shape-image-2 {
+            top: 19px;
+            right: -217px;
+            animation: eduvibe-vsm-y-move 3.5s alternate infinite linear;
+        }
+        &.shape-image-3 {
+            bottom: -55px;
+            right: -207px;
+        }
+        &.shape-image-4 {
+            bottom: -52px;
+            left: -268px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 5 Instructor
+----------------------------*/
+.eduvibe-home-five-instructor {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 198px;
+            left: -35px;
+        }
+        &.shape-image-2 {
+            top: 36px;
+            right: -123px;
+        }
+        &.shape-image-3 {
+            bottom: 19px;
+            right: -193px;
+        }
+        &.shape-image-4 {
+            bottom: 91px;
+            left: -165px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 5 Progress
+----------------------------*/
+.eduvibe-home-five-progress {
+    background-image: url(../../images/bg/home-five-hiw.jpg);
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: -40px;
+            left: -110px;
+            animation: eduvibe-sm-x-move 4s alternate infinite linear;
+        }
+        &.shape-image-2 {
+            bottom: 110px;
+            right: -242px;
+            animation: eduvibe-vsm-y-move 4s alternate infinite linear;
+        }
+        &.shape-image-3 {
+            bottom: -49px;
+            left: -242px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 5 Testimonial
+----------------------------*/
+.eduvibe-home-five-testimonial {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 38px;
+            right: -230px;
+            
+        }
+        &.shape-image-2 {
+            bottom: -15px;
+            right: -183px;
+        }
+        &.shape-image-3 {
+            bottom: -45px;
+            left: -183px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home 5 Blog
+----------------------------*/
+.eduvibe-home-five-blog {
+    background-image: url(../../images/bg/home-five-blog.jpg);
+    position: relative;
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 30px;
+            left: -228px;
+            animation: eduvibe-vsm-y-move 3.5s alternate infinite linear;
+        }
+        &.shape-image-2 {
+            top: 143px;
+            right: 87px;
+            z-index: 0;
+            @media #{$custom-lg-device} {
+                top: 45px;
+                right: 30px;
+            }
+        }
+        &.shape-image-3 {
+            bottom: 38px;
+            right: -240px;
+        }
+        &.shape-image-4 {
+            bottom: -45px;
+            left: -30px;
+        }
+    }
+}
+
+/*---------------------------
+ * About Us 1 Service
+----------------------------*/
+.eduvibe-about-us-one-service {
+    position: relative;
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 150px;
+            left: -148px;
+            animation: eduvibe-vsm-y-move 3.5s alternate infinite linear;
+        }
+        &.shape-image-2 {
+            top: 125px;
+            right: -44px;
+        }
+        &.shape-image-3 {
+            bottom: 13px;
+            right: -200px;
+        }
+    }
+}
+
+/*---------------------------
+ * About Us 1 Team
+----------------------------*/
+.eduvibe-about-one-team {
+    position: relative;
+    background-image: url(../../images/bg/about-us-one-team.jpg);
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 41px;
+            left: -228px;
+        }
+        &.shape-image-2 {
+            top: 150px;
+            right: 85px;
+            z-index: 0;
+            @media #{$custom-lg-device} {
+                right: 30px;
+                top: 45px;
+            }
+        }
+        &.shape-image-3 {
+            bottom: -42px;
+            right: -240px;
+            
+        }
+        &.shape-image-4 {
+            bottom: -54px;
+            left: -198px;
+            animation: eduvibe-vsm-y-reverse-move 3.5s alternate infinite linear;
+        }
+    }
+}
+
+
+/*---------------------------
+ * Home 4 Service
+----------------------------*/
+.eduvibe-about-one-service {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            bottom: -7px;
+            left: -50px;
+        }
+        &.shape-image-2 {
+            top: 42px;
+            right: -220px;
+        }
+    }
+    .shape-dot-wrapper {
+        .shape {
+            position: absolute;
+            z-index: -1;
+            .shape-dot {
+                display: inline-block;
+                border-radius: 100%;
+            }
+            &.shape-1 {
+                bottom: -34px;
+                left: -48px;
+                .shape-dot {
+                    width: 130px;
+                    height: 130px;
+                    background: var(--color-tertiary);
+                    opacity: 0.4;
+                }
+            }
+            &.shape-2 {
+                top: 83px;
+                left: -131px;
+                .shape-dot {
+                    width: 12px;
+                    height: 12px;
+                    background: #9EDBE2;
+                    animation: eduvibe-zoom1 1s infinite alternate;
+                }
+            }
+            &.shape-3 {
+                bottom: -16px;
+                right: -63px;
+                .shape-dot {
+                    width: 8px;
+                    height: 8px;
+                    background: var(--color-secondary);
+                    animation: eduvibe-zoom1 1s infinite alternate;
+                }
+            }
+        }
+    }
+}
+
+/*--------------------------------
+ * Home About Us 2 Service & Video
+----------------------------------*/
+.eduvibe-about-us-two-service {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 42px;
+            left: -180px;
+            animation: eduvibe-rotate-x 7s infinite linear;
+        }
+        &.shape-image-2 {
+            bottom: -28px;
+            right: -27px;
+        }
+    }
+}
+
+.eduvibe-about-us-two-video {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            bottom: 66px;
+            left: -120px;
+            animation: eduvibe-sm-x-move 4.5s alternate infinite linear;
+        }
+        &.shape-image-2 {
+            bottom: 90px;
+            right: -120px;
+            animation: eduvibe-rotate-x 7s infinite linear;
+        }
+    }
+}
+
+/*---------------------------
+ * Home About Us 2 Award
+----------------------------*/
+.eduvibe-about-two-award {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: -255px;
+            left: -170px;
+        }
+        &.shape-image-2 {
+            top: 97px;
+            right: -39px;
+        }
+        &.shape-image-3 {
+            bottom: -30px;
+            left: -30px;
+        }
+    }
+    .shape-dot-wrapper {
+        .shape {
+            position: absolute;
+            z-index: -1;
+            .shape-dot {
+                display: inline-block;
+                border-radius: 100%;
+            }
+            &.shape-1 {
+                top: -243px;
+                right: -134px;
+                .shape-dot {
+                    width: 30px;
+                    height: 30px;
+                    border: 5px solid rgba(255, 164, 27, .3);
+                    animation: eduvibe-zoom2 2s infinite alternate;
+                }
+            }
+        }
+    }
+}
+
+
+/*---------------------------
+ * Home 5 Instructor
+----------------------------*/
+.eduvibe-about-us-two-instructor {
+    background-image: url(../../images/bg/about-us-two-team-team.jpg);
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 198px;
+            left: -35px;
+        }
+        &.shape-image-2 {
+            top: 36px;
+            right: -123px;
+        }
+        &.shape-image-3 {
+            bottom: 19px;
+            right: -193px;
+        }
+        &.shape-image-4 {
+            bottom: 91px;
+            left: -165px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home About Us 3 Mission
+----------------------------*/
+.eduvibe-about-three-mission {
+    .animated-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 128px;
+            left: -60px;
+        }
+    }
+    .shape-dot-wrapper {
+        .shape {
+            position: absolute;
+            z-index: -1;
+            .shape-dot {
+                display: inline-block;
+                border-radius: 100%;
+            }
+            &.shape-1 {
+                top: 38px;
+                left: 188px;
+                .shape-dot {
+                    width: 150px;
+                    height: 150px;
+                    background: #FFA41B;
+                    opacity: 0.6;
+                    border-radius: 5px;
+                }
+            }
+            &.shape-2 {
+                top: -17px;
+                right: -37px;
+                .shape-dot {
+                    width: 100px;
+                    height: 100px;
+                    background: rgba(251, 124, 86, .6);
+                }
+            }
+        }
+    }
+}
+
+/*---------------------------
+ * Home About Us 3 Team
+----------------------------*/
+.eduvibe-about-three-team {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 96px;
+            left: -37px;
+        }
+        &.shape-image-2 {
+            top: 8px;
+            right: -240px;
+        }
+        &.shape-image-3 {
+            bottom: -10px;
+            right: -150px;
+        }
+        &.shape-image-4 {
+            bottom: -21px;
+            left: -220px;
+        }
+    }
+}
+
+/*---------------------------
+ * Home About Us 3 funfact
+----------------------------*/
+.eduvibe-about-three-funfact {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: 169px;
+            left: -137px;
+            animation: eduvibe-sm-x-move 2.5s alternate infinite linear;
+            img {
+                transform: rotate(90deg);
+            }
+        }
+        &.shape-image-2 {
+            top: 8px;
+            right: -200px;
+            animation: eduvibe-sm-x-reverse-move 2.5s alternate infinite linear;
+            img {
+                transform: rotate(90deg);
+            }
+        }
+    }
+}
+
+/*---------------------------
+ * About 3 Testimonial
+----------------------------*/
+.eduvibe-about-three-testimonial {
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            left: -173px;
+            top: 56px;
+            animation: eduvibe-vsm-y-move 3.5s alternate infinite linear;
+        }
+        &.shape-image-2 {
+            top: -14px;
+            right: -268px;
+        }
+        &.shape-image-3 {
+            bottom: -45px;
+            left: -37px;
+        }
+    }
+    .shape-dot-wrapper {
+        .shape {
+            position: absolute;
+            z-index: -1;
+            .shape-dot {
+                display: inline-block;
+                border-radius: 100%;
+            }
+            &.shape-1 {
+                bottom: -25px;
+                right: -218px;
+                .shape-dot {
+                    width: 70px;
+                    height: 70px;
+                    border: 12px solid #FFDCB4;
+                }
+            }
+        }
+    }
+}
+
+.eduvibe-home-4-hero-svg path {
+    -webkit-animation: none;
+    animation: none;
+    stroke-dasharray: 3000;
+    stroke-dashoffset: 3000;
+}
+
+.sal-animate.eduvibe-home-4-hero-svg path {
+    -webkit-animation: eduvibe-svg-dash 6.5s linear forwards;
+    animation: eduvibe-svg-dash 6.5s linear forwards;
+}
+
+@-webkit-keyframes eduvibe-svg-dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+}
+  
+@keyframes eduvibe-svg-dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+}
+  

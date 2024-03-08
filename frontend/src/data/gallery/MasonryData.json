@@ -1,0 +1,87 @@
+[
+    {
+        "id": 1,
+        "title": "Lorem Ipsum Is Simply Dummy Text",
+        "thumb": "masonry-thumb-01.jpg",
+        "category": "popularity",
+        "image": [
+            "./images/gallery/masonry-images/masonry-01.jpg",
+            "./images/gallery/masonry-images/masonry-03.jpg",
+            "./images/gallery/masonry-images/masonry-05.jpg"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Lorem Ipsum Is Not Just A Random Text",
+        "thumb": "masonry-thumb-02.jpg",
+        "category": "trending",
+        "image": [
+            "./images/gallery/masonry-images/masonry-02.jpg",
+            "./images/gallery/masonry-images/masonry-04.jpg",
+            "./images/gallery/masonry-images/masonry-06.jpg"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Lorem ipsum dolor sit amet consectetur",
+        "thumb": "masonry-thumb-03.jpg",
+        "category": "featured",
+        "image": [
+            "./images/gallery/masonry-images/masonry-03.jpg"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Lorem Ipsum Is Simply Dummy Text",
+        "thumb": "masonry-thumb-04.jpg",
+        "category": "popularity",
+        "image": [
+            "./images/gallery/masonry-images/masonry-04.jpg"
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Lorem Ipsum Is Not Just A Random Text",
+        "thumb": "masonry-thumb-05.jpg",
+        "category": "trending",
+        "image": [
+            "./images/gallery/masonry-images/masonry-05.jpg"
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Lorem ipsum dolor sit amet consectetur",
+        "thumb": "masonry-thumb-06.jpg",
+        "category": "popularity",
+        "image": [
+            "./images/gallery/masonry-images/masonry-06.jpg"
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Lorem Ipsum Is Simply Dummy Text",
+        "thumb": "masonry-thumb-07.jpg",
+        "category": "featured",
+        "image": [
+            "./images/gallery/masonry-images/masonry-07.jpg"
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Lorem Ipsum Is Not Just A Random Text",
+        "thumb": "masonry-thumb-08.jpg",
+        "category": "trending",
+        "image": [
+            "./images/gallery/masonry-images/masonry-08.jpg"
+        ]
+    },
+    {
+        "id": 9,
+        "title": "Lorem ipsum dolor sit amet consectetur",
+        "thumb": "masonry-thumb-09.jpg",
+        "category": "popularity",
+        "image": [
+            "./images/gallery/masonry-images/masonry-09.jpg"
+        ]
+    }
+]

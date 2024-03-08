@@ -1,0 +1,54 @@
+/*------------------------
+    Winner Area Styles  
+--------------------------*/
+
+.edu-winner-card {
+    background: var(--color-white);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06);
+    border-radius: 5px;
+    padding: 40px;
+    transition: 0.4s;
+    text-align: center;
+    .inner {
+        .icon {
+            margin-bottom: 30px;
+            img {
+                max-height: 50px;
+            }
+        }
+        .content {
+            .subtitle {
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 18px;
+                display: inline-block;
+            }
+            .title {
+                font-weight: 700;
+                margin-bottom: 0;
+                transition: 0.4s;
+            }
+        }
+    }
+    &:hover {
+        transform: translateY(-15px);
+        .inner {
+            .content {
+                .title {
+                    color: var(--color-primary);
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,458 @@
+/*======================== 
+    Common Style Css
+==========================*/
+
+/* Heading Font  */
+.h1 {
+    font-size: var(--h1) !important
+}
+
+.h2 {
+    font-size: var(--h2) !important
+}
+
+.h3 {
+    font-size: var(--h3) !important
+}
+
+.h4 {
+    font-size: var(--h4) !important
+}
+
+.h5 {
+    font-size: var(--h5) !important
+}
+
+.h6 {
+    font-size: var(--h6) !important
+}
+
+/* Text Color  */
+
+.color-primary {
+    @extend %color-primary;
+}
+.color-secondary {
+    @extend %color-secondary;
+}
+
+.color-tertiary {
+    @extend %color-tertiary;
+}
+.color-heading {
+    @extend %color-heading;
+}
+.color-body {
+    @extend %color-body;
+}
+.color-dark {
+    @extend %color-dark;
+}
+//===== BG Ncc Colors =====//
+
+.bg-primary-color {
+    background: var(--color-primary) !important;
+}
+.bg-secondary-color {
+    background: var(--color-secondary) !important;
+}
+.bg-color-tertiary {
+    background-color: var(--color-tertiary) !important;
+}
+.bg-color-white {
+    background-color: var(--color-white) !important;
+}
+
+//===== Colors =====//
+.color-white {
+    color: var(--color-white);
+}
+
+/* Radius */
+.radius {
+    @extend %radius;
+}
+
+.radius-big {
+    @extend %radius-big;
+}
+
+
+/* Font Weight */
+
+.w-300 {
+    @extend %w-300;
+}
+
+.w-400 {
+    @extend %w-400;
+}
+
+.w-500 {
+    @extend %w-500;
+}
+
+.w-600 {
+    @extend %w-600;
+}
+
+.w-700 {
+    @extend %w-700;
+}
+
+.w-800 {
+    @extend %w-800;
+}
+
+.w-900 {
+    @extend %w-900;
+}
+
+/* Shadows */
+
+.shadow-primary {
+    @extend %shadow-primary;
+}
+
+.shadow-light {
+    @extend %shadow-light;
+}
+
+.shadow-lighter {
+    @extend %shadow-lighter;
+}
+
+/* Others  */
+.liststyle {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.radius {
+    @extend %radius;
+}
+
+%transition-transform {
+    transition: var(--transition-transform);
+}
+
+.transition-transform {
+    @extend %transition-transform;
+}
+
+.list-icon {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        display: flex;
+        align-items: center;
+        margin: 15px 0;
+
+        @media #{$sm-layout} {
+            font-size: 16px;
+        }
+
+        .icon {
+            width: 30px;
+            background-color: var(--color-blackest);
+            height: 30px;
+            border-radius: 100%;
+            display: inline-block;
+            position: relative;
+            margin-right: 9px;
+            min-width: 30px;
+            min-height: 30px;
+
+            &.background-transparent {
+                background-color: transparent;
+            }
+
+            i {
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+}
+
+.rn-sub-badge {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 18px;
+    font-size: 16px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    display: inline-block;
+    padding: 7px 14px;
+    background-color: var(--color-blackest);
+    box-shadow: var(--shadow-lighter);
+}
+
+.radius-small {
+    border-radius: var(--radius-small);
+}
+
+.line-before {
+    position: relative;
+    padding-left: 18px;
+    &::before {
+        position: absolute;
+        content: "";
+        left: 0;
+        width: 2px;
+        height: 81%;
+        background: var(--color-primary);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.bg-image--7 {
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: top 15px left 10%;
+}
+
+.bg-image--12 {
+    background-size: auto;
+}
+
+.border-bottom-1 {
+    border-bottom: 1px solid #EEEEEE;
+}
+
+/* Breadcrumb  */
+.edu-breadcrumb-area {
+    background-image: url(../../images/bg/breadcrumb-bg.jpg);
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        &.shape-image-1 {
+            top: -30px;
+            left: -180px;
+        }
+        &.shape-image-2 {
+            top: -10px;
+            left: 60%;
+        }
+        &.shape-image-3 {
+            top: -24px;
+            right: -90px;
+        }
+        &.shape-image-4 {
+            bottom: -39px;
+            right: -220px;
+        }
+        &.shape-image-5 {
+            bottom: -28px;
+            left: 35%;
+        }
+        &.shape-image-6 {
+            bottom: -30px;
+            left: -108px;
+        }
+    }
+}
+
+
+/* Animation  */
+
+.eduvibe-animated-shape {
+    position: relative;
+    z-index: 9;
+}
+
+@-webkit-keyframes eduvibe-vsm-y-move {
+    0% {
+        -webkit-transform: translate(0, -30%);
+        transform: translate(0, -30%);
+    }
+
+    100% {
+        -webkit-transform: translate(0, 30%);
+        transform: translate(0, 30%);
+    }
+}
+
+@keyframes eduvibe-vsm-y-move {
+    0% {
+        -webkit-transform: translate(0, -30%);
+        transform: translate(0, -30%);
+    }
+
+    100% {
+        -webkit-transform: translate(0, 30%);
+        transform: translate(0, 30%);
+    }
+}
+
+@-webkit-keyframes eduvibe-vsm-y-reverse-move {
+    0% {
+        -webkit-transform: translate(0, 30%);
+        transform: translate(0, 30%);
+    }
+
+    100% {
+        -webkit-transform: translate(0, -30%);
+        transform: translate(0, -30%);
+    }
+}
+
+@keyframes eduvibe-vsm-y-reverse-move {
+    0% {
+        -webkit-transform: translate(0, 30%);
+        transform: translate(0, 30%);
+    }
+
+    100% {
+        -webkit-transform: translate(0, -30%);
+        transform: translate(0, -30%);
+    }
+}
+
+@-webkit-keyframes eduvibe-sm-x-move {
+    0% {
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+    }
+
+    100% {
+        -webkit-transform: translate(50%, 0);
+        transform: translate(50%, 0);
+    }
+}
+
+@keyframes eduvibe-sm-x-move {
+    0% {
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+    }
+
+    100% {
+        -webkit-transform: translate(50%, 0);
+        transform: translate(50%, 0);
+    }
+}
+
+@-webkit-keyframes eduvibe-sm-x-reverse-move {
+    0% {
+        -webkit-transform: translate(50%, 0);
+        transform: translate(50%, 0);
+    }
+
+    100% {
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes eduvibe-sm-x-reverse-move {
+    0% {
+        -webkit-transform: translate(50%, 0);
+        transform: translate(50%, 0);
+    }
+
+    100% {
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+    }
+}
+
+@-webkit-keyframes eduvibe-rotate-y {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(-360deg);
+        transform: rotate(-360deg);
+    }
+}
+
+@-webkit-keyframes eduvibe-rotate-x {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes eduvibe-rotate-x {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes eduvibe-rotate-y {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(-360deg);
+        transform: rotate(-360deg);
+    }
+}
+
+@-webkit-keyframes eduvibe-zoom1 {
+    0% {
+        -webkit-transform:scale(.9);
+        transform:scale(.9)
+    }
+    100% {
+        -webkit-transform:scale(1.5);
+        transform:scale(1.5)
+    } 
+}
+
+@keyframes eduvibe-zoom2 {
+    0% {
+        -webkit-transform:scale(1);
+        transform:scale(1)
+    }
+    100% {
+        -webkit-transform:scale(1.5);
+        transform:scale(1.5)
+    }
+}
+
+@-webkit-keyframes eduvibe-zoom1 {
+    0% {
+        -webkit-transform:scale(1);
+        transform:scale(1)
+    }
+    100% {
+        -webkit-transform:scale(1.25);
+        transform:scale(1.25)
+    } 
+}
+
+@keyframes eduvibe-zoom1 {
+    0% {
+        -webkit-transform:scale(1);
+        transform:scale(1)
+    }
+    100% {
+        -webkit-transform:scale(1.25);
+        transform:scale(1.25)
+    }
+}

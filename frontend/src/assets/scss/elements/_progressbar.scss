@@ -1,0 +1,41 @@
+
+
+.single-progress {
+    position: relative;
+    overflow: hidden;
+    .title {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 26px;
+        color: var(--color-heading);
+        margin-bottom: 10px;
+    }
+}
+
+.progress {
+    height: 6px;
+    overflow: visible;
+    background-color: rgba(82,95,225,0.15);
+    border-radius: 2px;
+
+    .progress-bar {
+        border-radius: 2px;
+        width: 0;
+        height: 100%;
+        background-color: var(--color-primary);
+        transition: width .5s ease;
+        overflow: visible;
+    }
+
+    .progress-number {
+        position: absolute;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 26px;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        color: var(--color-heading);
+    }
+}
+

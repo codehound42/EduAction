@@ -1,0 +1,319 @@
+/*-------------------------
+Accordion Style 
+-------------------------*/ 
+.edu-tab-nav {
+    margin: -7.5px;
+    border: 0 none;
+    justify-content: center;
+    li {
+        margin: 7.5px;
+        &.nav-item {
+            button {
+                &.nav-link {
+                    background: #F5F5F5;
+                    border-radius: 4px;
+                    height: 50px;
+                    line-height: 50px;
+                    padding: 0 40px;
+                    color: var(--color-heading);
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 26px;
+                    position: relative;
+                    z-index: 1;
+                    border: 0 none;
+                    @media #{$sm-layout} {
+                        padding: 0 15px;
+                    }
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        background-image: url(../../images/shape/shape-57.png);
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-position: center center;
+                        width: 77px;
+                        height: 92%;
+                        left: -5px;
+                        top: -3px;
+                        z-index: -1;
+                        transition: 0.4s;
+                        opacity: 0;
+                    }
+                    &.active {
+                        background: var(--color-primary);
+                        color: var(--color-white);
+                        &::after {
+                            opacity: 0.4;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.accordion-shape-1 {
+    position: relative;
+    z-index: 1;
+    .shape-image {
+        position: absolute;
+        z-index: -1;
+        top: 156px;
+        left: 276px;
+    }
+}
+
+
+.edu-accordion-area {
+    .gallery-wrapper {
+        padding-right: 55px;
+        @media #{$md-layout} {
+            padding-right: 15px;
+        }
+        @media #{$sm-layout} {
+            padding-right: 15px;
+        }
+    }
+}
+
+.accordion-style-1 {
+    .edu-accordion-header {
+        margin-bottom: 0;
+    }
+    .edu-accordion-button {
+        font-size: 20px;
+        border: 0 none;
+        background: transparent;
+        border-top: 1px solid #EEEEEE;
+        width: 100%;
+        text-align: left;
+        padding: 20px 0;
+        font-weight: 700;
+        line-height: 32px;
+        position: relative;
+        &::after {
+            position: absolute;
+            content: "\e935";
+            font-family: 'icomoon';
+            color: var(--color-heading);
+            font-size: 20px;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: 0.4s;
+        }
+        &[aria-expanded="true"] {
+            &::after {
+                content: "\e934";
+            }
+        }
+    }
+    .edu-accordion-body {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 26px;
+        margin-bottom: 20px;
+    }
+
+    .edu-accordion-item {
+        &:last-child {
+            .edu-accordion-button {
+                border-bottom: 1px solid #EEEEEE;
+            }
+            &.active-item {
+                .edu-accordion-button {
+                    border-bottom: 0px;
+                }
+            }
+            &.active-item {
+                border-bottom: 1px solid #EEEEEE;
+            }
+        }
+    }
+
+}
+
+.edu-accordion-02 {
+    background: #FFFFFF;
+    .edu-accordion-button {
+        font-size: 20px;
+        border: 0 none;
+        background: transparent;
+        width: 100%;
+        text-align: left;
+        padding: 13px 35px;
+        font-weight: 700;
+        line-height: 32px;
+        position: relative;
+        border: 1px solid #EEEEEE;
+        border-radius: 5px;
+        transition: 0.4s;
+        &::after {
+            position: absolute;
+            content: "\e969";
+            font-family: 'icomoon';
+            color: var(--color-heading);
+            font-size: 20px;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: 0.4s;
+        }
+        &[aria-expanded="true"] {
+            &::after {
+                content: "\EA78";
+                font-family: "remixicon";
+            }
+        }
+    }
+
+    .edu-accordion-body {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 26px;
+        margin-bottom: 0;
+        padding: 0 35px;
+        padding-bottom: 35px;
+        ul {
+            @extend %liststyle;
+            li {
+                display: flex;
+                justify-content: space-between;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 26px;
+                padding: 14px 0;
+                align-items: center;
+                margin: 0;
+                .text {
+                    i {
+                        margin-right: 8px;
+                    }
+                }
+                & + li {
+                    border-top: 1px solid #eee;
+                }
+                &:last-child {
+                    padding-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .edu-accordion-item {
+        transition: 0.4s;
+        &:last-child {
+            .edu-accordion-button {
+                border-bottom: 1px solid #EEEEEE;
+            }
+        }
+        &.bg-active {
+            background: #FFFFFF;
+            box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.06);
+            border-radius: 5px;
+            .edu-accordion-button {
+                border: 0 none;
+                color: var(--color-primary);
+                &::after {
+                    color: var(--color-primary);
+                }
+            }
+        }
+
+        & + .edu-accordion-item {
+            margin-top: 20px;
+        }
+    }
+
+    &.variation-2 {
+        .edu-accordion-button {
+            border: transparent;
+            background: #F5F5F5;
+            border-radius: 10px;
+            padding: 31px 32px;
+            padding-right: 69px;
+            &::after {
+                content: "\e935";
+                width: 32px;
+                height: 32px;
+                background: #FFFFFF;
+                box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.02);
+                color: var(--color-primary);
+                line-height: 32px;
+                text-align: center;
+                border-radius: 100%;
+            }
+            &[aria-expanded="true"] {
+                &::after {
+                    content: "\e934";
+                    font-family: 'icomoon';
+                    background: #E0F7F4;
+                    color: var(--color-primary);
+                }
+            }
+        }
+        .edu-accordion-item {
+            .edu-accordion-body {
+                padding: 0 31px;
+                padding-bottom: 35px;
+                p {
+                    margin-bottom: 0;
+                }
+            }
+
+            &.bg-active {
+                background: #FFFFFF;
+                box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.05);
+                border-radius: 10px;
+                .edu-accordion-button {
+                    border: 0 none;
+                    color: var(--color-primary);
+                    background: transparent;
+                }
+            }
+            & + .edu-accordion-item {
+                margin-top: 30px;
+            }
+        }
+        &.landing-page-accordion {
+            .edu-accordion-button {
+                &[aria-expanded="true"] {
+                    &::after {
+                        background: var(--color-primary);
+                        color: #FFFFFF;
+                    }
+                }
+            }
+            .edu-accordion-item {
+                &.bg-active {
+                    .edu-accordion-button {
+                        color: var(--color-heading);
+                    }
+                }
+            }
+        }
+    }
+    // &.landing-demo-faq.variation-2 {
+    //     .edu-accordion-item.bg-active {
+    //         background-color:  var(--color-primary);
+    //         .edu-accordion-button {
+    //             color: #FFFFFF;
+    //             &[aria-expanded="true"]::after {
+    //                 background: #FFFFFF;
+    //                 color: var(--color-primary);
+    //             }
+    //         }
+    //         .edu-accordion-body p {
+    //             color: #FFFFFF;
+    //         }
+    //     }
+    // }
+}
+
+
+
+
+
+
+
