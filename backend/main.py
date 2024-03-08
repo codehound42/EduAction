@@ -38,13 +38,13 @@ async def root():
 @app.post("/api/chat/")
 async def chat(input_text: str = Body(...)):
     chat_response = generate_chat_response(input_text)
-    return {"response": chat_response}
+    return {"data": chat_response}
 
 
 @app.post("/api/summary/")
 async def summary(input_text: str = Body(...)):
     transcript_summary = generate_transcript_summary(input_text)
-    return {"response": transcript_summary}
+    return {"data": transcript_summary}
 
 
 @app.post("/api/yt_link/")
@@ -60,13 +60,13 @@ async def yt_link(url: str = Body(...)):
 
     transcript_summary = generate_transcript_summary(processed_subtitles)
 
-    return transcript_summary
+    return {"data": transcript_summary}
 
 
 @app.post("/api/quiz/")
 async def quiz(input_text: str = Body(...)):
     quiz = generate_quiz(input_text)
-    return {"response": quiz}
+    return {"data": quiz}
 
 
 if __name__ == "__main__":
