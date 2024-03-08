@@ -3,9 +3,7 @@ from fastapi import FastAPI, Body
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import uvicorn
-from langchain_openai import ChatOpenAI
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import StrOutputParser
+from rag.rag import generate_chat, generate_transcript_summary
 
 from settings import settings
 
@@ -20,6 +18,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 class ChatIn(BaseModel):
     query: str
 
@@ -33,21 +32,15 @@ async def root():
 
 
 @app.post("/api/chat/")
-async def chat(query: str = Body(...)):
-    llm = ChatOpenAI()
-    prompt = ChatPromptTemplate.from_messages([
-        ("system", "You are a helpful assistant."),
-        ("user", "{input}")
-    ])
-    output_parser = StrOutputParser()
+async def chat(input_text: str = Body(...)):
+    chat_response = generate_chat(input_text)
+    return {"response": chat_response}
 
-    chain = prompt | llm | output_parser
 
-    output_text = chain.invoke({"input": query})
-
-    print(output_text)
-
-    return {"message": output_text}
+@app.post("/api/summary/")
+async def summary(input_text: str = Body(...)):
+    transcript_summary = generate_transcript_summary(input_text)
+    return {"response": transcript_summary}
 
 
 if __name__ == "__main__":
