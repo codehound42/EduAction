@@ -1,0 +1,4 @@
+langchain
+fastapi[all]
+langchain-openai
+python-dotenv
