@@ -32,7 +32,7 @@ const HeaderOne = ( { styles, disableSticky } ) => {
                         <div className="col-lg-6 col-xl-2 col-md-6 col-6">
                             <div className="logo">
                                 <Link to={process.env.PUBLIC_URL + "/"}>
-                                    <img className="logo-light" src="/images/logo/logo.png" alt="Main Logo" />
+                                    <img className="logo-light" src="/images/logo/logo.png" alt="Logo" />
                                 </Link>
                             </div>
                         </div>
