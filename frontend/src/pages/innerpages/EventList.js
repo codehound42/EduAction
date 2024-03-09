@@ -43,10 +43,10 @@ const EventList = () => {
     }, [state.apiData.summary.data]);
 
     useEffect(() => {
-        if (state.apiData.summary.data && stepCookingRef.current) {
+        if (state.showStepCooking && stepCookingRef.current) {
             stepCookingRef.current.scrollIntoView({ behavior: 'smooth' });
         }
-    }, [state.apiData.summary.data]);
+    }, [state.showStepCooking]);
 
     const fetchData = async (endpoint, body) => {
         try {
@@ -225,23 +225,24 @@ const EventList = () => {
                             <div className="wrapper2">
                                 <button type="submit" className="buttons1">Submit</button>
                             </div>
-                            <div>
-                                <h3 className="text2">Pay attention:</h3>
-                                <h3 className="text3">• Make sure it is a Youtube link</h3>
-                                <h3 className="text3">• Make sure you add https://</h3>
-                                <h3 className="text3">• Click submit when ready</h3>
+                            <div className="text2">
+                                <ul>
+                                    <li className="text2">Make sure it's a Youtube link</li>
+                                    <li className="text2">Make sure you add https://</li>
+                                    <li className="text2">Click submit when ready</li>
+                                </ul>
                             </div>
                         </div>
                     </form>
                 </div>
 
                 {state.showStepCooking && (
-                    <div ref={stepTwoRef} className="containersteps2 containerstepscooking">
+                    <div ref={stepCookingRef} className="containersteps2 containerstepscooking">
                         <div className="text-content">
                             <h2 className="stepsname">Congrats!</h2>
                             <h5>Your link is now in the "AI oven"</h5>
                             <div className="text2">
-                                <h7 className="text2">What is the AI cooking?</h7>
+                                <h6 className="text2">What is the AI cooking?</h6>
                                 <ul>
                                     <li className="text2">Transcribing your lecture</li>
                                     <li className="text2">Summarising and categorising</li>
