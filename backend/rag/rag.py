@@ -10,7 +10,9 @@ from rag.chains import (create_chat_chain, create_flashcard_chain,
                         create_clean_transcript_chain)
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 import asyncio
-
+import os
+from langchain_core.runnables import Runnable
+from rag.data_models import QuestionAndAnswer
 
 load_dotenv()
 
@@ -25,11 +27,10 @@ quiz_chain = create_quiz_chain(llm)
 subjects_chain = create_subjects_chain(llm)
 response_clean_chain = create_clean_transcript_chain(llm)
 
-
 def split_transcript(transcript: str):
     text_splitter = RecursiveCharacterTextSplitter(
         # Set a really small chunk size, just to show.
-        chunk_size=20_000,
+        chunk_size=os.getenv("CHUNK_SIZE"),
         chunk_overlap=200,
         length_function=len,
         is_separator_regex=False,
@@ -43,22 +44,23 @@ def generate_chat_response(input_text: str):
     return response
 
 
-async def generate_transcript_summary(transcript: str):
+async def split_transcript_and_collect_responses(transcript: str, chain: Runnable):
     texts = split_transcript(transcript)
-
-    tasks = [asyncio.create_task(summary_chain.ainvoke({"transcript": text})) for text in texts]
+    tasks = [asyncio.create_task(chain.ainvoke({"transcript": text})) for text in texts]
     responses = await asyncio.gather(*tasks)
+    return responses
 
-    # Assuming you want to concatenate all responses into a single summary
+
+async def generate_transcript_summary(transcript: str):
+    responses = await split_transcript_and_collect_responses(transcript, summary_chain)
     full_summary = ' '.join(responses)
 
     output = response_clean_chain.invoke({"transcript": full_summary})
-
     return output
 
 
-def generate_flashcards(input_text: str):
-    response = flashcard_chain.invoke({"transcript": input_text})
+async def generate_flashcards(transcript: str):
+    response = flashcard_chain.invoke({"transcript": transcript})
     return response
 
 
@@ -86,11 +88,15 @@ async def generate_image(prompt, stability_api=stability_api, stability_model=st
     return response
 
 
-def generate_quiz(input_text: str):
-    response = quiz_chain.invoke({"transcript": input_text})
-    return response
+async def generate_quiz(transcript: str):
+    responses = await split_transcript_and_collect_responses(transcript, quiz_chain)
+    sublists = [response["question_and_answers"] for response in responses]
+    flattened_list = [QuestionAndAnswer(**item) for sublist in sublists for item in sublist]
+    return flattened_list
 
 
-def generate_subjects(input_text: str):
-    response = subjects_chain.invoke({"transcript": input_text})
-    return response
+async def generate_subjects(transcript: str):
+    responses = await split_transcript_and_collect_responses(transcript, subjects_chain)
+    subject_lists = [response["subjects"] for response in responses]
+    flattened_list = [item for sublist in subject_lists for item in sublist]
+    return flattened_list

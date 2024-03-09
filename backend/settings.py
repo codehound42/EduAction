@@ -11,5 +11,6 @@ class Settings(BaseSettings):
     FRONTEND_BASE_URLS: list[str] = [
         "http://localhost:3000",
     ]
+    CHUNK_SIZE: int = 20_000
 
 settings = Settings()
