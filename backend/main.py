@@ -82,7 +82,7 @@ async def flashcard(input_text: str = Body(...)):
         # prompt = re.sub(r"Q\d+:?\s*", "", prompt)
         flashcard_prompts_list.append(prompt)
 
-    return {"response": flashcard_text}
+    return {"flashcard_text": flashcard_text, "flashcard_prompts" : flashcard_prompts_list}
 
 
 
