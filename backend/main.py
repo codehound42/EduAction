@@ -7,6 +7,16 @@ from rag.rag import generate_chat, generate_transcript_summary, generate_flashca
 from youtube_transcript_api import YouTubeTranscriptApi
 import re
 
+import uvicorn
+from dotenv import load_dotenv
+from fastapi import Body, FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+from youtube_transcript_api import YouTubeTranscriptApi
+
+from rag.rag import (generate_chat_response, generate_quiz,
+                     generate_transcript_summary,
+                     generate_subjects)
 from settings import settings
 
 load_dotenv()
@@ -35,14 +45,21 @@ async def root():
 
 @app.post("/api/chat/")
 async def chat(input_text: str = Body(...)):
-    chat_response = generate_chat(input_text)
-    return {"response": chat_response}
+    chat_response = generate_chat_response(input_text)
+    return {"data": chat_response}
 
 
 @app.post("/api/summary/")
 async def summary(input_text: str = Body(...)):
     transcript_summary = generate_transcript_summary(input_text)
-    return {"response": transcript_summary}
+    return {"data": transcript_summary}
+
+
+@app.post("/api/subjects/")
+async def subjects(input_text: str = Body(...)):
+    subjects = generate_subjects(input_text)
+    return {"data": subjects}
+
 
 @app.post("/api/yt_link/")
 async def yt_link(url: str = Body(...)):
@@ -74,6 +91,10 @@ async def flashcard(input_text: str = Body(...)):
 
 
 
+@app.post("/api/quiz/")
+async def quiz(input_text: str = Body(...)):
+    quiz = generate_quiz(input_text)
+    return {"data": quiz}
 
 
 if __name__ == "__main__":

@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import requests
 import os
 
-from rag.chains import create_chat_chain, create_transcript_summary_chain, create_flashcard_text_chain, create_flashcard_prompts_chain
+from rag.chains import create_chat_chain, create_transcript_summary_chain, create_quiz_chain, create_flashcard_text_chain, create_flashcard_prompts_chain, create_subjects_chain
 
 load_dotenv()
 
@@ -15,8 +15,11 @@ chat_chain = create_chat_chain(llm)
 summary_chain = create_transcript_summary_chain(llm)
 flashcard_text_chain = create_flashcard_text_chain(llm)
 flashcard_prompts_chain = create_flashcard_prompts_chain(llm)
+quiz_chain = create_quiz_chain(llm)
+subjects_chain = create_subjects_chain(llm)
 
-def generate_chat(input_text: str):
+
+def generate_chat_response(input_text: str):
     response = chat_chain.invoke({"input": input_text})
     return response
 
@@ -53,4 +56,12 @@ def generate_image(prompt, stability_api=stability_api, stability_model=stabilit
             "samples": 1,
         },
     )
+    return response
 
+def generate_quiz(input_text: str):
+    response = quiz_chain.invoke({"transcript": input_text})
+    return response
+
+def generate_subjects(input_text: str):
+    response = subjects_chain.invoke({"transcript": input_text})
+    return response

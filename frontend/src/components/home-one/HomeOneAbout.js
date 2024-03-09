@@ -25,64 +25,31 @@ const HomeOneAbout = () => {
         >
             <div className="container">
                 <div className="row g-5">
-                    <div className="col-lg-6">
+                    <div className="col-lg-5">
                         <div className="about-image-gallery">
-                            <img className="image-1" src="/images/about/about-09/about-image-01.jpg" alt="About Main Thumb" />
-                            <div className="image-2">
-                                <img src="/images/about/about-09/about-image-02.jpg" alt="About Parallax Thumb" />
-                            </div>
-                            <div className="badge-inner">
-                                <img className="image-3" src="/images/about/about-09/badge.png" alt="About Circle Thumb" />
-                            </div>
-                            <div className="shape-image shape-image-1">
-                                <img src="/images/shapes/shape-04-01.png" alt="Shape Thumb" />
-                            </div>
+                            <img className="img-fluid" src="/images/ai/ai-logo.png" alt="AI" />
                         </div>
                     </div>
-                    <div className="col-lg-6">
+                    <div className="col-lg-7">
                         <div className="inner">
                             <SectionTitle
-                                slogan = "About Us"
-                                title = "Creating A Community Of Life Long Learners"
+                                slogan = "EduActive"
+                                title = "Made in Encode London AI Hackathon, 08-10/03/2024"
                             />
                             <ScrollAnimation 
                                 animateIn="fadeInUp"
                                 animateOut="fadeInOut"
                                 animateOnce={ true }
                             >
-                                <p className="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nunc
-                                null liobortis nibh porttitor. Facilisi arcu, nibh vel risus, morbi pharetra.</p>
                             </ScrollAnimation>
-                            { items && items.length > 0 &&
-                                <div className="about-feature-list">
-                                    { items.map( ( data , i ) => (
-                                        <ScrollAnimation 
-                                            animateIn="fadeInUp"
-                                            animateOut="fadeInOut"
-                                            className="our-feature"
-                                            animateOnce={ true }
-                                            key={i}
-                                        >
-                                            <div className="our-feature">
-                                                <div className="icon">
-                                                    <i className={ data.icon }></i>
-                                                </div>
-                                                <div className="feature-content">
-                                                    <h6 className="feature-title">{ data.title }</h6>
-                                                    <p className="feature-description">{ data.info }</p>
-                                                </div>
-                                            </div>
-                                        </ScrollAnimation>
-                                    ) ) }
-                                </div>
-                            }
+                            
                             <ScrollAnimation 
                                 animateIn="fadeInUp"
                                 animateOut="fadeInOut"
                                 className="read-more-btn"
                                 animateOnce={ true }
                             >
-                                <Link className="edu-btn" to="/about-us-1">Know About Us<i className="icon-arrow-right-line-right"></i></Link>
+                                <a className="edu-btn" href="https://www.encode.club/ai-hackathon" target="_blank">Know About Us<i className="icon-arrow-right-line-right"></i></a>
                             </ScrollAnimation>
                             <div className="shape shape-6 about-parallax-2 d-xl-block d-none">
                                 <img src="/images/shapes/shape-07.png" alt="Shape Thumb" />

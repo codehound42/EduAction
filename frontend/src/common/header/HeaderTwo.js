@@ -36,25 +36,18 @@ const HeaderTwo = ( { styles, disableSticky, searchDisable, buttonStyle } ) => {
                         </div>
                     </div>
 
-                    <div className="col-lg-6 d-none d-xl-block">
+                    <div className="col-lg-6 col-xl-8 d-none d-xl-block">
                         <nav className="mainmenu-nav d-none d-lg-block">
                             <Nav />
                         </nav>
                     </div>
 
-                    <div className="col-lg-8 col-xl-3 col-md-6 col-6">
+                    <div className="col-lg-8 col-xl-1 col-md-6 col-6">
                         <div className="header-right d-flex justify-content-end">
                             <div className="header-menu-bar">
-                                { ! searchDisable && 
-                                    <div className="quote-icon quote-search">
-                                        <button className="white-box-icon search-trigger header-search" onClick={ onSearchHandler }>
-                                            <i className="ri-search-line"></i>
-                                        </button>
-                                    </div>
-                                }
                                 <div className="quote-icon quote-user d-none d-md-block ml--15 ml_sm--5">
-                                    <Link className={`edu-btn btn-medium left-icon header-button ${ buttonStyle || '' }`} to={process.env.PUBLIC_URL + "/login-register"}>
-                                        <i className="ri-user-line"></i>Login / Register
+                                    <Link className={`edu-btn btn-medium left-icon header-button ${ buttonStyle || '' }`} to={process.env.PUBLIC_URL + "/step1"}>
+                                        <i className="ri-play-fill"></i>Start
                                     </Link>
                                 </div>
                                 <div className="quote-icon quote-user d-block d-md-none ml--15 ml_sm--5">
