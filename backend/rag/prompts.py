@@ -85,7 +85,9 @@ QUIZ_TEMPLATE = """Given the following lecture transcript. Generate a quiz based
 # Quiz"""
 
 
-FLASHCARDS_TEMPLATE = """Given the following lecture transcript. Generate a list of flashcards based on the content. The format of the flashcards should be a list of question, answer and an image prompt that will be sent to Stable Diffusion for image generation. See the example format below:
+FLASHCARDS_TEMPLATE = """Given the following lecture transcript. Generate a list of flashcards based on the content. The format of the flashcards should be a list of question, answer and an image prompt that will be sent to Stable Diffusion for image generation. An example of the format is shown below in example tags.
+
+Make the questions specific to the topic and not too general. Don't ask about the professor and the general format of the course and things like that.
 
 <example>
 {{
