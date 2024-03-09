@@ -3,8 +3,6 @@ import SEO from '../../common/SEO';
 import Layout from '../../common/Layout';
 import loadinggif from '../../assets/images/loading.gif';
 import robotarm from '../../assets/images/robotarm.svg';
-import blanksicon from "../../assets/images/blanksicon.svg"
-import cloudicon from "../../assets/images/cloudicon.svg"
 import flashcardsicon from "../../assets/images/flashcardsicon.svg"
 import quizicon from "../../assets/images/quizicon.svg"
 import summaryicon from "../../assets/images/summaryicon.svg"
@@ -28,12 +26,17 @@ const EventList = () => {
         selectedAnswers: {},
         evaluationResults: {},
         user_id: "94bd2faf-d21b-452d-a9a2-0159363a11fd",
+        summarySelected: true,
+        subjectsSelected: false,
+        quizzesSelected: true,
+        flashcardSelected: false,
     });
     const stepTwoRef = useRef(null);
     const stepThreeRef = useRef(null);
     const stepCookingRef = useRef(null);
 
     const handleButtonClick = (text) => {
+        setState(prevState => ({ ...prevState, summarySelected: true, subjectsSelected: false}));
         setState(prevState => ({ ...prevState, selectedText: text, selectedText2: text }));
     };
 
@@ -125,6 +128,7 @@ const EventList = () => {
     };
 
     const handleSubjectsClick = () => {
+        setState(prevState => ({ ...prevState, summarySelected: false, subjectsSelected: true}));
         const { subjects } = state.apiData;
         // Assuming subjects.data.subjects is always a list of strings based on the updated information
         if (subjects && subjects.data) {
@@ -141,10 +145,9 @@ const EventList = () => {
         }
     };
 
-
-
     // Extract quizzes content creation logic into a reusable function
     const createQuizzesContent = (quizzesData, selectedAnswers, evaluationResults, handleAnswerChange) => {
+        setState(prevState => ({ ...prevState, quizzesSelected: true, flashcardSelected: false}));
         return (
             <form onSubmit={(e) => e.preventDefault()}>
                 {quizzesData.map((quiz, index) => (
@@ -267,8 +270,8 @@ const EventList = () => {
                     <div ref={stepTwoRef} className="containersteps2">
                         <h2 className="stepsname">Step 2: Your Initial AI Outcome</h2>
                         <div className="button-row">
-                            <button type="button" className="buttons1" onClick={() => handleButtonClick(<div>{state.apiData.summary.data}</div>)}><img src={summaryicon} alt="summary" className="button-icon"/>Summary</button>
-                            <button type="button" className="buttons1" onClick={handleSubjectsClick}><img src={topicsicon} alt="topics" className="button-icon"/>Subjects</button>
+                            <button type="button" className={`buttons1 ${state.summarySelected ? '' : 'unselected'}`} onClick={() => handleButtonClick(<div>{state.apiData.summary.data}</div>)}><img src={summaryicon} alt="summary" className="button-icon"/>Summary</button>
+                            <button type="button" className={`buttons1 ${state.subjectsSelected ? '' : 'unselected'}`} onClick={handleSubjectsClick}><img src={topicsicon} alt="topics" className="button-icon"/>Subjects</button>
                         </div>
                         {state.selectedText && <div className="text-box">{state.selectedText}</div>}
                         <div className="button-row">
@@ -280,8 +283,8 @@ const EventList = () => {
                     <div ref={stepThreeRef} className="containersteps3">
                         <h2 className="stepsname">Step 3: Quizzes! Flashcards! And more!</h2>
                         <div className="button-row">
-                            <button type="button" className="buttons1" onClick={handleQuizzesClick}><img src={quizicon} alt="quizzes" className="button-icon"/>Quizzes</button>
-                            <button type="button" className="buttons1" ><img src={flashcardsicon} alt="flashcards" className="button-icon"/>Flashcards</button>
+                            <button type="button" className={`buttons1 ${state.quizzesSelected ? '' : 'unselected'}`} onClick={handleQuizzesClick}><img src={quizicon} alt="quizzes" className="button-icon"/>Quizzes</button>
+                            <button type="button" className={`buttons1 ${state.flashcardSelected ? '' : 'unselected'}`} ><img src={flashcardsicon} alt="flashcards" className="button-icon"/>Flashcards</button>
                         </div>
                         {state.selectedText2 && <div className="text-box">{state.selectedText2}</div>
                         }
