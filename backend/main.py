@@ -1,22 +1,18 @@
+import re
+import uvicorn
 from dotenv import load_dotenv
 from fastapi import FastAPI, Body
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-import uvicorn
-from rag.rag import generate_chat, generate_transcript_summary, generate_flashcards, generate_flashcards_image_prompts
 from youtube_transcript_api import YouTubeTranscriptApi
-import re
-
-import uvicorn
-from dotenv import load_dotenv
-from fastapi import Body, FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from youtube_transcript_api import YouTubeTranscriptApi
-
-from rag.rag import (generate_chat_response, generate_quiz,
-                     generate_transcript_summary,
-                     generate_subjects)
+from rag.rag import (
+    generate_chat_response,
+    generate_flashcards,
+    generate_flashcards_image_prompts,
+    generate_transcript_summary,
+    generate_quiz,
+    generate_subjects,
+)
 from settings import settings
 
 load_dotenv()
