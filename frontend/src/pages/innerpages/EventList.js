@@ -129,7 +129,7 @@ const EventList = () => {
                                         name={`question-${index}`}
                                         value={answer}
                                         correct={quiz.correct_answer} // Although you can't store non-standard HTML attributes like `correct` in DOM elements, consider handling correctness evaluation in a different way.
-                                        onChange={(e) => handleAnswerChange(e, index, quiz.correct_answer === answer, answerIndex)}
+                                        onChange={(e) => handleAnswerChange(e, index, parseInt(quiz.correct_answer) === answerIndex, answerIndex)}
                                     />
                                     <label htmlFor={`question-${index}-option-${answerIndex}`}>{answer}</label>
                                 </div>
