@@ -54,14 +54,16 @@ async def chat(input_text: str = Body(...)):
 
 
 @app.post("/api/summary/")
-async def summary(input_text: str = Body(...)):
-    transcript_summary = generate_transcript_summary(input_text)
+async def summary(transcript: str = Body(...), user_id: str = Body(...)):
+    transcript_summary = generate_transcript_summary(transcript)
+    save_to_supabase(user_id, transcript_summary, "summary", "txt")
     return {"data": transcript_summary}
 
 
 @app.post("/api/subjects/")
-async def subjects(input_text: str = Body(...)):
-    subjects = generate_subjects(input_text)
+async def subjects(transcript: str = Body(...), user_id: str = Body(...)):
+    subjects = generate_subjects(transcript)
+    save_to_supabase(user_id, subjects, "subjects", "json")
     return {"data": subjects}
 
 
