@@ -316,7 +316,7 @@ const EventList = () => {
                         <h2 className="stepsname">Step 2: Your Initial AI Outcome</h2>
                         <div className="button-row">
                             <button type="button" className={`buttons1 ${state.summarySelected ? '' : 'unselected'}`} onClick={() => handleButtonClick(<div>{state.apiData.summary.data}</div>, state.selectedText2)}><img src={summaryicon} alt="summary" className="button-icon"/>Summary</button>
-                            <button type="button" className={`buttons1 ${state.subjectsSelected ? '' : 'unselected'}`} onClick={() => handleButtonClick(<div>{state.apiData.subjects.data}</div>, state.selectedText2)}><img src={topicsicon} alt="topics" className="button-icon"/>Subjects</button>
+                            <button type="button" className={`buttons1 ${state.subjectsSelected ? '' : 'unselected'}`} onClick={handleSubjectsClick}><img src={topicsicon} alt="topics" className="button-icon"/>Subjects</button>
                         </div>
                         {state.selectedText && <div className="text-box">{state.selectedText}</div>}
                         <div className="button-row">
