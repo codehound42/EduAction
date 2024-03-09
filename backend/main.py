@@ -114,8 +114,8 @@ async def flashcards(transcript: str = Body(...), user_id: str = Body(...)):
 
 @app.post("/api/quiz/")
 async def quiz(transcript: str = Body(...), user_id: str = Body(...)):
-    quiz = generate_quiz(transcript)
-    save_to_supabase(user_id, quiz.json(), "quiz", "json")
+    quiz = await generate_quiz(transcript)
+    save_to_supabase(user_id, quiz, "quiz", "json")
     return {"data": quiz}
 
 

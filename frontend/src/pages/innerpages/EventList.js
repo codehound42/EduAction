@@ -18,6 +18,7 @@ const EventList = () => {
     const stepThreeRef = useRef(null);
     const [selectedanswers, setSelectedanswers] = useState({});
     const [evaluationresults, setEvaluationresults] = useState({});
+    const [user_id, setUserId] = useState("94bd2faf-d21b-452d-a9a2-0159363a11fd");
 
 
     const handleButtonClick = (text) => {
@@ -38,8 +39,10 @@ const EventList = () => {
         fetch('http://localhost:8000/api/yt_link/', { // Replace with your actual endpoint
             // mode: 'cors',
             method: 'POST', // POST
-
-            body: JSON.stringify(youtubeLink)
+            headers: {
+                'Content-Type': 'application/json', // Indicate that you're sending JSON data
+            },
+            body: JSON.stringify({url: youtubeLink, user_id})
         })
             .then(response => response.json())
             .then(data => {
@@ -52,8 +55,10 @@ const EventList = () => {
                 fetch('http://localhost:8000/api/summary/', { // Replace with your actual endpoint
                     // mode: 'cors',
                     method: 'POST', // POST
-
-                    body: JSON.stringify(data)
+                    headers: {
+                        'Content-Type': 'application/json', // Indicate that you're sending JSON data
+                    },
+                    body: JSON.stringify({transcript: data, user_id})
                 })
                     .then(response => response.json())
                     .then(summary => {
@@ -70,8 +75,10 @@ const EventList = () => {
                 fetch('http://localhost:8000/api/subjects/', { // Replace with your actual endpoint
                     // mode: 'cors',
                     method: 'POST', // POST
-
-                    body: JSON.stringify(data)
+                    headers: {
+                        'Content-Type': 'application/json', // Indicate that you're sending JSON data
+                    },
+                    body: JSON.stringify({transcript: data, user_id})
                 })
                     .then(response => response.json())
                     .then(topicsubjects => {
@@ -89,8 +96,10 @@ const EventList = () => {
                 fetch('http://localhost:8000/api/quiz/', { // Replace with your actual endpoint
                     // mode: 'cors',
                     method: 'POST', // POST
-
-                    body: JSON.stringify(data)
+                    headers: {
+                        'Content-Type': 'application/json', // Indicate that you're sending JSON data
+                    },
+                    body: JSON.stringify({transcript: data, user_id})
                 })
                     .then(response => response.json())
                     .then(quizzes => {
