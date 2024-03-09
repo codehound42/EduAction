@@ -3,7 +3,7 @@ from fastapi import FastAPI, Body
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import uvicorn
-from rag.rag import generate_chat, generate_transcript_summary
+from rag.rag import generate_chat, generate_transcript_summary, generate_flashcards, generate_flashcards_image_prompts
 from youtube_transcript_api import YouTubeTranscriptApi
 import re
 
@@ -55,9 +55,23 @@ async def yt_link(url: str = Body(...)):
         processed_row = re.sub(r'\n+', ' ', row['text'])
         processed_subtitles += processed_row + " "
 
-    transcript_summary = generate_transcript_summary(processed_subtitles)
+    # transcript_summary = generate_transcript_summary(processed_subtitles)
 
-    return transcript_summary
+    return processed_subtitles
+
+@app.post("/api/flashcard/")
+async def flashcard(input_text: str = Body(...)):
+    flashcard_text = generate_flashcards(input_text)
+    flashcard_prompts = generate_flashcards_image_prompts(flashcard_text)
+
+    flashcard_prompts_list = []
+    for prompt in enumerate(flashcard_prompts.split('\n')):
+        # prompt = re.sub(r"Q\d+:?\s*", "", prompt)
+        flashcard_prompts_list.append(prompt)
+
+    return {"response": flashcard_text}
+
+
 
 
 
