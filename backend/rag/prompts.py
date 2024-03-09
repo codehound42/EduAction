@@ -5,6 +5,21 @@ TRANSCRIPT_SUMMARY_TEMPLATE = """Given the following lecture transcript, summari
 
 # Summary"""
 
+CLEAN_TRANSCRIPT_TEMPLATE = """Given is a raw transcript of a video. It was made by concatenating transcriptions from chunks of the full video text. Clean the trancsript by making the transition between the chunks smooth and coherent. Below is an example of how this might look:
+
+<example>
+# Raw transcript
+The speaker welcomes everyone and introduces the topic for the lecture. The content of the lecture is not provided in the given transcript. The lecture will explore the history of the Aztec civilization. The lecture discusses the history of the Aztec Empire, starting from its humble beginnings. The lecture discusses the rise and subsequent decline of a subject from its modest origins to its dramatic downfall.
+
+# Cleaned transcript
+The speaker welcomes everyone and introduces the topic for the lecture. The lecture will explore the history of the Aztec civilization, starting from its humble beginnings to its dramatic fall.
+</example>
+
+# Raw transcript
+{transcript}
+
+# Cleaned transcript"""
+
 SUBJECTS_TEMPLATE = """Generate a list of the top 5-10 subjects covered in given transcript.
 
 <example>

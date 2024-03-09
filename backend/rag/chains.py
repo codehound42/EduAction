@@ -7,7 +7,7 @@ from langchain_core.output_parsers import BaseOutputParser, PydanticOutputParser
 from pydantic import Field
 from langchain_core.pydantic_v1 import BaseModel
 
-from .prompts import TRANSCRIPT_SUMMARY_TEMPLATE, QUIZ_TEMPLATE, SUBJECTS_TEMPLATE, FLASHCARDS_TEMPLATE
+from .prompts import TRANSCRIPT_SUMMARY_TEMPLATE, QUIZ_TEMPLATE, SUBJECTS_TEMPLATE, FLASHCARDS_TEMPLATE, CLEAN_TRANSCRIPT_TEMPLATE
 
 class QuestionAndAnswer(BaseModel):
     question: str = Field(description="The quiz question.")
@@ -78,5 +78,14 @@ def create_subjects_chain(llm: BaseLanguageModel) -> Runnable:
         PromptTemplate.from_template(SUBJECTS_TEMPLATE) | llm | JsonOutputParser(pydantic_object=Subjects)
     ).with_config(
         run_name="QuizChain",
+    )
+    return chain
+
+
+def create_clean_transcript_chain(llm: BaseLanguageModel) -> Runnable:
+    chain = (
+        PromptTemplate.from_template(CLEAN_TRANSCRIPT_TEMPLATE) | llm | StrOutputParser()
+    ).with_config(
+        run_name="CleanTranscriptChain",
     )
     return chain

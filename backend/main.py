@@ -55,7 +55,7 @@ async def chat(input_text: str = Body(...)):
 
 @app.post("/api/summary/")
 async def summary(transcript: str = Body(...), user_id: str = Body(...)):
-    transcript_summary = generate_transcript_summary(transcript)
+    transcript_summary = await generate_transcript_summary(transcript)
     save_to_supabase(user_id, transcript_summary, "summary", "txt")
     return {"data": transcript_summary}
 
