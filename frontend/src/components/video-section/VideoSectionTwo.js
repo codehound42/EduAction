@@ -1,104 +1,112 @@
-import React, { useState } from 'react';
-import FsLightbox from 'fslightbox-react';
-import ScrollAnimation from 'react-animate-on-scroll';
-import SectionTitle from '../sectionTitle/SectionTitle';
-import { FaPlay } from 'react-icons/fa';
+import React, { useContext, useState } from "react";
+import FsLightbox from "fslightbox-react";
+import ScrollAnimation from "react-animate-on-scroll";
+import SectionTitle from "../sectionTitle/SectionTitle";
+import { FaPlay } from "react-icons/fa";
+import { Accordion, useAccordionButton } from "react-bootstrap";
+import AccordionContext from "react-bootstrap/AccordionContext";
 
-const items = [
-    {
-        title: 'Flexible Classes',
-        info: 'Fusce tempor, tortor vehicula posuere, mi est iaculis quam, nec luctus enim',
-        icon: 'icon-student'
-    },
-    {
-        title: 'Offline Mode',
-        info: 'Fusce tempor, tortor vehicula posuere, mi est iaculis quam, nec luctus enim',
-        icon: 'icon-square'
-    },
-    {
-        title: 'Flexible Learning',
-        info: 'Fusce tempor, tortor vehicula posuere, mi est iaculis quam, nec luctus enim',
-        icon: 'icon-research'
-    },
-    {
-        title: 'Educator Support',
-        info: 'Fusce tempor, tortor vehicula posuere, mi est iaculis quam, nec luctus enim',
-        icon: 'icon-clock'
-    }
+const accordionItems = [
+  {
+    id: 1,
+    title: "How does EduAction improves my study?",
+    body: "Learning management system, combines a wide range of features to present a class setting without having the students come into a physical classroom. It all depends on the WordPress LMS plugin you go with, but in general.",
+  },
+  {
+    id: 2,
+    title: "is there a limit to the lecture lenght?",
+    body: "Learning management system, combines a wide range of features to present a class setting without having the students come into a physical classroom. It all depends on the WordPress LMS plugin you go with, but in general.",
+  },
+  {
+    id: 3,
+    title: "Can I use your tool... more than once?",
+    body: "Learning management system, combines a wide range of features to present a class setting without having the students come into a physical classroom. It all depends on the WordPress LMS plugin you go with, but in general.",
+  },
+  {
+    id: 4,
+    title: "Can I save the Education aids I create?",
+    body: "Learning management system, combines a wide range of features to present a class setting without having the students come into a physical classroom. It all depends on the WordPress LMS plugin you go with, but in general.",
+  },
+  {
+    id: 5,
+    title: "Does Focus offer integration with other software tools?",
+    body: "Learning management system, combines a wide range of features to present a class setting without having the students come into a physical classroom. It all depends on the WordPress LMS plugin you go with, but in general.",
+  },
 ];
 
+const CustomToggle = ({ children, eventKey }) => {
+  const { activeEventKey } = useContext(AccordionContext);
+  const decoratedOnClick = useAccordionButton(eventKey);
+  const isCurrentEventKey = activeEventKey === eventKey;
+  return (
+    <button
+      type="button"
+      onClick={decoratedOnClick}
+      aria-expanded={isCurrentEventKey ? true : false}
+      className="edu-accordion-button"
+    >
+      {children}
+    </button>
+  );
+};
+
 const VideoSectionTwo = () => {
-    const [toggler, setToggler] = useState(false);
-    const videoLink = ['https://www.youtube.com/watch?v=pNje3bWz7V8'];
-    return (
-        <div className="edu-feature-area eduvibe-home-one-video edu-section-gap bg-color-white">
-            <div className="container eduvibe-animated-shape">
-                <div className="row row--35">
-                    <div className="col-lg-5 col-12 order-2 order-lg-1">
-                        <div className="inner mt_md--40 mt_sm--40">
-                            <SectionTitle
-                                classes = "text-start"
-                                slogan = "Why Choose US"
-                                title = "Our Core Features"
-                            />
-                            <div className="feature-list-wrapper mt--10">
-                                { items.map( ( data , i ) => (
-                                    <ScrollAnimation 
-                                        animateIn="fadeInUp"
-                                        animateOut="fadeInOut"
-                                        className="feature-list mt--35 mt_mobile--15"
-                                        animateOnce={ true }
-                                        key={ i }
-                                    >
-                                        <div className="icon">
-                                            <i className={ data.icon }></i>
-                                        </div>
-                                        <div className="content">
-                                            <h6 className="title">{ data.title }</h6>
-                                            <p>{ data.info }</p>
-                                        </div>
-                                    </ScrollAnimation>
-                                ) ) }
-                            </div>
-                        </div>
-                    </div>
+  const [activeId, setActiveId] = useState("0");
+  function toggleActive(id) {
+    if (activeId === id) {
+      setActiveId(null);
+    } else {
+      setActiveId(id);
+    }
+  }
 
-                    <div className="col-lg-7 col-12 order-1 order-lg-2">
-                        <div className="feature-thumbnail">
-                            <div className="main-image video-popup-wrapper video-popup-two">
-                                <img src={`${process.env.PUBLIC_URL}./images/videopopup/choose-us-image-01.jpg`} alt="Video PopUp Thumb" />
+  return (
+    <div className="edu-accordion-area eduvibe-home-three-accordion accordion-shape-1 edu-section-gap bg-color-white">
+    <div className="container eduvibe-animated-shape">
+        <div className="row g-5">
 
-                                <button className="video-play-btn with-animation position-to-top btn-large video-popup-activation eduvibe-video-play-icon color-secondary" onClick={ () => setToggler( ! toggler ) }><span><FaPlay className="play-icon" /></span></button>
-                            </div>
-
-                            <div className="circle-image">
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="shape-dot-wrapper shape-wrapper d-xl-block d-none">
-                    <div className="shape-image shape-image-1">
-                        <img src="/images/shapes/shape-14.png" alt="Shape Thumb" />
-                    </div>
-                    <div className="shape-image shape-image-2">
-                        <img src="/images/shapes/shape-11-01.png" alt="Shape Thumb" />
-                    </div>
-                    <div className="shape-image shape-image-3">
-                        <img src="/images/shapes/shape-15.png" alt="Shape Thumb" />
-                    </div>
-                </div>
-            </div>
-            <div className="video-lightbox-wrapper">
-                <FsLightbox 
-                    toggler={ toggler } 
-                    sources={ videoLink }
-                    maxYoutubeVideoDimensions={ { width: 900, height: 550 } }
+            <div className="col-lg-12">
+                <SectionTitle
+                    classes = "text-center mb--40"
+                    slogan = ""
+                    title = "Frequently Asked Questions"
                 />
+                <ScrollAnimation 
+                    animateIn="fadeInUp"
+                    animateOut="fadeInOut"
+                    className="accordion-style-1"
+                    animateOnce={ true }
+                >
+                    <Accordion bsPrefix="edu-accordion" defaultActiveKey="0" flush>
+                        {
+                            accordionItems.map( ( accordion, i ) => (
+                                <Accordion.Item eventKey={i.toString()} key={i} onClick={() => toggleActive(i.toString())} bsPrefix={`edu-accordion-item ${activeId === i.toString() ? 'active-item' : ''}`}>
+                                    <div className="edu-accordion-header">
+                                        <CustomToggle eventKey={ i.toString() }>{ accordion.title }</CustomToggle>
+                                    </div>
+                                    <Accordion.Body bsPrefix="edu-accordion-body">{ accordion.body }</Accordion.Body>
+                                </Accordion.Item>
+                            ) )
+                        }
+                    </Accordion>
+                </ScrollAnimation>
+                <div className="text-center mt--50">
+                Can’t find the answer you’re looking for? Reach out to us in the email below.
+                </div>
             </div>
         </div>
-    )
-}
+
+        <div className="shape-dot-wrapper shape-wrapper d-xl-block d-none">
+            <div className="shape-image shape-image-2">
+                <img src="/images/shapes/shape-11-04.png" alt="Shape Thumb" />
+            </div>
+            <div className="shape-image shape-image-3">
+                <img src="/images/shapes/shape-25-01.png" alt="Shape Thumb" />
+            </div>
+        </div>
+    </div>
+</div>
+  );
+};
 
 export default VideoSectionTwo;

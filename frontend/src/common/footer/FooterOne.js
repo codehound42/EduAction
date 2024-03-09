@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ScrollTopButton from './ScrollTopButton';
+import { FaArrowRight, FaMap } from 'react-icons/fa';
 
 const FooterOne = () => {
     return (
         <>
             <footer className="eduvibe-footer-one edu-footer footer-style-default">
-                <div className="footer-top">
+                <div className="">
                     <div className="container eduvibe-animated-shape">
-                        <div className="row g-5">
+                        <div className="row g-5 pt--30">
                             <div className="col-lg-3 col-md-6 col-sm-12 col-12">
                                 <div className="edu-footer-widget">
                                     <div className="logo">
@@ -16,8 +17,8 @@ const FooterOne = () => {
                                             <img className="logo-light" src="/images/logo/logo-white.png" alt="Footer Logo" />
                                         </Link>
                                     </div>
-                                    <p className="description">It is a long established fact that a reader will be distracted by the readable content of a
-                                        page when looking at its layout. The point of using Lorem Ipsum.</p>
+                                    <p className="description">From idea to product, in 1 hackathon.</p>
+                                    <p className="description"><FaMap className="" style={{ marginRight: '10px' }} />Canary WharfLondon, GB</p>
                                     <ul className="social-share">
                                         <li><a href="#"><i className="icon-Fb"></i></a></li>
                                         <li><a href="#"><i className="icon-linkedin"></i></a></li>
@@ -29,15 +30,13 @@ const FooterOne = () => {
 
                             <div className="col-lg-3 col-md-6 col-sm-6 col-12">
                                 <div className="edu-footer-widget explore-widget">
-                                    <h5 className="widget-title">Explore</h5>
+                                    <h5 className="widget-title">SOLUTION</h5>
                                     <div className="inner">
                                         <ul className="footer-link link-hover">
-                                            <li><Link to="/about-us-1"><i className="icon-Double-arrow"></i>About Us</Link></li>
-                                            <li><Link to="/event-grid"><i className="icon-Double-arrow"></i>Upcoming Events</Link></li>
-                                            <li><Link to="/blog-standard"><i className="icon-Double-arrow"></i>Blog & News</Link></li>
-                                            <li><Link to="/faq"><i className="icon-Double-arrow"></i>FAQ Question</Link></li>
-                                            <li><Link to="/testimonial"><i className="icon-Double-arrow"></i>Testimonial</Link></li>
-                                            <li><Link to="/privacy-policy"><i className="icon-Double-arrow"></i>Privacy Policy</Link></li>
+                                            <li><Link to="/"><i className="icon-Double-arrow"></i>Students</Link></li>
+                                            <li><Link to="/"><i className="icon-Double-arrow"></i>Teachers</Link></li>
+                                            <li><Link to="/"><i className="icon-Double-arrow"></i>Reporters</Link></li>
+                                            <li><Link to="/"><i className="icon-Double-arrow"></i>Podcasters</Link></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -45,15 +44,13 @@ const FooterOne = () => {
 
                             <div className="col-lg-3 col-md-6 col-sm-6 col-12">
                                 <div className="edu-footer-widget quick-link-widget">
-                                    <h5 className="widget-title">Useful Links</h5>
+                                    <h5 className="widget-title">Tech</h5>
                                     <div className="inner">
                                         <ul className="footer-link link-hover">
-                                            <li><Link to="/contact-us"><i className="icon-Double-arrow"></i>Contact Us</Link></li>
-                                            <li><Link to="/pricing"><i className="icon-Double-arrow"></i>Pricing Plan</Link></li>
-                                            <li><Link to="/instructor-details/james-carlson"><i className="icon-Double-arrow"></i>Instructor Profile</Link></li>
-                                            <li><Link to="/purchase-guide"><i className="icon-Double-arrow"></i>Purchase Guide</Link></li>
-                                            <li><Link to="/course-1"><i className="icon-Double-arrow"></i>Popular Courses</Link></li>
-                                            <li><Link to="/event-details/1"><i className="icon-Double-arrow"></i>Event Details</Link></li>
+                                        <li><Link to="/"><i className="icon-Double-arrow"></i>AI</Link></li>
+                                            <li><Link to="/"><i className="icon-Double-arrow"></i>ML</Link></li>
+                                            <li><Link to="/"><i className="icon-Double-arrow"></i>Stability AI</Link></li>
+                                            <li><Link to="/"><i className="icon-Double-arrow"></i>Other</Link></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -61,15 +58,15 @@ const FooterOne = () => {
 
                             <div className="col-lg-3 col-md-6 col-sm-6 col-12">
                                 <div className="edu-footer-widget">
-                                    <h5 className="widget-title">Contact Info</h5>
+                                    <h5 className="widget-title">COMPANY</h5>
                                     <div className="inner">
                                         <div className="widget-information">
                                             <ul className="information-list">
-                                                <li><i className="icon-map-pin-line"></i>275 Quadra Street Victoria Road, New York
-                                                </li>
-                                                <li><i className="icon-phone-fill"></i><a href="tel: + 1 (237) 382-2839">+ 1 (237) 382-2839</a></li>
-                                                <li><i className="icon-phone-fill"></i><a href="tel: + 1 (237) 382-2840">+ 1 (237) 382-2840</a></li>
-                                                <li><i className="icon-mail-line-2"></i><a target="_blank" href="mailto:yourmailaddress@example.com">yourmailaddress@example.com</a></li>
+                                            <li><Link to="/"><i className="icon-Double-arrow"></i>Emil</Link></li>
+                                            <li><Link to="/"><i className="icon-Double-arrow"></i>Nadav</Link></li>
+                                            <li><Link to="/"><i className="icon-Double-arrow"></i>Basem</Link></li>
+                                            <li><Link to="/"><i className="icon-Double-arrow"></i>Jeremy</Link></li>
+                                            <li><Link to="/"><i className="icon-Double-arrow"></i>Maciek</Link></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -92,8 +89,7 @@ const FooterOne = () => {
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="inner text-center">
-                                    <p>Copyright 2022 <a href="#">EduVibe</a> Designed By <a href="https://themeforest.net/user/devsvibe">DevsVibe</a>. All Rights
-                                        Reserved</p>
+                                    <p>© Copyright 2024. All rights reserved.</p>
                                 </div>
                             </div>
                         </div>
