@@ -205,6 +205,7 @@ img.loading {
   height: 20rem;
   width: 390%;
 
+<<<<<<< HEAD
   border-radius: 15px;
 
   background-color: rgb(165, 180, 244);
@@ -243,3 +244,24 @@ img.loading {
   margin-bottom: 2%;
   margin-top: 2%;
 }
+=======
+}
+
+.feedback {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+
+.logo-light{
+    min-height: 75px;
+}
+>>>>>>> b24c4671998ace3b745bdb2b7e50da37f6d13df4

@@ -35,7 +35,7 @@ const AboutSix = () => {
                                     className="read-more-btn"
                                     animateOnce={ true }
                                 >
-                                    <Link className="edu-btn btn-white" to="/event-list">More Upcomming Workshop<i className="icon-arrow-right-line-right"></i></Link>
+                                    <Link className="edu-btn btn-white" to="/start">More Upcomming Workshop<i className="icon-arrow-right-line-right"></i></Link>
                                 </ScrollAnimation>
                             </div>
                         </div>

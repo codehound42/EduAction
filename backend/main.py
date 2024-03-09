@@ -55,14 +55,14 @@ async def chat(input_text: str = Body(...)):
 
 @app.post("/api/summary/")
 async def summary(transcript: str = Body(...), user_id: str = Body(...)):
-    transcript_summary = generate_transcript_summary(transcript)
+    transcript_summary = await generate_transcript_summary(transcript)
     save_to_supabase(user_id, transcript_summary, "summary", "txt")
     return {"data": transcript_summary}
 
 
 @app.post("/api/subjects/")
 async def subjects(transcript: str = Body(...), user_id: str = Body(...)):
-    subjects = generate_subjects(transcript)
+    subjects = await generate_subjects(transcript)
     save_to_supabase(user_id, subjects, "subjects", "json")
     return {"data": subjects}
 
@@ -86,7 +86,7 @@ async def yt_link(url: str = Body(...), user_id: str = Body(...)):
 
 @app.post("/api/flashcards/")
 async def flashcards(transcript: str = Body(...), user_id: str = Body(...)):
-    flashcards = generate_flashcards(transcript)
+    flashcards = await generate_flashcards(transcript)
 
     # Creating a list of coroutine objects for each flashcard prompt
     coroutine_tasks = [generate_image(flashcard.image_prompt) for flashcard in flashcards.flashcards]
@@ -113,9 +113,9 @@ async def flashcards(transcript: str = Body(...), user_id: str = Body(...)):
 
 
 @app.post("/api/quiz/")
-async def quiz(input_text: str = Body(...)):
-    quiz = generate_quiz(input_text)
-
+async def quiz(transcript: str = Body(...), user_id: str = Body(...)):
+    quiz = await generate_quiz(transcript)
+    save_to_supabase(user_id, quiz, "quiz", "json")
     return {"data": quiz}
 
 

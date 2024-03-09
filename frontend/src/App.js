@@ -94,7 +94,7 @@ function App() {
                     <Route exact path={`${process.env.PUBLIC_URL + '/course-details-two/:id'}`} element={<CourseDetailsTwo/>}/>
                     <Route exact path={`${process.env.PUBLIC_URL + '/course-filter-sidebar'}`} element={<CourseFilterSidebar />}/>
                     <Route exact path={`${process.env.PUBLIC_URL + '/event-grid'}`} element={<EventGrid/>}/>
-                    <Route exact path={`${process.env.PUBLIC_URL + '/event-list'}`} element={<EventList/>}/>
+                    <Route exact path={`${process.env.PUBLIC_URL + '/start'}`} element={<EventList/>}/>
                     <Route exact path={`${process.env.PUBLIC_URL + '/event-load-more'}`} element={<EventLoadMore/>}/>
                     <Route exact path={`${process.env.PUBLIC_URL + '/event-carousel'}`} element={<EventCarousel/>}/>
                     <Route exact path={`${process.env.PUBLIC_URL + '/event-details/:id'}`} element={<EventDetails/>}/>
