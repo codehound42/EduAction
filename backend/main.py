@@ -8,13 +8,13 @@ from youtube_transcript_api import YouTubeTranscriptApi
 from rag.rag import (
     generate_chat_response,
     generate_flashcards,
-    generate_flashcards_image_prompts,
     generate_transcript_summary,
     generate_quiz,
     generate_subjects,
     generate_image
 )
 from settings import settings
+import asyncio
 
 load_dotenv()
 
@@ -74,17 +74,21 @@ async def yt_link(url: str = Body(...)):
     return processed_subtitles
 
 
-@app.post("/api/flashcard/")
-async def flashcard(input_text: str = Body(...)):
-    flashcard_text = generate_flashcards(input_text)
-    flashcard_prompts = generate_flashcards_image_prompts(flashcard_text)
+@app.post("/api/flashcards/")
+async def flashcards(input_text: str = Body(...)):
+    flashcards = generate_flashcards(input_text)
 
-    image_base64 = []
-    for flashcard in flashcard_prompts:
-        response = generate_image(flashcard)
-        image_base64.append(response.json()["artifact"][0]["base64"])
+    # Creating a list of coroutine objects for each flashcard prompt
+    coroutine_tasks = [generate_image(flashcard.image_prompt) for flashcard in flashcards.flashcards]
 
-    return {"flashcard_text": flashcard_text, "images" : image_base64}
+    # Using asyncio.gather to run coroutine tasks concurrently
+    responses = await asyncio.gather(*coroutine_tasks)
+
+    questions = [flashcard.question for flashcard in flashcards.flashcards]
+    answers = [flashcard.answer for flashcard in flashcards.flashcards]
+    images = [response.json()["artifacts"][0]["base64"] for response in responses]
+
+    return {"questions": questions, "answers": answers, "images": images}
 
 
 @app.post("/api/quiz/")

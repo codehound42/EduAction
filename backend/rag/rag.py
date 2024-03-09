@@ -1,9 +1,12 @@
-from langchain_openai import ChatOpenAI
-from dotenv import load_dotenv
-import requests
 import os
 
-from rag.chains import create_chat_chain, create_transcript_summary_chain, create_quiz_chain, create_flashcard_text_chain, create_flashcard_prompts_chain, create_subjects_chain
+import requests
+from dotenv import load_dotenv
+from langchain_openai import ChatOpenAI
+
+from rag.chains import (create_chat_chain, create_flashcard_chain,
+                        create_quiz_chain, create_subjects_chain,
+                        create_transcript_summary_chain)
 
 load_dotenv()
 
@@ -13,8 +16,7 @@ stability_model = "stable-diffusion-v1-6"
 
 chat_chain = create_chat_chain(llm)
 summary_chain = create_transcript_summary_chain(llm)
-flashcard_text_chain = create_flashcard_text_chain(llm)
-flashcard_prompts_chain = create_flashcard_prompts_chain(llm)
+flashcard_chain = create_flashcard_chain(llm)
 quiz_chain = create_quiz_chain(llm)
 subjects_chain = create_subjects_chain(llm)
 
@@ -28,14 +30,10 @@ def generate_transcript_summary(input_text: str):
     return response
 
 def generate_flashcards(input_text: str):
-    response = flashcard_text_chain.invoke({"input": input_text})
+    response = flashcard_chain.invoke({"transcript": input_text})
     return response
 
-def generate_flashcards_image_prompts(input_text: str):
-    response = flashcard_prompts_chain.invoke({"input": input_text})
-    return response
-
-def generate_image(prompt, stability_api=stability_api, stability_model=stability_model):
+async def generate_image(prompt, stability_api=stability_api, stability_model=stability_model):
     response = requests.post(
         f"{stability_api}/v1/generation/{stability_model}/text-to-image",
         headers={

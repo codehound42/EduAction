@@ -68,3 +68,23 @@ QUIZ_TEMPLATE = """Given the following lecture transcript. Generate a quiz based
 {transcript}
 
 # Quiz"""
+
+
+FLASHCARDS_TEMPLATE = """Given the following lecture transcript. Generate a list of flashcards based on the content. The format of the flashcards should be a list of question, answer and an image prompt that will be sent to Stable Diffusion for image generation. See the example format below:
+
+<example>
+{{
+    "flashcards": [
+        {{
+            "question": "What is the capital of France?",
+            "answer": "Paris",
+            "image_prompt": "An image of the city Paris in France"
+        }},
+    ]
+}}
+</example>
+
+# Transcript
+{transcript}
+
+# Flashcards"""
