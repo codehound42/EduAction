@@ -15,6 +15,9 @@ from rag.rag import (
 )
 from settings import settings
 import asyncio
+import os
+from supabase import create_client
+import uuid
 
 load_dotenv()
 
@@ -26,6 +29,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+supabase = create_client(supabase_url=os.environ.get("SUPABASE_URL"), supabase_key=os.environ.get("SUPABASE_KEY"))
 
 
 class ChatIn(BaseModel):
@@ -59,7 +64,7 @@ async def subjects(input_text: str = Body(...)):
 
 
 @app.post("/api/yt_link/")
-async def yt_link(url: str = Body(...)):
+async def yt_link(url: str = Body(...), user_id: str = Body(...)):
     if "&list" in url:
         url = url.split("&list")[0]
     video_id = url.split("?v=")[1]
@@ -69,8 +74,9 @@ async def yt_link(url: str = Body(...)):
         processed_row = re.sub(r'\n+', ' ', row['text'])
         processed_subtitles += processed_row + " "
 
-    # transcript_summary = generate_transcript_summary(processed_subtitles)
+    save_to_supabase(user_id, processed_subtitles, "yt_links", "txt")
 
+    # transcript_summary = generate_transcript_summary(processed_subtitles)
     return processed_subtitles
 
 
@@ -94,7 +100,32 @@ async def flashcards(input_text: str = Body(...)):
 @app.post("/api/quiz/")
 async def quiz(input_text: str = Body(...)):
     quiz = generate_quiz(input_text)
+
     return {"data": quiz}
+
+
+@app.post("/user/create/")
+async def create_user(username: str = Body(...)):
+    data, _ = supabase.table('users').insert({"username": username}).execute()
+    return {"data": data}
+
+
+def save_to_supabase(user_id, data, bucket_subfolder, file_extension):
+    bucket = supabase.storage.get_bucket("content")
+
+    if file_extension == "txt":
+        file_type = "text/html"
+    elif file_extension == "png":
+        file_type = "image/png"
+    else:
+        raise NotImplementedError
+
+    tmp_filename = str(uuid.uuid4()) + f".{file_extension}"
+    file_path = f"/tmp/{tmp_filename}.{file_extension}"
+    with open(file_path, "w") as fp:
+        fp.write(data)
+
+    bucket.upload(path=f"{user_id}/{bucket_subfolder}/{tmp_filename}", file=file_path, file_options={"content-type": file_type})
 
 
 if __name__ == "__main__":
