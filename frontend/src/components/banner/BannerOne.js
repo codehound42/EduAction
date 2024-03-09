@@ -23,7 +23,7 @@ const BannerOne = () => {
                     you to memorise, and practice!
                   </p>
                   <div className="read-more-btn">
-                    <Link className="edu-btn" to="/step1">
+                    <Link className="edu-btn" to="/event-list">
                       Get Started Today{" "}
                       <i className="icon-arrow-right-line-right"></i>
                     </Link>

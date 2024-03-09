@@ -46,7 +46,7 @@ const HeaderTwo = ( { styles, disableSticky, searchDisable, buttonStyle } ) => {
                         <div className="header-right d-flex justify-content-end">
                             <div className="header-menu-bar">
                                 <div className="quote-icon quote-user d-none d-md-block ml--15 ml_sm--5">
-                                    <Link className={`edu-btn btn-medium left-icon header-button ${ buttonStyle || '' }`} to={process.env.PUBLIC_URL + "/step1"}>
+                                    <Link className={`edu-btn btn-medium left-icon header-button ${ buttonStyle || '' }`} to={process.env.PUBLIC_URL + "/event-list"}>
                                         <i className="ri-play-fill"></i>Start
                                     </Link>
                                 </div>
