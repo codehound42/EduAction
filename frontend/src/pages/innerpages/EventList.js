@@ -69,22 +69,33 @@ const EventList = () => {
     setState((prevState) => ({ ...prevState, isLoading: true }));
 
     try {
-      const transcriptData = await fetchData("yt_link", {
+      const transcriptDataPromise = fetchData("yt_link", {
         url: state.youtubeLink,
         user_id: state.user_id,
       });
-      const summaryData = await fetchData("summary", {
+
+      // Start all fetch operations concurrently
+      const transcriptData = await transcriptDataPromise; // Wait for the transcript data as it's needed for other requests
+
+      const summaryDataPromise = fetchData("summary", {
         transcript: transcriptData,
         user_id: state.user_id,
       });
-      const subjectsData = await fetchData("subjects", {
+      const subjectsDataPromise = fetchData("subjects", {
         transcript: transcriptData,
         user_id: state.user_id,
       });
-      const quizzesData = await fetchData("quiz", {
+      const quizzesDataPromise = fetchData("quiz", {
         transcript: transcriptData,
         user_id: state.user_id,
       });
+
+      // Wait for all the other fetch operations to complete
+      const [summaryData, subjectsData, quizzesData] = await Promise.all([
+        summaryDataPromise,
+        subjectsDataPromise,
+        quizzesDataPromise,
+      ]);
 
       // console.log the data
       console.log("Transcript:", transcriptData);
@@ -109,6 +120,7 @@ const EventList = () => {
   };
 
   const handleGenerateQuizClick = () => {
+    handleQuizzesClick();
     setState((prevState) => ({ ...prevState, showStepThree: true }));
     setTimeout(() => {
       stepThreeRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -138,48 +150,64 @@ const EventList = () => {
     }
   };
 
-  const handleQuizzesClick = () => {
-    const { quizzes } = state.apiData;
-    if (quizzes && quizzes.data) {
-      const quizzesContent = (
-        <form onSubmit={(e) => e.preventDefault()}>
-          {quizzes.data.map((quiz, index) => (
-            <div key={index} className="quiz-block">
-              <h4>
-                Q{index + 1}: {quiz.question}
-              </h4>
-              {quiz.answers.map((answer, answerIndex) => (
-                <div key={answerIndex}>
-                  <input
-                    type="radio"
-                    id={`question-${index}-option-${answerIndex}`}
-                    name={`question-${index}`}
-                    value={answer}
-                    correct={quiz.correct_answer} // Although you can't store non-standard HTML attributes like `correct` in DOM elements, consider handling correctness evaluation in a different way.
-                    onChange={(e) =>
-                      handleAnswerChange(
-                        e,
-                        index,
-                        parseInt(quiz.correct_answer) === answerIndex,
-                        answerIndex,
-                      )
-                    }
-                  />
-                  <label htmlFor={`question-${index}-option-${answerIndex}`}>
-                    {answer}
-                  </label>
-                </div>
-              ))}
-              {state.evaluationResults[index] !== undefined && (
+  // Extract quizzes content creation logic into a reusable function
+  const createQuizzesContent = (
+    quizzesData,
+    selectedAnswers,
+    evaluationResults,
+    handleAnswerChange,
+  ) => {
+    return (
+      <form onSubmit={(e) => e.preventDefault()}>
+        {quizzesData.map((quiz, index) => (
+          <div key={index} className="quiz-block">
+            <h4>
+              Q{index + 1}: {quiz.question}
+            </h4>
+            {quiz.answers.map((answer, answerIndex) => (
+              <div key={answerIndex}>
+                <input
+                  type="radio"
+                  id={`question-${index}-option-${answerIndex}`}
+                  name={`question-${index}`}
+                  value={answer}
+                  onChange={(e) =>
+                    handleAnswerChange(
+                      e,
+                      index,
+                      parseInt(quiz.correct_answer) === answerIndex,
+                      answerIndex,
+                    )
+                  }
+                  checked={selectedAnswers && selectedAnswers[index] === answer}
+                />
+                <label htmlFor={`question-${index}-option-${answerIndex}`}>
+                  {answer}
+                </label>
+              </div>
+            ))}
+            {evaluationResults &&
+              evaluationResults[index]?.answerIndex !== undefined && (
                 <span>
-                  {state.evaluationResults[index].isCorrect
+                  {evaluationResults[index].isCorrect
                     ? "✅ Correct"
                     : "❌ Incorrect"}
                 </span>
               )}
-            </div>
-          ))}
-        </form>
+          </div>
+        ))}
+      </form>
+    );
+  };
+
+  const handleQuizzesClick = () => {
+    const { quizzes } = state.apiData;
+    if (quizzes && quizzes.data) {
+      const quizzesContent = createQuizzesContent(
+        quizzes.data,
+        state.selectedAnswers,
+        state.evaluationResults,
+        handleAnswerChange,
       );
       setState((prevState) => ({
         ...prevState,
@@ -191,12 +219,44 @@ const EventList = () => {
   };
 
   const handleAnswerChange = (event, questionIndex, isCorrect, answerIndex) => {
-    // Update the selected answer and its evaluation
     setState((prevState) => {
-      const newEvaluationResults = { ...prevState.evaluationResults };
-      newEvaluationResults[questionIndex] = { isCorrect, answerIndex };
-      return { ...prevState, evaluationResults: newEvaluationResults };
+      const newSelectedAnswers = {
+        ...prevState.selectedAnswers,
+        [questionIndex]: event.target.value,
+      };
+      const newEvaluationResults = {
+        ...prevState.evaluationResults,
+        [questionIndex]: { isCorrect, answerIndex },
+      };
+
+      const newQuizzesContent = createQuizzesContent(
+        prevState.apiData.quizzes.data,
+        newSelectedAnswers,
+        newEvaluationResults,
+        handleAnswerChange,
+      );
+
+      return {
+        ...prevState,
+        selectedAnswers: newSelectedAnswers,
+        evaluationResults: newEvaluationResults,
+        selectedText2: newQuizzesContent,
+      };
     });
+  };
+
+  const CountCorrectAnswers = () => {
+    const correctAnswersCount = Object.values(state.evaluationResults).filter(
+      (result) => result.isCorrect,
+    ).length;
+    return (
+      <div>
+        <h3>
+          Correct answers: {correctAnswersCount} /{" "}
+          {Object.keys(state.apiData.quizzes.data).length}
+        </h3>
+      </div>
+    );
   };
 
   return (
@@ -242,19 +302,15 @@ const EventList = () => {
           </form>
         </div>
 
-        {JSON.stringify(state)}
-
         {!state.isLoading && state.apiData.summary.data && (
           <div ref={stepTwoRef} className="containersteps2">
-            <h2 className="stepsname">Step 2: Your AI Outcome</h2>
+            <h2 className="stepsname">Step 2: Your Initial AI Outcome</h2>
             <div className="button-row">
               <button
                 type="button"
                 className="buttons1"
                 onClick={() =>
-                  handleButtonClick(
-                    <div>{JSON.stringify(state.apiData.summary.data)}</div>,
-                  )
+                  handleButtonClick(<div>{state.apiData.summary.data}</div>)
                 }
               >
                 Summary
@@ -294,141 +350,16 @@ const EventList = () => {
               >
                 Quizzes
               </button>
-              <button
-                type="button"
-                className="buttons1"
-                onClick={() => handleButtonClick("Text for Button 2")}
-              >
+              <button type="button" className="buttons1">
                 Flashcards
               </button>
             </div>
             {state.selectedText2 && (
               <div className="text-box">{state.selectedText2}</div>
             )}
+            <CountCorrectAnswers />
           </div>
         )}
-
-        <div className="containersteps3">
-          <h2 className="stepsname">Step 3: Quizzes! Flashcards! And more!</h2>
-
-          <div className="button-row">
-            <button
-              type="button"
-              className="buttons1"
-              onClick={() => handleButtonClick(<div>{apidatasummary}</div>)}
-            >
-              Quizzes
-            </button>
-            <button
-              type="button"
-              className="buttons1"
-              onClick={() => handleButtonClick("Text for Button 2")}
-            >
-              Flashcards
-            </button>
-            <button
-              type="button"
-              className="buttons1"
-              onClick={() => handleButtonClick("Text for Button 3")}
-            >
-              Fill in the blanks
-            </button>
-            <button
-              type="button"
-              className="buttons1"
-              onClick={() => handleButtonClick("Text for Button 4")}
-            >
-              "Need to remember" list
-            </button>
-          </div>
-
-          <div class="wrapper-flip-cards">
-            <div class="flip-card-unit">
-              <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-                <div key="front" className="card-front">
-                  This is the front of the card.
-                  <button className="flipbutton" onClick={handleFlipCard}>
-                    Flip
-                  </button>
-                </div>
-
-                <div key="back" className="card-back">
-                  This is the back of the card.
-                  <button className="flipbutton" onClick={handleFlipCard}>
-                    Flip
-                  </button>
-                </div>
-              </ReactCardFlip>
-              <div className="flip-card-image">Image</div>
-            </div>
-            <div className="flip-card-unit">
-              <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-                <div key="front" className="card-front">
-                  This is the front of the card.
-                  <button className="flipbutton" onClick={handleFlipCard}>
-                    Flip
-                  </button>
-                </div>
-
-                <div key="back" className="card-back">
-                  This is the back of the card.
-                  <button className="flipbutton" onClick={handleFlipCard}>
-                    Flip
-                  </button>
-                </div>
-              </ReactCardFlip>
-              <div className="flip-card-image">Image</div>
-            </div>
-
-            <button className="flip-button" onClick={handleFlipCard}>
-              Flip
-            </button>
-
-            <div class="wrapper-flip-cards">
-              <div class="flip-card-unit">
-                <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-                  <div key="front" className="card-front">
-                    This is the front of the card.
-                  </div>
-
-                  <div key="back" className="card-back">
-                    This is the back of the card.
-                  </div>
-                </ReactCardFlip>
-                <div className="flip-card-image">Image</div>
-              </div>
-              <div className="flip-card-unit">
-                <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-                  <div key="front" className="card-front">
-                    This is the front of the card.
-                  </div>
-
-                  <div key="back" className="card-back">
-                    This is the back of the card.
-                  </div>
-                </ReactCardFlip>
-                <div className="flip-card-image">Image</div>
-              </div>
-
-              <button className="flip-button" onClick={handleFlipCard}>
-                {flipButtonText}
-              </button>
-
-              <div class="flip-card-unit">
-                <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-                  <div key="front" className="card-front">
-                    This is the front of the card.
-                  </div>
-
-                  <div key="back" className="card-back">
-                    This is the back of the card.
-                  </div>
-                </ReactCardFlip>
-                <div className="flip-card-image">Image</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </Layout>
     </>
   );
