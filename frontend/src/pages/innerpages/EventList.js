@@ -116,79 +116,59 @@ const EventList = () => {
 
 
 
+    // Extract quizzes content creation logic into a reusable function
+    const createQuizzesContent = (quizzesData, selectedAnswers, evaluationResults, handleAnswerChange) => {
+        return (
+            <form onSubmit={(e) => e.preventDefault()}>
+                {quizzesData.map((quiz, index) => (
+                    <div key={index} className="quiz-block">
+                        <h4>Q{index + 1}: {quiz.question}</h4>
+                        {quiz.answers.map((answer, answerIndex) => (
+                            <div key={answerIndex}>
+                                <input
+                                    type="radio"
+                                    id={`question-${index}-option-${answerIndex}`}
+                                    name={`question-${index}`}
+                                    value={answer}
+                                    onChange={(e) => handleAnswerChange(e, index, parseInt(quiz.correct_answer) === answerIndex, answerIndex)}
+                                    checked={selectedAnswers && selectedAnswers[index] === answer}
+                                />
+                                <label htmlFor={`question-${index}-option-${answerIndex}`}>{answer}</label>
+                            </div>
+                        ))}
+                        {evaluationResults && evaluationResults[index]?.answerIndex !== undefined && (
+                            <span>
+                                {evaluationResults[index].isCorrect ? "✅ Correct" : "❌ Incorrect"}
+                            </span>
+                        )}
+                    </div>
+                ))}
+            </form>
+        );
+    };
+
     const handleQuizzesClick = () => {
         const { quizzes } = state.apiData;
         if (quizzes && quizzes.data) {
-            const quizzesContent = (
-                <form onSubmit={(e) => e.preventDefault()}>
-                    {quizzes.data.map((quiz, index) => (
-                        <div key={index} className="quiz-block">
-                            <h4>Q{index + 1}: {quiz.question}</h4>
-                            {quiz.answers.map((answer, answerIndex) => (
-                                <div key={answerIndex}>
-                                    <input
-                                        type="radio"
-                                        id={`question-${index}-option-${answerIndex}`}
-                                        name={`question-${index}`}
-                                        value={answer}
-                                        onChange={(e) => handleAnswerChange(e, index, parseInt(quiz.correct_answer) === answerIndex, answerIndex)}
-                                    />
-                                    <label htmlFor={`question-${index}-option-${answerIndex}`}>{answer}</label>
-                                </div>
-                            ))}
-                        </div>
-                    ))}
-                </form>
-            );
+            const quizzesContent = createQuizzesContent(quizzes.data, state.selectedAnswers, state.evaluationResults, handleAnswerChange);
             setState(prevState => ({ ...prevState, selectedText2: quizzesContent }));
         } else {
             console.log('Quiz data is not available:', quizzes);
         }
     };
 
-
     const handleAnswerChange = (event, questionIndex, isCorrect, answerIndex) => {
-        // Update the selected answer and its evaluation
         setState(prevState => {
-            const newSelectedAnswers = { ...prevState.selectedAnswers };
-            const newEvaluationResults = { ...prevState.evaluationResults };
+            const newSelectedAnswers = { ...prevState.selectedAnswers, [questionIndex]: event.target.value };
+            const newEvaluationResults = { ...prevState.evaluationResults, [questionIndex]: { isCorrect, answerIndex } };
 
-            newSelectedAnswers[questionIndex] = event.target.value;
-            newEvaluationResults[questionIndex] = { isCorrect, answerIndex };
-
-            // Update the quizzes content with the new selected answer
-            const newQuizzesContent = prevState.apiData.quizzes.data.map((quiz, index) => {
-                return (
-                    <div key={index} className="quiz-block">
-                        <h4>Q{index + 1}: {quiz.question}</h4>
-                        {quiz.answers.map((answer, answerIdx) => (
-                            <div key={answerIdx}>
-                                <input
-                                    type="radio"
-                                    id={`question-${index}-option-${answerIdx}`}
-                                    name={`question-${index}`}
-                                    value={answer}
-                                    onChange={(e) => handleAnswerChange(e, index, parseInt(quiz.correct_answer) === answerIdx, answerIdx)}
-                                    checked={newSelectedAnswers[index] === answer}
-                                />
-                                <label htmlFor={`question-${index}-option-${answerIdx}`}>{answer}</label>
-                            </div>
-                        ))}
-                        {/* Only show the result if it has been checked at least once */}
-                        {newEvaluationResults[index]?.answerIndex !== undefined && (
-                            <span>
-                                {newEvaluationResults[index].isCorrect ? "✅ Correct" : "❌ Incorrect"}
-                            </span>
-                        )}
-                    </div>
-                );
-            });
+            const newQuizzesContent = createQuizzesContent(prevState.apiData.quizzes.data, newSelectedAnswers, newEvaluationResults, handleAnswerChange);
 
             return {
                 ...prevState,
                 selectedAnswers: newSelectedAnswers,
                 evaluationResults: newEvaluationResults,
-                selectedText2: <form onSubmit={(e) => e.preventDefault()}>{newQuizzesContent}</form>
+                selectedText2: newQuizzesContent
             };
         });
     };
