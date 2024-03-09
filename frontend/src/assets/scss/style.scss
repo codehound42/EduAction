@@ -151,7 +151,7 @@
     font-weight: 500;
 }
 
-.buttons1{
+.buttons1 {
     background-color: blue;
     border: none;
     color: white;
@@ -161,6 +161,34 @@
     display: inline-block;
     font-size: 16px;
     border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+.buttons1.unselected {
+    background-color: white;
+    border: 1px solid blue;
+    color: blue;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+.buttons1-content-wrapper {
+    display: inline-flex; /* Aligns the icon and the text inline */
+    align-items: center; /* Centers them vertically */
+    justify-content: center; /* Centers the content horizontally, if there's padding */
+}
+
+.button-icon {
+    margin-right: 8px; /* Adds some space between the icon and the text */
+    width: 20px; /* Sets the icon size */
+    height: 20px; /* Maintains the aspect ratio */
 }
 
 .buttons1:hover {

@@ -3,6 +3,13 @@ import SEO from '../../common/SEO';
 import Layout from '../../common/Layout';
 import loadinggif from '../../assets/images/loading.gif';
 import robotarm from '../../assets/images/robotarm.svg';
+import blanksicon from "../../assets/images/blanksicon.svg"
+import cloudicon from "../../assets/images/cloudicon.svg"
+import flashcardsicon from "../../assets/images/flashcardsicon.svg"
+import quizicon from "../../assets/images/quizicon.svg"
+import summaryicon from "../../assets/images/summaryicon.svg"
+import topicsicon from "../../assets/images/topicsicon.svg"
+
 
 const EventList = () => {
     const [state, setState] = useState({
@@ -222,6 +229,7 @@ const EventList = () => {
                                     onChange={e => setState({ ...state, youtubeLink: e.target.value })} // Update the state when input changes
                                 />
                             </div>
+
                             <div className="wrapper2">
                                 <button type="submit" className="buttons1">Submit</button>
                             </div>
@@ -259,8 +267,8 @@ const EventList = () => {
                     <div ref={stepTwoRef} className="containersteps2">
                         <h2 className="stepsname">Step 2: Your Initial AI Outcome</h2>
                         <div className="button-row">
-                            <button type="button" className="buttons1" onClick={() => handleButtonClick(<div>{state.apiData.summary.data}</div>)}>Summary</button>
-                            <button type="button" className="buttons1" onClick={handleSubjectsClick}>Subjects</button>
+                            <button type="button" className="buttons1" onClick={() => handleButtonClick(<div>{state.apiData.summary.data}</div>)}><img src={summaryicon} alt="summary" className="button-icon"/>Summary</button>
+                            <button type="button" className="buttons1" onClick={handleSubjectsClick}><img src={topicsicon} alt="topics" className="button-icon"/>Subjects</button>
                         </div>
                         {state.selectedText && <div className="text-box">{state.selectedText}</div>}
                         <div className="button-row">
@@ -272,8 +280,8 @@ const EventList = () => {
                     <div ref={stepThreeRef} className="containersteps3">
                         <h2 className="stepsname">Step 3: Quizzes! Flashcards! And more!</h2>
                         <div className="button-row">
-                            <button type="button" className="buttons1" onClick={handleQuizzesClick}>Quizzes</button>
-                            <button type="button" className="buttons1" >Flashcards</button>
+                            <button type="button" className="buttons1" onClick={handleQuizzesClick}><img src={quizicon} alt="quizzes" className="button-icon"/>Quizzes</button>
+                            <button type="button" className="buttons1" ><img src={flashcardsicon} alt="flashcards" className="button-icon"/>Flashcards</button>
                         </div>
                         {state.selectedText2 && <div className="text-box">{state.selectedText2}</div>
                         }
