@@ -8,7 +8,8 @@ from pydantic import BaseModel
 from youtube_transcript_api import YouTubeTranscriptApi
 
 from rag.rag import (generate_chat_response, generate_quiz,
-                     generate_transcript_summary)
+                     generate_transcript_summary,
+                     generate_subjects)
 from settings import settings
 
 load_dotenv()
@@ -45,6 +46,12 @@ async def chat(input_text: str = Body(...)):
 async def summary(input_text: str = Body(...)):
     transcript_summary = generate_transcript_summary(input_text)
     return {"data": transcript_summary}
+
+
+@app.post("/api/subjects/")
+async def subjects(input_text: str = Body(...)):
+    subjects = generate_subjects(input_text)
+    return {"data": subjects}
 
 
 @app.post("/api/yt_link/")

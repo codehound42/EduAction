@@ -3,21 +3,24 @@ from langchain.schema.language_model import BaseLanguageModel
 from langchain.schema.output_parser import StrOutputParser
 from langchain.schema.runnable import Runnable
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import BaseOutputParser, PydanticOutputParser
+from langchain_core.output_parsers import BaseOutputParser, PydanticOutputParser, JsonOutputParser
 from pydantic import Field
 from langchain_core.pydantic_v1 import BaseModel
-from typing import List
 
-from .prompts import TRANSCRIPT_SUMMARY_TEMPLATE, QUIZ_TEMPLATE
+from .prompts import TRANSCRIPT_SUMMARY_TEMPLATE, QUIZ_TEMPLATE, SUBJECTS_TEMPLATE
 
 class QuestionAndAnswer(BaseModel):
     question: str = Field(description="The quiz question.")
-    answers: List[str] = Field(description="The possible answers to the question.")
+    answers: list[str] = Field(description="The possible answers to the question.")
     correct_answer: str = Field(description="The correct answer to the question.")
 
 
 class QuestionsAndAnswers(BaseModel):
-    question_and_answers: List[QuestionAndAnswer] = Field(description="list of questions and answers for the quiz.")
+    question_and_answers: list[QuestionAndAnswer] = Field(description="list of questions and answers for the quiz.")
+
+
+class Subjects(BaseModel):
+    subjectsb: list[str] = Field(description="list of subjects")
 
 
 def create_chat_chain(llm: BaseLanguageModel) -> Runnable:
@@ -45,6 +48,15 @@ def create_transcript_summary_chain(llm: BaseLanguageModel) -> Runnable:
 def create_quiz_chain(llm: BaseLanguageModel) -> Runnable:
     chain = (
         PromptTemplate.from_template(QUIZ_TEMPLATE) | llm | PydanticOutputParser(pydantic_object=QuestionsAndAnswers)
+    ).with_config(
+        run_name="QuizChain",
+    )
+    return chain
+
+
+def create_subjects_chain(llm: BaseLanguageModel) -> Runnable:
+    chain = (
+        PromptTemplate.from_template(SUBJECTS_TEMPLATE) | llm | JsonOutputParser(pydantic_object=Subjects)
     ).with_config(
         run_name="QuizChain",
     )
