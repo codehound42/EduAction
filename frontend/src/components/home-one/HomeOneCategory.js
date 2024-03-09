@@ -52,14 +52,19 @@ const HomeOneCategory = () => {
               <img src="/images/ai/01.svg" alt="" style={{ maxWidth: 600 }} />
             </div>
           </div>
-          <div className="col-lg-4 col-md-4 mt-5">
+          <div className="col-lg-4 col-md-4 mt-5 pt-5">
             <SectionTitle
               classes="text-left"
               slogan=""
               title="<span style='color: #2563EB'>Useful</span> learning aids"
             />
             <div className="text-start mt-5" style={{ fontSize: 20 }}>
-              Just copy paste your YouTube link, and see the magic happens.
+              <ul>
+                <li>Quiz</li>
+                <li>Flash cards</li>
+                <li>Fill the blanks</li>
+                <li>And many more!</li>
+              </ul>
             </div>
           </div>
         </div>

@@ -31,7 +31,7 @@ const HeaderTwo = ( { styles, disableSticky, searchDisable, buttonStyle } ) => {
                     <div className="col-lg-4 col-xl-3 col-md-6 col-6">
                         <div className="logo">
                             <Link to={process.env.PUBLIC_URL + "/"}>
-                                <img className="logo-light" src="/images/logo/logo.png" alt="Main Logo" />
+                                <img className="logo-light" src="/images/logo/logo.png" alt="EduAction" style={{maxHeight: 75}} />
                             </Link>
                         </div>
                     </div>

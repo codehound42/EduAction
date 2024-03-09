@@ -10,17 +10,11 @@ const NewsLettterOne = () => {
                         <div className="inner text-center">
                             <SectionTitle
                                 classes = "text-white text-center"
-                                slogan = "Subscribe Newsletter"
-                                title = "Get Every Latest News"
+                                slogan = ""
+                                title = "Ready to skyrocket your studies with EduAction?"
                             />
-                            <div className="newsletter-form newsletter-form-style-1 mt--60">
-                                <div className="input-box">
-                                    <input type="email" placeholder="Enter your mail address" />
-                                    <div className="mail-icon">
-                                        <i className="icon-mail-open-line"></i>
-                                    </div>
-                                    <button className="send-button"><i className="icon-send-plane-fill"></i></button>
-                                </div>
+                            <div className="text-center mt--30" style={{color: 'white'}}>
+                            Get Started Today and Experience Effortless Efficiency
                             </div>
                         </div>
                     </div>

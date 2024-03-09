@@ -7,6 +7,7 @@ import EventOne from "../../components/event/EventOne";
 import EventData from "../../data/event/EventData.json";
 import loadinggif from "../../assets/images/loading.gif";
 import ReactCardFlip from "react-card-flip";
+import { FaSignature } from "react-icons/fa";
 
 const EventList = () => {
   const [youtubeLink, setYoutubeLink] = useState("");
@@ -16,9 +17,16 @@ const EventList = () => {
   const stepTwoRef = useRef(null);
   const [showStepThree, setShowStepThree] = useState(false);
   const stepThreeRef = useRef(null);
+  const [showCardFlip, setShowCardFlip] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
 
   const handleButtonClick = (text) => {
     setSelectedText(text);
+  };
+
+  const handleFlipCard = (e) => {
+    e.preventDefault();
+    setIsFlipped(!isFlipped);
   };
 
   useEffect(() => {
@@ -106,7 +114,7 @@ const EventList = () => {
           </form>
         </div>
 
-        {!isLoading && apidatasummary.length > 0 && (
+        {true && (
           <div ref={stepTwoRef} className="containersteps2">
             <h2 className="stepsname">Step 2: Your AI Outcome</h2>
             <div className="button-row">
@@ -151,44 +159,128 @@ const EventList = () => {
             </div>
           </div>
         )}
-        {showStepThree && (
-          <div ref={stepThreeRef} className="containersteps3">
-            <h2 className="stepsname">
-              Step 3: Quizzes! Flashcards! And more!
-            </h2>
-            <div className="button-row">
-              <button
-                type="button"
-                className="buttons1"
-                onClick={() => handleButtonClick(<div>{apidatasummary}</div>)}
-              >
-                Quizzes
-              </button>
-              <button
-                type="button"
-                className="buttons1"
-                onClick={() => handleButtonClick("Text for Button 2")}
-              >
-                Flashcards
-              </button>
-              <button
-                type="button"
-                className="buttons1"
-                onClick={() => handleButtonClick("Text for Button 3")}
-              >
-                Fill in the blanks
-              </button>
-              <button
-                type="button"
-                className="buttons1"
-                onClick={() => handleButtonClick("Text for Button 4")}
-              >
-                "Need to remember" list
-              </button>
-            </div>
-            {selectedText && <div className="text-box">{selectedText}</div>}
+
+        <div className="containersteps3">
+          <h2 className="stepsname">Step 3: Quizzes! Flashcards! And more!</h2>
+
+          <div className="button-row">
+            <button
+              type="button"
+              className="buttons1"
+              onClick={() => handleButtonClick(<div>{apidatasummary}</div>)}
+            >
+              Quizzes
+            </button>
+            <button
+              type="button"
+              className="buttons1"
+              onClick={() => handleButtonClick("Text for Button 2")}
+            >
+              Flashcards
+            </button>
+            <button
+              type="button"
+              className="buttons1"
+              onClick={() => handleButtonClick("Text for Button 3")}
+            >
+              Fill in the blanks
+            </button>
+            <button
+              type="button"
+              className="buttons1"
+              onClick={() => handleButtonClick("Text for Button 4")}
+            >
+              "Need to remember" list
+            </button>
           </div>
-        )}
+
+          <div class="wrapper-flip-cards">
+            <div class="flip-card-unit">
+              <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+                <div key="front" className="card-front">
+                  This is the front of the card.
+                  <button className="flipbutton" onClick={handleFlipCard}>
+                    Flip
+                  </button>
+                </div>
+
+                <div key="back" className="card-back">
+                  This is the back of the card.
+                  <button className="flipbutton" onClick={handleFlipCard}>
+                    Flip
+                  </button>
+                </div>
+              </ReactCardFlip>
+              <div className="flip-card-image">Image</div>
+            </div>
+            <div className="flip-card-unit">
+              <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+                <div key="front" className="card-front">
+                  This is the front of the card.
+                  <button className="flipbutton" onClick={handleFlipCard}>
+                    Flip
+                  </button>
+                </div>
+
+                <div key="back" className="card-back">
+                  This is the back of the card.
+                  <button className="flipbutton" onClick={handleFlipCard}>
+                    Flip
+                  </button>
+                </div>
+              </ReactCardFlip>
+              <div className="flip-card-image">Image</div>
+            </div>
+
+            <button className="flip-button" onClick={handleFlipCard}>
+              Flip
+            </button>
+
+            <div class="wrapper-flip-cards">
+              <div class="flip-card-unit">
+                <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+                  <div key="front" className="card-front">
+                    This is the front of the card.
+                  </div>
+
+                  <div key="back" className="card-back">
+                    This is the back of the card.
+                  </div>
+                </ReactCardFlip>
+                <div className="flip-card-image">Image</div>
+              </div>
+              <div className="flip-card-unit">
+                <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+                  <div key="front" className="card-front">
+                    This is the front of the card.
+                  </div>
+
+                  <div key="back" className="card-back">
+                    This is the back of the card.
+                  </div>
+                </ReactCardFlip>
+                <div className="flip-card-image">Image</div>
+              </div>
+
+              <button className="flip-button" onClick={handleFlipCard}>
+                {flipButtonText}
+              </button>
+
+              <div class="flip-card-unit">
+                <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+                  <div key="front" className="card-front">
+                    This is the front of the card.
+                  </div>
+
+                  <div key="back" className="card-back">
+                    This is the back of the card.
+                  </div>
+                </ReactCardFlip>
+                <div className="flip-card-image">Image</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </Layout>
     </>
   );

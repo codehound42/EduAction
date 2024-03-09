@@ -1,194 +1,245 @@
 /**************************************
     Default Styles
 ***************************************/
-@import 'bootstrap/dist/css/bootstrap.min.css';
-@import url('../css/eduvibe-font.css');
-@import url('../css/remixicon.css');
-@import url('../css/animation.css');
-@import url('../css/slick.css');
-@import url('../css/slicktheme.css');
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import url("../css/eduvibe-font.css");
+@import url("../css/remixicon.css");
+@import url("../css/animation.css");
+@import url("../css/slick.css");
+@import url("../css/slicktheme.css");
 
-@import 'default/variables';
-@import 'default/mixins';
-@import 'default/reset';
-@import 'default/typography';
-@import 'default/extend';
-@import 'default/animations';
-@import 'default/shortcode';
-@import 'default/spacing';
-@import 'default/common';
-@import 'default/forms';
+@import "default/variables";
+@import "default/mixins";
+@import "default/reset";
+@import "default/typography";
+@import "default/extend";
+@import "default/animations";
+@import "default/shortcode";
+@import "default/spacing";
+@import "default/common";
+@import "default/forms";
 
 /**************************************
     Header Styles
 ***************************************/
-@import 'header/header';
-@import 'header/nav';
-@import 'header/header-quote';
-@import 'header/mobilemenu';
-@import 'header/search-popup';
-
+@import "header/header";
+@import "header/nav";
+@import "header/header-quote";
+@import "header/mobilemenu";
+@import "header/search-popup";
 
 /**************************************
     Elemnts Styles
 ***************************************/
-@import 'elements/button';
-@import 'elements/brands';
-@import 'elements/section-title';
-@import 'elements/section-animation';
-@import 'elements/card';
-@import 'elements/meta';
-@import 'elements/badge';
-@import 'elements/pagination';
-@import 'elements/event';
-@import 'elements/team';
-@import 'elements/service';
-@import 'elements/single-elements';
-@import 'elements/coursesidebar';
-@import 'elements/testimonial';
-@import 'elements/feature';
-@import 'elements/about';
-@import 'elements/newsletter';
-@import 'elements/social-share';
-@import 'elements/backtotop';
-@import 'elements/workshop';
-@import 'elements/video-popup';
-@import 'elements/chooseus';
-@import 'elements/calltoaction';
-@import 'elements/slickslider';
-@import 'elements/winner';
-@import 'elements/counterup';
-@import 'elements/countdown';
-@import 'elements/breadcrumb';
-@import 'elements/masonaryitem';
-@import 'elements/accordion';
-@import 'elements/privacy-policy';
-@import 'elements/404';
-@import 'elements/coming-soon';
-@import 'elements/gallery';
-@import 'elements/pricingtable';
-@import 'elements/profile-details';
-@import 'elements/progressbar';
-@import 'elements/contactus';
-@import 'elements/shop';
-@import 'elements/brand';
-@import 'elements/checkout';
-@import 'elements/overall';
-
-
+@import "elements/button";
+@import "elements/brands";
+@import "elements/section-title";
+@import "elements/section-animation";
+@import "elements/card";
+@import "elements/meta";
+@import "elements/badge";
+@import "elements/pagination";
+@import "elements/event";
+@import "elements/team";
+@import "elements/service";
+@import "elements/single-elements";
+@import "elements/coursesidebar";
+@import "elements/testimonial";
+@import "elements/feature";
+@import "elements/about";
+@import "elements/newsletter";
+@import "elements/social-share";
+@import "elements/backtotop";
+@import "elements/workshop";
+@import "elements/video-popup";
+@import "elements/chooseus";
+@import "elements/calltoaction";
+@import "elements/slickslider";
+@import "elements/winner";
+@import "elements/counterup";
+@import "elements/countdown";
+@import "elements/breadcrumb";
+@import "elements/masonaryitem";
+@import "elements/accordion";
+@import "elements/privacy-policy";
+@import "elements/404";
+@import "elements/coming-soon";
+@import "elements/gallery";
+@import "elements/pricingtable";
+@import "elements/profile-details";
+@import "elements/progressbar";
+@import "elements/contactus";
+@import "elements/shop";
+@import "elements/brand";
+@import "elements/checkout";
+@import "elements/overall";
 
 /**************************************
     Blog Styles
 ***************************************/
-@import 'blog/blog-grid';
-@import 'blog/sidebar';
-@import 'blog/blog-details';
-@import 'blog/comments';
+@import "blog/blog-grid";
+@import "blog/sidebar";
+@import "blog/blog-details";
+@import "blog/comments";
 
 /**************************************
     Template Styles
 ***************************************/
-@import 'template/banner';
-@import 'template/event-details';
-@import 'template/product-details';
-@import 'template/cart';
-@import 'template/course-details';
-@import 'template/preview';
+@import "template/banner";
+@import "template/event-details";
+@import "template/product-details";
+@import "template/cart";
+@import "template/course-details";
+@import "template/preview";
 
 /**************************************
     Footer Styles
 ***************************************/
-@import 'footer/footer';
-@import 'footer/copyright';
+@import "footer/footer";
+@import "footer/copyright";
 
-.containersteps{
-    padding-top: 5%;
-    padding-bottom: 5%;
-    padding-left: 10%;
-    padding-right: 10%;  
-    background-color: aliceblue;
+.containersteps {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  background-color: aliceblue;
 }
 
-.containersteps2{
-    padding-top: 5%;
-    padding-bottom: 5%;
-    padding-left: 10%;
-    padding-right: 10%;  
-    background-color: rgb(229, 233, 247);
-    scroll-margin-top: 150px ;
+.containersteps2 {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  background-color: rgb(229, 233, 247);
+  scroll-margin-top: 150px;
 }
 
-.containersteps3{
-    padding-top: 5%;
-    padding-bottom: 5%;
-    padding-left: 10%;
-    padding-right: 10%;  
-    background-color: rgb(223, 228, 250);
-    scroll-margin-top: 100px ;
+.containersteps3 {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  background-color: rgb(223, 228, 250);
+  scroll-margin-top: 100px;
 }
 
-.stepsname{
-    padding-bottom: 1%;
-    font-size: 3vw;
+.stepsname {
+  padding-bottom: 1%;
+  font-size: 3vw;
 }
 
-
-.linkinput{
-    height:60px;
-    width:50vw;
-
+.linkinput {
+  height: 60px;
+  width: 50vw;
 }
 
-.text2{
-    color: blue;
-    font-size: 1vw;
-    font-weight: bolder;
+.text2 {
+  color: blue;
+  font-size: 1vw;
+  font-weight: bolder;
 }
 
-.text3{
-    color: blue;
-    font-size: 1vw;
-    font-weight: 500;
+.text3 {
+  color: blue;
+  font-size: 1vw;
+  font-weight: 500;
 }
 
-.buttons1{
-    background-color: blue;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 15px;
+.buttons1 {
+  background-color: blue;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 15px;
 }
 
 .buttons1:hover {
-    background-color:#8698cb;
-    transition: 0.7s;
+  background-color: #8698cb;
+  transition: 0.7s;
 }
 
-.wrapper2{
-    padding-top:2%;
-    padding-bottom: 2%;
+.wrapper2 {
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
-img.loading{
-    width: 50px;
-    height: auto;
-    padding-left: 20px;
+img.loading {
+  width: 50px;
+  height: auto;
+  padding-left: 20px;
 }
 
 .button-row {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 5%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 5%;
 }
 
 .text-box {
-    padding: 20px;
-    margin-bottom: 3%;
-    border: 1px solid #ccc;
-    background-color: rgb(216, 223, 247);
+  padding: 20px;
+  margin-bottom: 3%;
+  border: 1px solid #ccc;
+  background-color: rgb(216, 223, 247);
+}
 
+// .card-back .card-front {
+//   height: 15rem;
+//   width: 12rem;
+//   border-radius: 15px;
+// }
+
+.card-front {
+  height: 20rem;
+  width: 390%;
+  border-radius: 15px;
+
+  background-color: rgb(212, 212, 242);
+}
+
+.card-back {
+  height: 20rem;
+  width: 390%;
+
+  border-radius: 15px;
+
+  background-color: rgb(165, 180, 244);
+}
+
+.flip-card-image {
+  height: 20rem;
+  border-radius: 15px;
+  background-color: yellow;
+  margin-left: 1rem;
+}
+
+.flip-card-unit {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 2%;
+}
+
+.wrapper-flip-cards {
+  gap: 1rem;
+  width: 100%;
+}
+
+.flipbutton {
+  width: 100%;
+  size: 100%;
+}
+
+.flip-button {
+  background-color: rgb(212, 212, 242);
+  border: none;
+  border-radius: 15px;
+  height: 370px;
+  width: 70%;
+  margin-bottom: 2%;
+  margin-top: 2%;
 }

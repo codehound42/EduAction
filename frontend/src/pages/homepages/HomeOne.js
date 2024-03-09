@@ -25,17 +25,13 @@ const HomeOne = () => {
 
       <HomeOneCategory />
 
-      <HomeOneCourses />
-
-      <TestimonialSectionFour />
-
       <HomeOneInstructor />
 
       <VideoSectionTwo />
 
       <NewsLettterOne />
 
-      <HomeOneBlog />
+      {/* <HomeOneBlog /> */}
 
       <FooterOne />
     </>

@@ -6,7 +6,7 @@ import FsLightbox from 'fslightbox-react';
 
 const BannerOne = () => {
   const [toggler, setToggler] = useState(false);
-  const videoLink = ['https://www.youtube.com/watch?v=pNje3bWz7V8'];
+  const videoLink = ['https://www.youtube.com/watch?v=DFs0ikIQ0V0'];
 
   return (
     <div className="slider-area banner-style-1 bg-image height-940 d-flex align-items-center">
