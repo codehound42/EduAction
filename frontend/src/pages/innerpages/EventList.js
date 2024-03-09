@@ -3,169 +3,122 @@ import SEO from '../../common/SEO';
 import Layout from '../../common/Layout';
 import loadinggif from '../../assets/images/loading.gif';
 
-
 const EventList = () => {
-    const [youtubeLink, setYoutubeLink] = useState('');
-    const [apidatasummary, setApidatasummary] = useState({});
-    const [apidatasubjects, setApidatasubjects] = useState({});
-    const [apidataquizzes, setApidataquizzes] = useState({});
-    const [apidatatranscript, setApiDatatranscript] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
-    const [selectedText, setSelectedText] = useState('');
-    const [selectedText2, setSelectedText2] = useState('');
+    const [state, setState] = useState({
+        youtubeLink: '',
+        apiData: {
+            summary: {},
+            subjects: {},
+            quizzes: {},
+            transcript: '',
+        },
+        isLoading: false,
+        selectedText: '',
+        selectedText2: '',
+        showStepThree: false,
+        selectedAnswers: {},
+        evaluationResults: {},
+        user_id: "94bd2faf-d21b-452d-a9a2-0159363a11fd",
+    });
     const stepTwoRef = useRef(null);
-    const [showStepThree, setShowStepThree] = useState(false);
     const stepThreeRef = useRef(null);
-    const [selectedanswers, setSelectedanswers] = useState({});
-    const [evaluationresults, setEvaluationresults] = useState({});
-    const [user_id, setUserId] = useState("94bd2faf-d21b-452d-a9a2-0159363a11fd");
-
 
     const handleButtonClick = (text) => {
-        setSelectedText(text);
-        setSelectedText2(text);
+        setState(prevState => ({ ...prevState, selectedText: text, selectedText2: text }));
     };
 
     useEffect(() => {
-        if (apidatasummary.data) {
-            setSelectedText(apidatasummary.data); // Update when apidatasummary is set
+        if (state.apiData.summary.data) {
+            setState(prevState => ({ ...prevState, selectedText: state.apiData.summary.data }));
         }
-    }, [apidatasummary.data]);
-
-    // This function will be called when the form is submitted
-    const handleSubmit = (event) => {
-        event.preventDefault(); // Prevent the default form submit action
-        setIsLoading(true);
-        fetch('http://localhost:8000/api/yt_link/', { // Replace with your actual endpoint
-            // mode: 'cors',
-            method: 'POST', // POST
-            headers: {
-                'Content-Type': 'application/json', // Indicate that you're sending JSON data
-            },
-            body: JSON.stringify({url: youtubeLink, user_id})
-        })
-            .then(response => response.json())
-            .then(data => {
-                setApiDatatranscript(data);
-                // Handle the API response data here
-
-                // console.log(apidatatranscript);
-
-
-                fetch('http://localhost:8000/api/summary/', { // Replace with your actual endpoint
-                    // mode: 'cors',
-                    method: 'POST', // POST
-                    headers: {
-                        'Content-Type': 'application/json', // Indicate that you're sending JSON data
-                    },
-                    body: JSON.stringify({transcript: data, user_id})
-                })
-                    .then(response => response.json())
-                    .then(summary => {
-                        setApidatasummary(summary);
-                        // Handle the API response data here
-                        // console.log({summary});
-                        setIsLoading(false);
-                    })
-                    .catch((error) => {
-                        console.error('Error:', error);
-                        setIsLoading(false);
-                    });
-
-                fetch('http://localhost:8000/api/subjects/', { // Replace with your actual endpoint
-                    // mode: 'cors',
-                    method: 'POST', // POST
-                    headers: {
-                        'Content-Type': 'application/json', // Indicate that you're sending JSON data
-                    },
-                    body: JSON.stringify({transcript: data, user_id})
-                })
-                    .then(response => response.json())
-                    .then(topicsubjects => {
-                        // console.log({topicsubjects})
-                        setApidatasubjects(topicsubjects);
-                        // Handle the API response data here
-                        // console.log(topicsubjects);
-
-                    })
-                    .catch((error) => {
-                        console.error('Error:', error);
-                        setIsLoading(false);
-                    });
-
-                fetch('http://localhost:8000/api/quiz/', { // Replace with your actual endpoint
-                    // mode: 'cors',
-                    method: 'POST', // POST
-                    headers: {
-                        'Content-Type': 'application/json', // Indicate that you're sending JSON data
-                    },
-                    body: JSON.stringify({transcript: data, user_id})
-                })
-                    .then(response => response.json())
-                    .then(quizzes => {
-                        // console.log({topicsubjects})
-                        setApidataquizzes(quizzes);
-                        // Handle the API response data here
-                        // console.log(topicsubjects);
-
-                    })
-                    .catch((error) => {
-                        console.error('Error:', error);
-                        setIsLoading(false);
-                    });
-
-
-
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                setIsLoading(false);
-            });
-    };
-
+    }, [state.apiData.summary.data]);
 
     useEffect(() => {
-        if (apidatasummary.data && stepTwoRef.current) {
+        if (state.apiData.summary.data && stepTwoRef.current) {
             stepTwoRef.current.scrollIntoView({ behavior: 'smooth' });
         }
-    }, [apidatasummary.data]);
+    }, [state.apiData.summary.data]);
+
+    const fetchData = async (endpoint, body) => {
+        try {
+            const response = await fetch(`http://localhost:8000/api/${endpoint}/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(body)
+            });
+            if (!response.ok) throw new Error('Network response was not ok');
+            return await response.json();
+        } catch (error) {
+            console.error('Error:', error);
+            setState(prevState => ({ ...prevState, isLoading: false }));
+            throw error; // Rethrow to handle in caller
+        }
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        setState(prevState => ({ ...prevState, isLoading: true }));
+
+        try {
+            const transcriptData = await fetchData('yt_link', { url: state.youtubeLink, user_id: state.user_id });
+            const summaryData = await fetchData('summary', { transcript: transcriptData, user_id: state.user_id });
+            const subjectsData = await fetchData('subjects', { transcript: transcriptData, user_id: state.user_id });
+            const quizzesData = await fetchData('quiz', { transcript: transcriptData, user_id: state.user_id });
+
+            // console.log the data
+            console.log('Transcript:', transcriptData);
+            console.log('Summary:', summaryData);
+            console.log('Subjects:', subjectsData);
+            console.log('Quizzes:', quizzesData);
+
+            setState(prevState => ({
+                ...prevState,
+                apiData: {
+                    ...prevState.apiData,
+                    transcript: transcriptData,
+                    summary: summaryData,
+                    subjects: subjectsData,
+                    quizzes: {data: quizzesData.data.map((quiz) => JSON.parse(quiz))},
+                },
+                isLoading: false,
+            }));
+        } catch (error) {
+            // Error handling is already done in fetchData
+        }
+    };
 
     const handleGenerateQuizClick = () => {
-        setShowStepThree(true); // Show Step 3 when Generate Quiz is clicked
-        // Optional: Automatically scroll to Step 3
+        setState(prevState => ({ ...prevState, showStepThree: true }));
         setTimeout(() => {
             stepThreeRef.current?.scrollIntoView({ behavior: 'smooth' });
         }, 100);
     };
 
     const handleSubjectsClick = () => {
-        if (apidatasubjects && apidatasubjects.data && apidatasubjects.data.subjects) {
-            let subjectsArray;
-            if (Array.isArray(apidatasubjects.data.subjects)) {
-                subjectsArray = apidatasubjects.data.subjects; // Use directly if already an array
-            } else if (typeof apidatasubjects.data.subjects === 'string') {
-                subjectsArray = apidatasubjects.data.subjects.split(', '); // Split if it's a string
-            } else {
-                console.error('Subjects are neither an array nor a string:', apidatasubjects.data.subjects);
-                return; // Early return if the subjects are neither an array nor a string
-            }
-            setSelectedText(
+        const { subjects } = state.apiData;
+        // Assuming subjects.data.subjects is always a list of strings based on the updated information
+        if (subjects && subjects.data) {
+            const subjectsContent = (
                 <ul>
-                    {subjectsArray.map((subject, index) => (
+                    {subjects.data.map((subject, index) => (
                         <li key={index}>{subject}</li>
                     ))}
                 </ul>
             );
+            setState(prevState => ({ ...prevState, selectedText: subjectsContent }));
         } else {
-            console.log('Subjects data is not available:', apidatasubjects);
+            console.log('Subjects data is not available or not in the expected format:', subjects);
         }
     };
 
     const handleQuizzesClick = () => {
-        if (apidataquizzes && apidataquizzes.data && apidataquizzes.data.question_and_answers) {
+        const { quizzes } = state.apiData;
+        if (quizzes && quizzes.data) {
             const quizzesContent = (
                 <form onSubmit={(e) => e.preventDefault()}>
-                    {apidataquizzes.data.question_and_answers.map((quiz, index) => (
+                    {quizzes.data.map((quiz, index) => (
                         <div key={index} className="quiz-block">
                             <h4>Q{index + 1}: {quiz.question}</h4>
                             {quiz.answers.map((answer, answerIndex) => (
@@ -175,62 +128,42 @@ const EventList = () => {
                                         id={`question-${index}-option-${answerIndex}`}
                                         name={`question-${index}`}
                                         value={answer}
-                                        correct={quiz.correct_answer}
-                                        onChange={(e) => handleAnswerChange(e, index, quiz.correct_answer, answerIndex)}
+                                        correct={quiz.correct_answer} // Although you can't store non-standard HTML attributes like `correct` in DOM elements, consider handling correctness evaluation in a different way.
+                                        onChange={(e) => handleAnswerChange(e, index, quiz.correct_answer === answer, answerIndex)}
                                     />
                                     <label htmlFor={`question-${index}-option-${answerIndex}`}>{answer}</label>
                                 </div>
                             ))}
-
-                            {evaluationresults[index] !== undefined && (
+                            {state.evaluationResults[index] !== undefined && (
                                 <span>
-                                    {console.log('Feedback for question ' + index + ':', evaluationresults[index])}
-                                    {evaluationresults[index] && evaluationresults[index].correctAnswer ==  evaluationresults[index].answerIndex ? "✅ Correct" : "❌ Incorrect"}
+                                    {state.evaluationResults[index].isCorrect ? "✅ Correct" : "❌ Incorrect"}
                                 </span>
                             )}
-
                         </div>
                     ))}
                </form>
             );
-            setSelectedText2(quizzesContent);
+            setState(prevState => ({ ...prevState, selectedText2: quizzesContent }));
         } else {
-            console.log('Quiz data is not available:', apidataquizzes);
+            console.log('Quiz data is not available:', quizzes);
         }
     };
 
-    const handleAnswerChange = (event, questionIndex, correctAnswer, answerIndex) => {
-        console.log('Before', evaluationresults);
-        const selectedAnswer = event.target.value;
-        console.log('Selected Answer:', selectedAnswer); // Debug
-        console.log('Correct Answer:', correctAnswer); // Debug
-        // setSelectedanswers(prevSelectedanswers => ({
-        //     ...prevSelectedanswers,
-        //     [questionIndex]: selectedAnswer
-        // }));
-
-        // // Immediately evaluate the answer
-        // setEvaluationresults(prevEvaluationResults => ({
-        //     ...prevEvaluationResults,
-        //     [questionIndex]: selectedAnswer === correctAnswer
-        // }));
-        // console.log('Selected Answers State:', selectedanswers); // Debug
-        // console.log('Evaluation Results State:', evaluationresults); // Debug
-
-        // BASEM
-        const temp = evaluationresults;
-        temp[questionIndex] = {correctAnswer, answerIndex};
-        setEvaluationresults(temp);
-        console.log({temp, evaluationresults});
+    const handleAnswerChange = (event, questionIndex, isCorrect, answerIndex) => {
+        // Update the selected answer and its evaluation
+        setState(prevState => {
+            const newEvaluationResults = { ...prevState.evaluationResults };
+            newEvaluationResults[questionIndex] = { isCorrect, answerIndex };
+            return { ...prevState, evaluationResults: newEvaluationResults };
+        });
     };
-
 
     return (
         <>
             <SEO title="Event List" />
             <Layout>
                 <div className="containersteps">
-                    <h2 className="stepsname">Step 1: Upload your YouTube link</h2>
+                    <h2 className="stepsname">Step 1: Paste your YouTube link</h2>
                     <form onSubmit={handleSubmit}> {/* Add the onSubmit handler here */}
                         <div className="form-group">
                             <div className="wrapper2">
@@ -241,13 +174,13 @@ const EventList = () => {
                                     placeholder="Enter YouTube link"
                                     pattern="https://.*"
                                     required
-                                    value={youtubeLink}
-                                    onChange={e => setYoutubeLink(e.target.value)} // Update the state when input changes
+                                    value={state.youtubeLink}
+                                    onChange={e => setState({...state, youtubeLink: e.target.value})} // Update the state when input changes
                                 />
                             </div>
                             <div className="wrapper2">
                                 <button type="submit" className="buttons1">Submit</button>
-                                {isLoading && <img src={loadinggif} alt="Loading..." className="loading" />} {/* Conditional rendering of loading GIF */}
+                                {state.isLoading && <img src={loadinggif} alt="Loading..." className="loading" />} {/* Conditional rendering of loading GIF */}
                             </div>
                             <div>
                                 <h3 className="text2">Pay attention:</h3>
@@ -260,31 +193,31 @@ const EventList = () => {
                 </div>
 
 
-                {!isLoading && apidatasummary.data && <div ref={stepTwoRef} className="containersteps2">
-                    <h2 className="stepsname">Step 2: Your AI Outcome</h2>
-                    <div className="button-row">
-                        <button type="button" className="buttons1" onClick={() => handleButtonClick(<div>{apidatasummary.data}</div>)}>Summary</button>
-                        <button type="button" className="buttons1" onClick={handleSubjectsClick}>Subjects</button>
+                {JSON.stringify(state)}
+
+                {!state.isLoading && state.apiData.summary.data && (
+                    <div ref={stepTwoRef} className="containersteps2">
+                        <h2 className="stepsname">Step 2: Your AI Outcome</h2>
+                        <div className="button-row">
+                            <button type="button" className="buttons1" onClick={() => handleButtonClick(<div>{JSON.stringify(state.apiData.summary.data)}</div>)}>Summary</button>
+                            <button type="button" className="buttons1" onClick={handleSubjectsClick}>Subjects</button>
+                        </div>
+                        {state.selectedText && <div className="text-box">{state.selectedText}</div>}
+                        <div className="button-row">
+                            <button type="button" className="buttons1" onClick={handleGenerateQuizClick}>Next</button>
+                        </div>
                     </div>
-                    {selectedText && <div className="text-box">{selectedText}</div>}
-                    <div className="button-row">
-                        <button type="button" className="buttons1" onClick={handleGenerateQuizClick}>Generate quiz</button>
-                    </div>
-                </div>}
-                {showStepThree && (
+                )}
+                {state.showStepThree && (
                     <div ref={stepThreeRef} className="containersteps3">
                         <h2 className="stepsname">Step 3: Quizzes! Flashcards! And more!</h2>
                         <div className="button-row">
                             <button type="button" className="buttons1" onClick={handleQuizzesClick}>Quizzes</button>
-
                             <button type="button" className="buttons1" onClick={() => handleButtonClick('Text for Button 2')}>Flashcards</button>
                         </div>
-                        {selectedText2 && <div className="text-box">{selectedText2}</div>}
+                        {state.selectedText2 && <div className="text-box">{state.selectedText2}</div>}
                     </div>
                 )}
-
-{/* {JSON.stringify(evaluationresults)}
-                    {evaluationresults && Object.keys(evaluationresults).length && (<div>Hi Man</div>)} */}
 
             </Layout>
         </>
