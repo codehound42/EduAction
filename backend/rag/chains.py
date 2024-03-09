@@ -12,7 +12,7 @@ from .prompts import TRANSCRIPT_SUMMARY_TEMPLATE, QUIZ_TEMPLATE, SUBJECTS_TEMPLA
 class QuestionAndAnswer(BaseModel):
     question: str = Field(description="The quiz question.")
     answers: list[str] = Field(description="The possible answers to the question.")
-    correct_answer: str = Field(description="The correct answer to the question.")
+    correct_answer: int = Field(description="The list index of the correct answer to the question.")
 
 
 class QuestionsAndAnswers(BaseModel):

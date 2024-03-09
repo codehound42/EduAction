@@ -45,7 +45,7 @@ Thank you for joining me on this brief journey through the history of the Aztec 
 
 # Subjects"""
 
-QUIZ_TEMPLATE = """Given the following lecture transcript. Generate a quiz based on the content. The format of the quiz should be a list of questions, answers and the correct answer. See the example format below:
+QUIZ_TEMPLATE = """Given the following lecture transcript. Generate a quiz based on the content. The format of the quiz should be a list of questions, answers and the correct answer. The correct answer should be the index of the correct answer in the list of answers (0-indexed). See the example format below:
 
 <example>
 {{
@@ -53,12 +53,12 @@ QUIZ_TEMPLATE = """Given the following lecture transcript. Generate a quiz based
         {{
             "question": "What is the capital of France?",
             "answers": ["Paris", "London", "Berlin", "Madrid"],
-            "correct_answer": "Paris"
+            "correct_answer": 0
         }},
         {{
             "question": "What is the capital of Germany?",
             "answers": ["Paris", "London", "Berlin", "Madrid"],
-            "correct_answer": "Berlin"
+            "correct_answer": 2
         }}
     ]
 }}
