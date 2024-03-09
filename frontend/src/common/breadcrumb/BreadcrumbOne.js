@@ -10,7 +10,14 @@ const BreadcrumbOne = ({ title , rootUrl , parentUrl, currentUrl}) => {
                         <div className="breadcrumb-inner text-start">
                             <div className="page-title">
                                 <h3 className="title" dangerouslySetInnerHTML={{__html: title}}></h3>
-                            </div> 
+                            </div>
+                            <nav className="edu-breadcrumb-nav">
+                                <ol className="edu-breadcrumb d-flex justify-content-start liststyle">
+                                    <li className="breadcrumb-item"><Link to={`${rootUrl}`} dangerouslySetInnerHTML={{__html: parentUrl}}></Link></li>
+                                    <li className="separator"><i className="ri-arrow-drop-right-line"></i></li>
+                                    <li className="breadcrumb-item active" dangerouslySetInnerHTML={{__html: currentUrl}}></li>
+                                </ol>
+                            </nav>
                         </div>
                     </div>
                 </div>
@@ -41,4 +48,3 @@ const BreadcrumbOne = ({ title , rootUrl , parentUrl, currentUrl}) => {
 }
 
 export default BreadcrumbOne;
-
