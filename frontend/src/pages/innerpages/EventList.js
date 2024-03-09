@@ -146,50 +146,16 @@ const EventList = () => {
         }
     };
 
-    const handleCheckAnswersClick = () => {
-        const newQuizzesContent = state.apiData.quizzes.data.map((quiz, index) => {
-            const isCorrect = state.evaluationResults[index]?.isCorrect;
-    
-            return (
-                <div key={index} className="quiz-block">
-                    <h4>Q{index + 1}: {quiz.question}</h4>
-                    {quiz.answers.map((answer, answerIndex) => (
-                        <div key={answerIndex}>
-                            <input
-                                type="radio"
-                                id={`question-${index}-option-${answerIndex}`}
-                                name={`question-${index}`}
-                                value={answer}
-                                onChange={(e) => handleAnswerChange(e, index, parseInt(quiz.correct_answer) === answerIndex, answerIndex)}
-                                checked={state.evaluationResults[index]?.answerIndex === answerIndex}
-                            />
-                            <label htmlFor={`question-${index}-option-${answerIndex}`}>{answer}</label>
-                        </div>
-                    ))}
-                    <span>
-                        {isCorrect !== undefined ? (isCorrect ? "✅ Correct" : "❌ Incorrect") : ""}
-                    </span>
-                </div>
-            );
-        });
-    
-        // Set the new quizzes content with results to the state
-        setState(prevState => ({
-            ...prevState,
-            selectedText2: <form onSubmit={(e) => e.preventDefault()}>{newQuizzesContent}</form>,
-        }));
-    };
-    
 
     const handleAnswerChange = (event, questionIndex, isCorrect, answerIndex) => {
         // Update the selected answer and its evaluation
         setState(prevState => {
             const newSelectedAnswers = { ...prevState.selectedAnswers };
             const newEvaluationResults = { ...prevState.evaluationResults };
-    
+
             newSelectedAnswers[questionIndex] = event.target.value;
             newEvaluationResults[questionIndex] = { isCorrect, answerIndex };
-    
+
             // Update the quizzes content with the new selected answer
             const newQuizzesContent = prevState.apiData.quizzes.data.map((quiz, index) => {
                 return (
@@ -217,7 +183,7 @@ const EventList = () => {
                     </div>
                 );
             });
-    
+
             return {
                 ...prevState,
                 selectedAnswers: newSelectedAnswers,
@@ -226,7 +192,16 @@ const EventList = () => {
             };
         });
     };
-    
+
+
+    const CountCorrectAnswers = () => {
+        const correctAnswersCount = Object.values(state.evaluationResults).filter((result) => result.isCorrect).length;
+        return (
+            <div>
+                <h3>Correct answers: {correctAnswersCount} / {Object.keys(state.apiData.quizzes.data).length}</h3>
+            </div>
+        );
+    }
 
     return (
         <>
@@ -285,10 +260,9 @@ const EventList = () => {
                         </div>
                         {state.selectedText2 && <div className="text-box">{state.selectedText2}</div>
                         }
-                       
+                        <CountCorrectAnswers />
                     </div>
                 )}
-
             </Layout>
         </>
     )
