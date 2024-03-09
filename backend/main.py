@@ -12,6 +12,7 @@ from rag.rag import (
     generate_transcript_summary,
     generate_quiz,
     generate_subjects,
+    generate_image
 )
 from settings import settings
 
@@ -72,19 +73,18 @@ async def yt_link(url: str = Body(...)):
 
     return processed_subtitles
 
+
 @app.post("/api/flashcard/")
 async def flashcard(input_text: str = Body(...)):
     flashcard_text = generate_flashcards(input_text)
     flashcard_prompts = generate_flashcards_image_prompts(flashcard_text)
 
-    flashcard_prompts_list = []
-    for prompt in enumerate(flashcard_prompts.split('\n')):
-        # prompt = re.sub(r"Q\d+:?\s*", "", prompt)
-        flashcard_prompts_list.append(prompt)
+    image_base64 = []
+    for flashcard in flashcard_prompts:
+        response = generate_image(flashcard)
+        image_base64.append(response.json()["artifact"][0]["base64"])
 
-    return {"flashcard_text": flashcard_text, "flashcard_prompts" : flashcard_prompts_list}
-
-
+    return {"flashcard_text": flashcard_text, "images" : image_base64}
 
 
 @app.post("/api/quiz/")
