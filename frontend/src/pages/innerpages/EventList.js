@@ -80,7 +80,7 @@ const EventList = () => {
                     transcript: transcriptData,
                     summary: summaryData,
                     subjects: subjectsData,
-                    quizzes: {data: quizzesData.data.map((quiz) => JSON.parse(quiz))},
+                    quizzes: { data: quizzesData.data.map((quiz) => JSON.parse(quiz)) },
                 },
                 isLoading: false,
             }));
@@ -90,6 +90,7 @@ const EventList = () => {
     };
 
     const handleGenerateQuizClick = () => {
+        handleQuizzesClick();
         setState(prevState => ({ ...prevState, showStepThree: true }));
         setTimeout(() => {
             stepThreeRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -113,6 +114,8 @@ const EventList = () => {
         }
     };
 
+
+
     const handleQuizzesClick = () => {
         const { quizzes } = state.apiData;
         if (quizzes && quizzes.data) {
@@ -128,20 +131,14 @@ const EventList = () => {
                                         id={`question-${index}-option-${answerIndex}`}
                                         name={`question-${index}`}
                                         value={answer}
-                                        correct={quiz.correct_answer} // Although you can't store non-standard HTML attributes like `correct` in DOM elements, consider handling correctness evaluation in a different way.
                                         onChange={(e) => handleAnswerChange(e, index, parseInt(quiz.correct_answer) === answerIndex, answerIndex)}
                                     />
                                     <label htmlFor={`question-${index}-option-${answerIndex}`}>{answer}</label>
                                 </div>
                             ))}
-                            {state.evaluationResults[index] !== undefined && (
-                                <span>
-                                    {state.evaluationResults[index].isCorrect ? "✅ Correct" : "❌ Incorrect"}
-                                </span>
-                            )}
                         </div>
                     ))}
-               </form>
+                </form>
             );
             setState(prevState => ({ ...prevState, selectedText2: quizzesContent }));
         } else {
@@ -149,14 +146,87 @@ const EventList = () => {
         }
     };
 
+    const handleCheckAnswersClick = () => {
+        const newQuizzesContent = state.apiData.quizzes.data.map((quiz, index) => {
+            const isCorrect = state.evaluationResults[index]?.isCorrect;
+    
+            return (
+                <div key={index} className="quiz-block">
+                    <h4>Q{index + 1}: {quiz.question}</h4>
+                    {quiz.answers.map((answer, answerIndex) => (
+                        <div key={answerIndex}>
+                            <input
+                                type="radio"
+                                id={`question-${index}-option-${answerIndex}`}
+                                name={`question-${index}`}
+                                value={answer}
+                                onChange={(e) => handleAnswerChange(e, index, parseInt(quiz.correct_answer) === answerIndex, answerIndex)}
+                                checked={state.evaluationResults[index]?.answerIndex === answerIndex}
+                            />
+                            <label htmlFor={`question-${index}-option-${answerIndex}`}>{answer}</label>
+                        </div>
+                    ))}
+                    <span>
+                        {isCorrect !== undefined ? (isCorrect ? "✅ Correct" : "❌ Incorrect") : ""}
+                    </span>
+                </div>
+            );
+        });
+    
+        // Set the new quizzes content with results to the state
+        setState(prevState => ({
+            ...prevState,
+            selectedText2: <form onSubmit={(e) => e.preventDefault()}>{newQuizzesContent}</form>,
+        }));
+    };
+    
+
     const handleAnswerChange = (event, questionIndex, isCorrect, answerIndex) => {
         // Update the selected answer and its evaluation
         setState(prevState => {
+            const newSelectedAnswers = { ...prevState.selectedAnswers };
             const newEvaluationResults = { ...prevState.evaluationResults };
+    
+            newSelectedAnswers[questionIndex] = event.target.value;
             newEvaluationResults[questionIndex] = { isCorrect, answerIndex };
-            return { ...prevState, evaluationResults: newEvaluationResults };
+    
+            // Update the quizzes content with the new selected answer
+            const newQuizzesContent = prevState.apiData.quizzes.data.map((quiz, index) => {
+                return (
+                    <div key={index} className="quiz-block">
+                        <h4>Q{index + 1}: {quiz.question}</h4>
+                        {quiz.answers.map((answer, answerIdx) => (
+                            <div key={answerIdx}>
+                                <input
+                                    type="radio"
+                                    id={`question-${index}-option-${answerIdx}`}
+                                    name={`question-${index}`}
+                                    value={answer}
+                                    onChange={(e) => handleAnswerChange(e, index, parseInt(quiz.correct_answer) === answerIdx, answerIdx)}
+                                    checked={newSelectedAnswers[index] === answer}
+                                />
+                                <label htmlFor={`question-${index}-option-${answerIdx}`}>{answer}</label>
+                            </div>
+                        ))}
+                        {/* Only show the result if it has been checked at least once */}
+                        {newEvaluationResults[index]?.answerIndex !== undefined && (
+                            <span>
+                                {newEvaluationResults[index].isCorrect ? "✅ Correct" : "❌ Incorrect"}
+                            </span>
+                        )}
+                    </div>
+                );
+            });
+    
+            return {
+                ...prevState,
+                selectedAnswers: newSelectedAnswers,
+                evaluationResults: newEvaluationResults,
+                selectedText2: <form onSubmit={(e) => e.preventDefault()}>{newQuizzesContent}</form>
+            };
         });
     };
+    
 
     return (
         <>
@@ -175,7 +245,7 @@ const EventList = () => {
                                     pattern="https://.*"
                                     required
                                     value={state.youtubeLink}
-                                    onChange={e => setState({...state, youtubeLink: e.target.value})} // Update the state when input changes
+                                    onChange={e => setState({ ...state, youtubeLink: e.target.value })} // Update the state when input changes
                                 />
                             </div>
                             <div className="wrapper2">
@@ -192,8 +262,6 @@ const EventList = () => {
                     </form>
                 </div>
 
-
-                {JSON.stringify(state)}
 
                 {!state.isLoading && state.apiData.summary.data && (
                     <div ref={stepTwoRef} className="containersteps2">
@@ -213,9 +281,11 @@ const EventList = () => {
                         <h2 className="stepsname">Step 3: Quizzes! Flashcards! And more!</h2>
                         <div className="button-row">
                             <button type="button" className="buttons1" onClick={handleQuizzesClick}>Quizzes</button>
-                            <button type="button" className="buttons1" onClick={() => handleButtonClick('Text for Button 2')}>Flashcards</button>
+                            <button type="button" className="buttons1" >Flashcards</button>
                         </div>
-                        {state.selectedText2 && <div className="text-box">{state.selectedText2}</div>}
+                        {state.selectedText2 && <div className="text-box">{state.selectedText2}</div>
+                        }
+                       
                     </div>
                 )}
 
