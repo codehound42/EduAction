@@ -5,9 +5,9 @@ const Nav = () => {
   return (
     <div className="d-flex justify-content-end">
       <ul className="mainmenu">
-        <li>
+        {/* <li>
           <Link to="/">About Us</Link>
-        </li>
+        </li> */}
         {/* <li>
           <Link to="/contact-us">Contact Us</Link>
         </li> */}
