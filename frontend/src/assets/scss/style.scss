@@ -105,7 +105,7 @@
     padding-top: 5%;
     padding-bottom: 5%;
     padding-left: 10%;
-    padding-right: 10%;  
+    padding-right: 10%;
     background-color: aliceblue;
 }
 
@@ -113,7 +113,7 @@
     padding-top: 5%;
     padding-bottom: 5%;
     padding-left: 10%;
-    padding-right: 10%;  
+    padding-right: 10%;
     background-color: rgb(229, 233, 247);
     scroll-margin-top: 150px ;
 }
@@ -122,7 +122,7 @@
     padding-top: 5%;
     padding-bottom: 5%;
     padding-left: 10%;
-    padding-right: 10%;  
+    padding-right: 10%;
     background-color: rgb(223, 228, 250);
     scroll-margin-top: 100px ;
 }
@@ -226,4 +226,24 @@ img.loading{
 .buttons2:hover {
     background-color:#8698cb;
     transition: 0.7s;
+}
+
+.containerstepscooking {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    justify-content: space-between; /* Put some space between the text and the image */
+    /* You can adjust padding and margins as needed */
+}
+
+.text-content {
+    /* Style for the text content if needed, for example: */
+    flex: 1; /* Allows the text content to grow and fill the available space */
+    padding-right: 20px; /* Adds some space between the text and the image */
+}
+
+.robot-arm {
+    /* Style for the robot arm image if needed */
+    max-width: 350px; /* Adjust the size of the image */
+    height: auto; /* Maintain aspect ratio */
+    flex: none; /* Prevent the image from growing or shrinking */
 }

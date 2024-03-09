@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import SEO from '../../common/SEO';
 import Layout from '../../common/Layout';
 import loadinggif from '../../assets/images/loading.gif';
+import robotarm from '../../assets/images/robotarm.svg';
 
 const EventList = () => {
     const [state, setState] = useState({
@@ -16,12 +17,14 @@ const EventList = () => {
         selectedText: '',
         selectedText2: '',
         showStepThree: false,
+        showStepCooking: false,
         selectedAnswers: {},
         evaluationResults: {},
         user_id: "94bd2faf-d21b-452d-a9a2-0159363a11fd",
     });
     const stepTwoRef = useRef(null);
     const stepThreeRef = useRef(null);
+    const stepCookingRef = useRef(null);
 
     const handleButtonClick = (text) => {
         setState(prevState => ({ ...prevState, selectedText: text, selectedText2: text }));
@@ -36,6 +39,12 @@ const EventList = () => {
     useEffect(() => {
         if (state.apiData.summary.data && stepTwoRef.current) {
             stepTwoRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [state.apiData.summary.data]);
+
+    useEffect(() => {
+        if (state.apiData.summary.data && stepCookingRef.current) {
+            stepCookingRef.current.scrollIntoView({ behavior: 'smooth' });
         }
     }, [state.apiData.summary.data]);
 
@@ -59,7 +68,7 @@ const EventList = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        setState(prevState => ({ ...prevState, isLoading: true }));
+        setState(prevState => ({ ...prevState, isLoading: true, showStepCooking: true }));
 
         try {
             const transcriptDataPromise = fetchData('yt_link', { url: state.youtubeLink, user_id: state.user_id });
@@ -215,7 +224,6 @@ const EventList = () => {
                             </div>
                             <div className="wrapper2">
                                 <button type="submit" className="buttons1">Submit</button>
-                                {state.isLoading && <img src={loadinggif} alt="Loading..." className="loading" />} {/* Conditional rendering of loading GIF */}
                             </div>
                             <div>
                                 <h3 className="text2">Pay attention:</h3>
@@ -227,6 +235,24 @@ const EventList = () => {
                     </form>
                 </div>
 
+                {state.showStepCooking && (
+                    <div ref={stepTwoRef} className="containersteps2 containerstepscooking">
+                        <div className="text-content">
+                            <h2 className="stepsname">Congrats!</h2>
+                            <h5>Your link is now in the "AI oven"</h5>
+                            <div className="text2">
+                                <h7 className="text2">What is the AI cooking?</h7>
+                                <ul>
+                                    <li className="text2">Transcribing your lecture</li>
+                                    <li className="text2">Summarising and categorising</li>
+                                    <li className="text2">Crafting educational items for you</li>
+                                </ul>
+                            </div>
+                            {state.isLoading && <img src={loadinggif} alt="Loading..." className="loading" />} {/* Conditional rendering of loading GIF */}
+                        </div>
+                        <img src={robotarm} alt="Cooking..." className="robot-arm" />
+                    </div>
+                )}
 
                 {!state.isLoading && state.apiData.summary.data && (
                     <div ref={stepTwoRef} className="containersteps2">
