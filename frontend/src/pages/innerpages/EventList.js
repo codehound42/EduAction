@@ -62,10 +62,21 @@ const EventList = () => {
         setState(prevState => ({ ...prevState, isLoading: true }));
 
         try {
-            const transcriptData = await fetchData('yt_link', { url: state.youtubeLink, user_id: state.user_id });
-            const summaryData = await fetchData('summary', { transcript: transcriptData, user_id: state.user_id });
-            const subjectsData = await fetchData('subjects', { transcript: transcriptData, user_id: state.user_id });
-            const quizzesData = await fetchData('quiz', { transcript: transcriptData, user_id: state.user_id });
+            const transcriptDataPromise = fetchData('yt_link', { url: state.youtubeLink, user_id: state.user_id });
+
+            // Start all fetch operations concurrently
+            const transcriptData = await transcriptDataPromise; // Wait for the transcript data as it's needed for other requests
+
+            const summaryDataPromise = fetchData('summary', { transcript: transcriptData, user_id: state.user_id });
+            const subjectsDataPromise = fetchData('subjects', { transcript: transcriptData, user_id: state.user_id });
+            const quizzesDataPromise = fetchData('quiz', { transcript: transcriptData, user_id: state.user_id });
+
+            // Wait for all the other fetch operations to complete
+            const [summaryData, subjectsData, quizzesData] = await Promise.all([
+                summaryDataPromise,
+                subjectsDataPromise,
+                quizzesDataPromise
+            ]);
 
             // console.log the data
             console.log('Transcript:', transcriptData);
