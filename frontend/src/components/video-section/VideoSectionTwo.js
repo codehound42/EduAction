@@ -10,27 +10,27 @@ const accordionItems = [
   {
     id: 1,
     title: "How does EduAction improves my study?",
-    body: "Learning management system, combines a wide range of features to present a class setting without having the students come into a physical classroom. It all depends on the WordPress LMS plugin you go with, but in general.",
+    body: "Learning aids help you understand better and memorize more:  Breaking down complex information into smaller, manageable chunks making it easier for your brain to process and remember. Some people learn better through visuals, so incorporating images or diagrams can enhance understanding. PLUS the interactive nature of flashcards & quizzes keeps you engaged in the learning process. Regular engagement helps prevent boredom and keeps your brain actively involved, which is crucial for effective learning and retention.",
   },
   {
     id: 2,
     title: "is there a limit to the lecture lenght?",
-    body: "Learning management system, combines a wide range of features to present a class setting without having the students come into a physical classroom. It all depends on the WordPress LMS plugin you go with, but in general.",
+    body: "1 hour is our limit [at this time]. We hope in the future to add longer videos, but at the moment we recommend lectures that are below 60 minutes.",
   },
   {
     id: 3,
     title: "Can I use your tool... more than once?",
-    body: "Learning management system, combines a wide range of features to present a class setting without having the students come into a physical classroom. It all depends on the WordPress LMS plugin you go with, but in general.",
+    body: "Absolutely! Feel free to use EduAction as much as you need. Repetition is one of the most important thing, when studying.",
   },
   {
     id: 4,
     title: "Can I save the Education aids I create?",
-    body: "Learning management system, combines a wide range of features to present a class setting without having the students come into a physical classroom. It all depends on the WordPress LMS plugin you go with, but in general.",
+    body: "Today you can share the link to our tool. In the future, we aim to add a feature that you can share your quiz/flashcard/etc to your classmates or study team.",
   },
   {
     id: 5,
     title: "Does Focus offer integration with other software tools?",
-    body: "Learning management system, combines a wide range of features to present a class setting without having the students come into a physical classroom. It all depends on the WordPress LMS plugin you go with, but in general.",
+    body: "NOT for now, but were aiming to add this feature at the future.",
   },
 ];
 
