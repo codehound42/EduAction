@@ -173,7 +173,6 @@ const EventList = () => {
         });
     };
 
-
     const CountCorrectAnswers = () => {
         const correctAnswersCount = Object.values(state.evaluationResults).filter((result) => result.isCorrect).length;
         return (
@@ -220,9 +219,9 @@ const EventList = () => {
 
                 {!state.isLoading && state.apiData.summary.data && (
                     <div ref={stepTwoRef} className="containersteps2">
-                        <h2 className="stepsname">Step 2: Your AI Outcome</h2>
+                        <h2 className="stepsname">Step 2: Your Initial AI Outcome</h2>
                         <div className="button-row">
-                            <button type="button" className="buttons1" onClick={() => handleButtonClick(<div>{JSON.stringify(state.apiData.summary.data)}</div>)}>Summary</button>
+                            <button type="button" className="buttons1" onClick={() => handleButtonClick(<div>{state.apiData.summary.data}</div>)}>Summary</button>
                             <button type="button" className="buttons1" onClick={handleSubjectsClick}>Subjects</button>
                         </div>
                         {state.selectedText && <div className="text-box">{state.selectedText}</div>}
