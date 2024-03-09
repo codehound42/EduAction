@@ -7,6 +7,7 @@ import flashcardsicon from "../../assets/images/flashcardsicon.svg"
 import quizicon from "../../assets/images/quizicon.svg"
 import summaryicon from "../../assets/images/summaryicon.svg"
 import topicsicon from "../../assets/images/topicsicon.svg"
+import { FlashcardArray } from "react-quizlet-flashcard";
 
 
 const EventList = () => {
@@ -17,6 +18,7 @@ const EventList = () => {
             subjects: {},
             quizzes: {},
             transcript: '',
+            flashcards: {},
         },
         isLoading: false,
         selectedText: '',
@@ -30,14 +32,18 @@ const EventList = () => {
         subjectsSelected: false,
         quizzesSelected: true,
         flashcardSelected: false,
+        textSource: "quizzes"
     });
     const stepTwoRef = useRef(null);
     const stepThreeRef = useRef(null);
     const stepCookingRef = useRef(null);
 
-    const handleButtonClick = (text) => {
-        setState(prevState => ({ ...prevState, summarySelected: true, subjectsSelected: false}));
-        setState(prevState => ({ ...prevState, selectedText: text, selectedText2: text }));
+    const handleButtonClick = (text, text2) => {
+        setState(prevState => ({ ...prevState, summarySelected: true, subjectsSelected: false, selectedText: text, selectedText2: text2}));
+    };
+
+    const handleQuizAndFlashcardButtonClick = (text, text2) => {
+        setState(prevState => ({ ...prevState, selectedText: text, selectedText2: text2}));
     };
 
     useEffect(() => {
@@ -89,19 +95,57 @@ const EventList = () => {
             const summaryDataPromise = fetchData('summary', { transcript: transcriptData, user_id: state.user_id });
             const subjectsDataPromise = fetchData('subjects', { transcript: transcriptData, user_id: state.user_id });
             const quizzesDataPromise = fetchData('quiz', { transcript: transcriptData, user_id: state.user_id });
+            const flashcardDataPromise = fetchData('flashcards', { transcript: transcriptData, user_id: state.user_id });
 
             // Wait for all the other fetch operations to complete
-            const [summaryData, subjectsData, quizzesData] = await Promise.all([
+            const [summaryData, subjectsData, quizzesData, flashcardsData] = await Promise.all([
                 summaryDataPromise,
                 subjectsDataPromise,
-                quizzesDataPromise
+                quizzesDataPromise,
+                flashcardDataPromise,
             ]);
 
-            // console.log the data
-            console.log('Transcript:', transcriptData);
-            console.log('Summary:', summaryData);
-            console.log('Subjects:', subjectsData);
-            console.log('Quizzes:', quizzesData);
+            const adaptedFlashcards = flashcardsData.questions.map((question, i) => ({
+                id: i,
+                frontHTML: (
+                  <div style={{ display: "flex", height: "100%" }}>
+                    <div
+                      style={{
+                        flex: 1,
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        padding: "0 10px",
+                      }}
+                    >
+                      <div className="flashcard-title">
+                        <h6 style={{ margin: 0 }}>{question}</h6>
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        flex: 1,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <img
+                        src={flashcardsData.images[i]}
+                        alt="Card"
+                        className="img-thumbnail flashcard-img"
+                      />
+                    </div>
+                  </div>
+                ),
+                backHTML: (
+                  <div className="backstyle">
+                    <div className="backstyle-text">
+                      <h4>{flashcardsData.answers[i]}</h4>
+                    </div>
+                  </div>
+                ),
+              }));
 
             setState(prevState => ({
                 ...prevState,
@@ -111,6 +155,7 @@ const EventList = () => {
                     summary: summaryData,
                     subjects: subjectsData,
                     quizzes: { data: quizzesData.data.map((quiz) => JSON.parse(quiz)) },
+                    flashcards: adaptedFlashcards,
                 },
                 isLoading: false,
             }));
@@ -270,8 +315,8 @@ const EventList = () => {
                     <div ref={stepTwoRef} className="containersteps2">
                         <h2 className="stepsname">Step 2: Your Initial AI Outcome</h2>
                         <div className="button-row">
-                            <button type="button" className={`buttons1 ${state.summarySelected ? '' : 'unselected'}`} onClick={() => handleButtonClick(<div>{state.apiData.summary.data}</div>)}><img src={summaryicon} alt="summary" className="button-icon"/>Summary</button>
-                            <button type="button" className={`buttons1 ${state.subjectsSelected ? '' : 'unselected'}`} onClick={handleSubjectsClick}><img src={topicsicon} alt="topics" className="button-icon"/>Subjects</button>
+                            <button type="button" className={`buttons1 ${state.summarySelected ? '' : 'unselected'}`} onClick={() => handleButtonClick(<div>{state.apiData.summary.data}</div>, state.selectedText2)}><img src={summaryicon} alt="summary" className="button-icon"/>Summary</button>
+                            <button type="button" className={`buttons1 ${state.subjectsSelected ? '' : 'unselected'}`} onClick={() => handleButtonClick(<div>{state.apiData.subjects.data}</div>, state.selectedText2)}><img src={topicsicon} alt="topics" className="button-icon"/>Subjects</button>
                         </div>
                         {state.selectedText && <div className="text-box">{state.selectedText}</div>}
                         <div className="button-row">
@@ -284,10 +329,34 @@ const EventList = () => {
                         <h2 className="stepsname">Step 3: Quizzes! Flashcards! And more!</h2>
                         <div className="button-row">
                             <button type="button" className={`buttons1 ${state.quizzesSelected ? '' : 'unselected'}`} onClick={handleQuizzesClick}><img src={quizicon} alt="quizzes" className="button-icon"/>Quizzes</button>
-                            <button type="button" className={`buttons1 ${state.flashcardSelected ? '' : 'unselected'}`} ><img src={flashcardsicon} alt="flashcards" className="button-icon"/>Flashcards</button>
+                            <button type="button" className={`buttons1 ${state.flashcardSelected ? '' : 'unselected'}`} onClick={() => {
+                                setState(prevState => ({ ...prevState, flashcardSelected: true, quizzesSelected: false, selectedText: state.apiData.flashcards }))
+                                handleQuizAndFlashcardButtonClick(
+                                    state.selectedText,
+                                    <FlashcardArray
+                                        cards={state.apiData.flashcards}
+                                        frontCardStyle={{ padding: 20 }}
+                                        backCardStyle={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            padding: 20,
+                                            height: "100%", // Set a specific height if necessary
+                                            width: "100%",
+                                        }}
+                                        FlashcardArrayStyle={{ textAlign: "center" }}
+                                        />
+                                )}}><img src={flashcardsicon} alt="flashcards" className="button-icon"/>Flashcards</button>
                         </div>
-                        {state.selectedText2 && <div className="text-box">{state.selectedText2}</div>
-                        }
+                        {true && (
+                        <div
+                            className={
+                                state.flashcardSelected ? "text-box2" : "text-box"
+                            }
+                        >
+                            {state.selectedText2}
+                        </div>
+                        )}
                         <CountCorrectAnswers />
                     </div>
                 )}

@@ -221,6 +221,18 @@ img.loading{
 
 }
 
+
+.text-box2 {
+    padding: 20px;
+    margin-bottom: 3%;
+    border: 1px solid #ccc;
+    background-color: rgb(216, 223, 247);
+    display:flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
 .feedback {
     margin-top: 10px;
     font-size: 16px;
@@ -274,4 +286,33 @@ img.loading{
     max-width: 350px; /* Adjust the size of the image */
     height: auto; /* Maintain aspect ratio */
     flex: none; /* Prevent the image from growing or shrinking */
+}
+
+
+.flashcard-img img {
+    max-height: 100%; /* Ensure it does not exceed the card height */
+    width: auto; /* Keep the aspect ratio */
+    max-width: 50%; /* Maximum half width of the flashcard */
+}
+
+.backstyle{
+    text-align: center;
+    align-items: center;
+    justify-content: center ;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.backstyle-text{
+
+    display: flex;
+    flex-direction: column;
+}
+
+.flashcard-title{
+    text-align: justify;
+}
+
+.flashcard-img{
+    min-height: 75%;
 }
