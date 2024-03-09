@@ -20,7 +20,7 @@ class QuestionsAndAnswers(BaseModel):
 
 
 class Subjects(BaseModel):
-    subjectsb: list[str] = Field(description="list of subjects")
+    subjects: list[str] = Field(description="list of subjects")
 
 flashcard_system_prompt = """
 I want you to act as a professional Anki card creator, able to create Anki cards from the text I provide.
