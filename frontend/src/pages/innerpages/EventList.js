@@ -9,8 +9,8 @@ import summarywhiteicon from "../../assets/images/summarywhiteicon.svg"
 import summaryblueicon from "../../assets/images/summaryblueicon.svg"
 import originalIcon from "../../assets/images/original.svg"
 import whiteIcon from "../../assets/images/white.svg"
-import quizwhiteicon from "../../assets/images/summarywhiteicon.svg"
-import quizblueicon from "../../assets/images/summaryblueicon.svg"
+import quizwhiteicon from "../../assets/images/quizwhiteicon.svg"
+import quizblueicon from "../../assets/images/quizblueicon.svg"
 import flashcardwhiteicon from "../../assets/images/flashcardwhiteicon.svg"
 import flashcardblueicon from "../../assets/images/flashcardblueicon.svg"
 
@@ -140,6 +140,25 @@ const EventList = () => {
         transcript: transcriptData,
         user_id: state.user_id,
       });
+
+      // Wait for all the other fetch operations to complete
+      const [summaryData, subjectsData] =
+        await Promise.all([
+          summaryDataPromise,
+          subjectsDataPromise
+        ]);
+
+      setState((prevState) => ({
+        ...prevState,
+        apiData: {
+          ...prevState.apiData,
+          transcript: transcriptData,
+          summary: summaryData,
+          subjects: subjectsData,
+        },
+        isLoading: false,
+      }));
+
       const quizzesDataPromise = fetchData("quiz", {
         transcript: transcriptData,
         user_id: state.user_id,
@@ -149,13 +168,10 @@ const EventList = () => {
         user_id: state.user_id,
       });
 
-      // Wait for all the other fetch operations to complete
-      const [summaryData, subjectsData, quizzesData, flashcardsData] =
+      const [quizzesData, flashcardsData] =
         await Promise.all([
-          summaryDataPromise,
-          subjectsDataPromise,
           quizzesDataPromise,
-          flashcardDataPromise,
+          flashcardDataPromise
         ]);
 
       const adaptedFlashcards = flashcardsData.questions.map((question, i) => ({
@@ -277,7 +293,7 @@ const EventList = () => {
       <form onSubmit={(e) => e.preventDefault()}>
         {quizzesData.map((quiz, index) => (
           <div key={index} className="quiz-block">
-            <h4>
+            <h4 className="question-heading">
               Q{index + 1}: {quiz.question}
             </h4>
             {quiz.answers.map((answer, answerIndex) => (
@@ -450,6 +466,7 @@ const EventList = () => {
                 type="button"
                 className="buttons1"
                 onClick={handleGenerateQuizClick}
+                disabled={!state.apiData.quizzes?.data?.length || !state.apiData.flashcards?.length}
               >
                 Next
               </button>
