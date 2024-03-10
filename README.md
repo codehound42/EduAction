@@ -1,11 +1,12 @@
 # What is EduAction?
 ![](cover.png)
-The EduAction project is specifically developed for the Encode Club AI Hackathon London 2024. It is an AI-powered application designed to create customizable educational content, quizzes, and interactive modules. The main objective of this project is to enhance engagement for educators, students, and self-learners. By leveraging the power of artificial intelligence, EduAction aims to add to the way educational content is created and consumed, providing a more interactive and personalized learning experience.
+The EduAction project is specifically developed for the Encode Club AI Hackathon London 2024. It is an AI-powered application designed to output customizable educational content, quizzes, and interactive modules based on a simple YouTube link input.
+The main objective of this project is to enhance engagement for educators, students, and self-learners. By leveraging the power of artificial intelligence, EduAction aims to revolutionize the way educational content is created and consumed, providing a more interactive and personalized learning experience.
 
 # How it works?
 ![](imgs/architecture.png)
 
-EduAction is taking the link to a YouTube video and generate the quizzes, flashcards, summary, and topics.
+EduAction takes the link to a YouTube video and generates sections such as quizzes, flashcards, summary, and topics.
 The architecture is divded into two parts:
 - **Backend**, which uses
     - OpenAI API, and Langchain to generate the quizzes, flashcards, summary and topics.
@@ -69,7 +70,7 @@ Here's a high-level description of the generation process:
 
 
 # What's next?
-- [ ] Add the assaignment generation.
+- [ ] Add the assignment generation.
 - [ ] Add the fill the blanks exercises.
 - [ ] Add the recommended other materials to learn.
 - [ ] Add option to customize number of flashcards to generate.
