@@ -216,7 +216,6 @@ const EventList = () => {
         ),
       }));
 
-      
       setState((prevState) => ({
         ...prevState,
         apiData: {
@@ -468,7 +467,7 @@ const EventList = () => {
                 onClick={handleGenerateQuizClick}
                 disabled={!state.apiData.quizzes?.data?.length || !state.apiData.flashcards?.length}
               >
-                Next
+                Next {(!state.apiData.quizzes?.data?.length || !state.apiData.flashcards?.length) && <img src={loadinggif} alt="Loading..." className="loading" />}
               </button>
             </div>
           </div>
