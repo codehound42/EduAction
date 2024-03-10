@@ -4,3 +4,4 @@ langchain-openai
 python-dotenv
 youtube-transcript-api
 supabase
+gunicorn

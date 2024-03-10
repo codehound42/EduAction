@@ -27,10 +27,12 @@ quiz_chain = create_quiz_chain(llm)
 subjects_chain = create_subjects_chain(llm)
 response_clean_chain = create_clean_transcript_chain(llm)
 
+CHUNK_SIZE = 20_000
+
 def split_transcript(transcript: str):
     text_splitter = RecursiveCharacterTextSplitter(
         # Set a really small chunk size, just to show.
-        chunk_size=os.getenv("CHUNK_SIZE"),
+        chunk_size=CHUNK_SIZE,
         chunk_overlap=200,
         length_function=len,
         is_separator_regex=False,
@@ -80,8 +82,8 @@ async def generate_image(prompt, stability_api=stability_api, stability_model=st
                 }
             ],
             "cfg_scale": 7,
-            "height": 512,
-            "width": 512,
+            "height": 320,
+            "width": 320,
             "samples": 1,
         },
     )
@@ -90,8 +92,8 @@ async def generate_image(prompt, stability_api=stability_api, stability_model=st
 
 async def generate_quiz(transcript: str):
     responses = await split_transcript_and_collect_responses(transcript, quiz_chain)
-    sublists = [response["question_and_answers"] for response in responses]
-    flattened_list = [QuestionAndAnswer(**item) for sublist in sublists for item in sublist]
+    sublists = [response.question_and_answers for response in responses]
+    flattened_list = [QuestionAndAnswer(question=item.question, answers=item.answers, correct_answer=item.correct_answer).json() for sublist in sublists for item in sublist]
     return flattened_list
 
 

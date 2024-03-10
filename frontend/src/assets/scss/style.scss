@@ -105,7 +105,7 @@
     padding-top: 5%;
     padding-bottom: 5%;
     padding-left: 10%;
-    padding-right: 10%;  
+    padding-right: 10%;
     background-color: aliceblue;
 }
 
@@ -113,7 +113,7 @@
     padding-top: 5%;
     padding-bottom: 5%;
     padding-left: 10%;
-    padding-right: 10%;  
+    padding-right: 10%;
     background-color: rgb(229, 233, 247);
     scroll-margin-top: 150px ;
 }
@@ -122,7 +122,7 @@
     padding-top: 5%;
     padding-bottom: 5%;
     padding-left: 10%;
-    padding-right: 10%;  
+    padding-right: 10%;
     background-color: rgb(223, 228, 250);
     scroll-margin-top: 100px ;
 }
@@ -151,7 +151,7 @@
     font-weight: 500;
 }
 
-.buttons1{
+.buttons1 {
     background-color: blue;
     border: none;
     color: white;
@@ -161,11 +161,43 @@
     display: inline-block;
     font-size: 16px;
     border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+.buttons1.unselected {
+    background-color: white;
+    border: 1px solid blue;
+    color: blue;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+.buttons1-content-wrapper {
+    display: inline-flex; /* Aligns the icon and the text inline */
+    align-items: center; /* Centers them vertically */
+    justify-content: center; /* Centers the content horizontally, if there's padding */
+}
+
+.button-icon {
+    margin-right: 8px; /* Adds some space between the icon and the text */
+    width: 20px; /* Sets the icon size */
+    height: 20px; /* Maintains the aspect ratio */
 }
 
 .buttons1:hover {
     background-color:#8698cb;
     transition: 0.7s;
+}
+
+.buttons1:disabled {
+    background-color: darkgrey;
 }
 
 .wrapper2{
@@ -191,4 +223,118 @@ img.loading{
     border: 1px solid #ccc;
     background-color: rgb(216, 223, 247);
 
+}
+
+
+.text-box2 {
+    padding: 20px;
+    margin-bottom: 3%;
+    border: 1px solid #ccc;
+    background-color: rgb(216, 223, 247);
+    display:flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.feedback {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+
+.logo-light{
+    min-height: 75px;
+}
+
+.buttons2{
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 15px;
+}
+
+.buttons2:hover {
+    background-color:#8698cb;
+    transition: 0.7s;
+}
+
+.containerstepscooking {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    justify-content: space-between; /* Put some space between the text and the image */
+    /* You can adjust padding and margins as needed */
+}
+
+.text-content {
+    /* Style for the text content if needed, for example: */
+    flex: 1; /* Allows the text content to grow and fill the available space */
+    padding-right: 20px; /* Adds some space between the text and the image */
+}
+
+.robot-arm {
+    /* Style for the robot arm image if needed */
+    max-width: 350px; /* Adjust the size of the image */
+    height: auto; /* Maintain aspect ratio */
+    flex: none; /* Prevent the image from growing or shrinking */
+}
+
+
+.flashcard-img img {
+    max-height: 100%; /* Ensure it does not exceed the card height */
+    width: auto; /* Keep the aspect ratio */
+    max-width: 50%; /* Maximum half width of the flashcard */
+}
+
+.backstyle{
+    text-align: center;
+    align-items: center;
+    justify-content: center ;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.backstyle-text{
+
+    display: flex;
+    flex-direction: column;
+}
+
+.flashcard-title{
+    text-align: left;
+}
+
+.flashcard-img{
+    min-height: 75%;
+}
+.answer-flag{
+    margin-left: 5px;
+}
+.correct label{
+    color: green;
+}
+.incorrect label{
+    color: red;
+}
+.question-heading {
+    margin-top: 20px;
+}
+
+.correct-answers-count{
+    padding-top: 3%;
+    font-size: 20px;
+    font-weight: bold;
 }
