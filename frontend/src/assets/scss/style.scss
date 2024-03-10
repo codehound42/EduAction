@@ -196,6 +196,10 @@
     transition: 0.7s;
 }
 
+.buttons1:disabled {
+    background-color: darkgrey;
+}
+
 .wrapper2{
     padding-top:2%;
     padding-bottom: 2%;
@@ -324,4 +328,7 @@ img.loading{
 }
 .incorrect label{
     color: red;
+}
+.question-heading {
+    margin-top: 20px;
 }
