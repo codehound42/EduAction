@@ -31,7 +31,6 @@ const EventList = () => {
     showStepThree: false,
     showStepFour: false,
     showStepCooking: false,
-    selectedAnswers: {},
     evaluationResults: {},
     user_id: "94bd2faf-d21b-452d-a9a2-0159363a11fd",
     summarySelected: true,
@@ -40,6 +39,7 @@ const EventList = () => {
     flashcardSelected: false,
     textSource: "quizzes",
   });
+  const [selectedAnswers, setSelectedAnswers] = useState({});
   const stepTwoRef = useRef(null);
   const stepThreeRef = useRef(null);
   const stepFourRef = useRef(null);
@@ -62,19 +62,10 @@ const EventList = () => {
         summarySelected: true,
         subjectsSelected: false,
         selectedText: text,
-        selectedText2: text
     }));
     setIcon(state.subjectsSelected ? whiteIcon : originalIcon); // If subjects was selected, now we set to white, otherwise to original
 
 };
-
-  const handleQuizAndFlashcardButtonClick = (text, text2) => {
-    setState((prevState) => ({
-      ...prevState,
-      selectedText: text,
-      selectedText2: text2,
-    }));
-  };
 
   useEffect(() => {
     if (state.apiData.summary.data) {
@@ -234,8 +225,7 @@ const EventList = () => {
   };
 
   const handleGenerateQuizClick = () => {
-    handleQuizzesClick();
-    setState((prevState) => ({ ...prevState, showStepThree: true }));
+    setState((prevState) => ({ ...prevState, showStepThree: true, quizzesSelected: true, flashcardSelected: false }));
     setTimeout(() => {
       stepThreeRef.current?.scrollIntoView({ behavior: "smooth" });
     }, 100);
@@ -277,96 +267,51 @@ const EventList = () => {
   };
 
   // Extract quizzes content creation logic into a reusable function
-  const createQuizzesContent = (
-    quizzesData,
-    selectedAnswers,
-    evaluationResults,
-    handleAnswerChange
-  ) => {
-    setState((prevState) => ({
-      ...prevState,
-      quizzesSelected: true,
-      flashcardSelected: false,
-    }));
+  const QuizzesContent = ({ quizzesData, showStepThree, selectedAnswers, setSelectedAnswers }) => {
+    console.log("quizzesData", quizzesData)
+    console.log("selectedAnswers", selectedAnswers)
     return (
-      <form onSubmit={(e) => e.preventDefault()}>
-        {quizzesData.map((quiz, index) => (
-          <div key={index} className="quiz-block">
-            <h4 className="question-heading">
-              Q{index + 1}: {quiz.question}
-            </h4>
-            {quiz.answers.map((answer, answerIndex) => (
-              <div key={answerIndex}
-              className={`${evaluationResults && evaluationResults[index]?.answerIndex === answerIndex && (evaluationResults[index]?.isCorrect ? "correct" : "incorrect")}`}
-              >
-                <input
-                  type="radio"
-                  id={`question-${index}-option-${answerIndex}`}
-                  name={`question-${index}`}
-                  value={answer}
-                  onChange={(e) =>
-                    handleAnswerChange(
-                      e,
-                      index,
-                      parseInt(quiz.correct_answer) === answerIndex,
-                      answerIndex
-                    )
-                  }
-                />
-                <label htmlFor={`question-${index}-option-${answerIndex}`}>
-                  {answer} {evaluationResults && evaluationResults[index]?.answerIndex === answerIndex && (evaluationResults[index]?.isCorrect ? <span className="answer-flag">✅</span> : <span className="answer-flag">❌</span>)}
-                </label>
-              </div>
-            ))}
-          </div>
-        ))}
-      </form>
-    );
+        showStepThree && quizzesData && (
+        <form onSubmit={(e) => e.preventDefault()}>
+          {quizzesData.map((quiz, index) => (
+            <div key={index} className="quiz-block">
+              <h4 className="question-heading">
+                Q{index + 1}: {quiz.question}
+              </h4>
+              {quiz.answers.map((answer, answerIndex) => (
+                <div key={answerIndex}
+                >
+                  <input
+                    type="radio"
+                    id={`question-${index}-option-${answerIndex}`}
+                    name={`question-${index}`}
+                    value={answerIndex}
+                    onChange={(e) => setSelectedAnswers(selectedAnswers => ({...selectedAnswers, [index]: answerIndex}))}
+                    checked={selectedAnswers[index] === answerIndex}
+                  />
+                  <label htmlFor={`question-${index}-option-${answerIndex}`}>
+                    {answer} {selectedAnswers[index] === answerIndex && (quiz.correct_answer === answerIndex ? <span className="answer-flag">✅</span> : <span className="answer-flag">❌</span>)}
+                  </label>
+                </div>
+              ))}
+            </div>
+          ))}
+        </form>
+      )
+    )
   };
 
   const handleQuizzesClick = () => {
     const { quizzes } = state.apiData;
     if (quizzes && quizzes.data) {
-      const quizzesContent = createQuizzesContent(
-        quizzes.data,
-        state.selectedAnswers,
-        state.evaluationResults,
-        handleAnswerChange
-      );
       setState((prevState) => ({
         ...prevState,
-        selectedText2: quizzesContent,
+        quizzesSelected: true,
+        flashcardSelected: false,
       }));
     } else {
       console.log("Quiz data is not available:", quizzes);
     }
-  };
-
-  const handleAnswerChange = (event, questionIndex, isCorrect, answerIndex) => {
-    setState((prevState) => {
-      const newSelectedAnswers = {
-        ...prevState.selectedAnswers,
-        [questionIndex]: event.target.value,
-      };
-      const newEvaluationResults = {
-        ...prevState.evaluationResults,
-        [questionIndex]: { isCorrect, answerIndex },
-      };
-
-      const newQuizzesContent = createQuizzesContent(
-        prevState.apiData.quizzes.data,
-        newSelectedAnswers,
-        newEvaluationResults,
-        handleAnswerChange
-      );
-
-      return {
-        ...prevState,
-        selectedAnswers: newSelectedAnswers,
-        evaluationResults: newEvaluationResults,
-        selectedText2: newQuizzesContent,
-      };
-    });
   };
 
   const CountCorrectAnswers = () => {
@@ -500,22 +445,6 @@ const EventList = () => {
                     quizzesSelected: false,
                     selectedText: state.apiData.flashcards,
                   }));
-                  handleQuizAndFlashcardButtonClick(
-                    state.selectedText,
-                    <FlashcardArray
-                      cards={state.apiData.flashcards}
-                      frontCardStyle={{ padding: 20 }}
-                      backCardStyle={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        padding: 20,
-                        height: "100%", // Set a specific height if necessary
-                        width: "100%",
-                      }}
-                      FlashcardArrayStyle={{ textAlign: "center" }}
-                    />
-                  );
                 }}
               >
                 <img
@@ -527,7 +456,19 @@ const EventList = () => {
               </button>
             </div>
             <div className={state.flashcardSelected ? "text-box2" : "text-box"}>
-              {state.selectedText2}
+              {state.quizzesSelected ? <QuizzesContent quizzesData={state.apiData.quizzes.data} showStepThree={state.showStepThree} selectedAnswers={selectedAnswers} setSelectedAnswers={setSelectedAnswers}/> : <FlashcardArray
+                      cards={state.apiData.flashcards}
+                      frontCardStyle={{ padding: 20 }}
+                      backCardStyle={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        padding: 20,
+                        height: "100%", // Set a specific height if necessary
+                        width: "100%",
+                      }}
+                      FlashcardArrayStyle={{ textAlign: "center" }}
+                    />}
             </div>
             <div className="button-row">
               <button
