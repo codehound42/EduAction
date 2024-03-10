@@ -22,12 +22,31 @@ Here's a high-level description of the generation process:
 # Tech Stack
 ![](imgs/architecture.png)
 
+## High-level
 The architecture is divded into two parts:
 - **Backend**, which uses
     - OpenAI API, and Langchain to generate the quizzes, flashcards, summary and topics.
     - Supabase to store the generated materials.
     - Stability.ai API to generate images for the flashcards.
 - **Frontend**, which is written in React and is responsible for the user interface and user experience.
+
+## Low-level
+### Backend
+The is built upon OpenAI, Stability.ai, FastAPI, Supabase, and Langchain libraries. The backend folder contains the following files:
+- `main.py` - contains functions that post the generated materials using FastAPI wrapper and save and upload them using Supabase.
+- rag folder
+    - `chains.py` - generates Langchain chains to generate summaries, quizzes, and flashcards.
+    - `data_models.py` - data validation for the generated prompt.
+    - `prompts.py` - store prompts for generating summaries, quizzes, and flashcards.
+    - `rag.py` - store functions to generate images for the flashcards, and the text materials. Additionally, if the text is longer than 20,000 characters, we split it using the Langchain chunker so it fits into the context window and the generated materials are more specific.
+
+- `requirements.txt` - a file with all the dependencies to install.
+- `setting.py` - pydantic settings, set up environment variable etc.
+
+
+### Frontend
+The website's frontend is built upon React JS, HTML and CSS. The website's pages are based upon a Bootstrap + React JS template. The pages editted in the template are `EventList.js`, and `style.scss`. The integration of the backend to frontend was particularly challenging but was solved by using nested `fetch()` functions (to call Open AI's API). Additionally, the process of implementing colours and styles in buttons and page layouts to fit the Figma design was fun and rewarding. A problem faced in the early mornings before the demo was a race condition error for the quiz, which was solved by redefining and rewriting functions related to quiz generation and answer handling.
+
 
 
 # Getting Started
@@ -75,15 +94,14 @@ The architecture is divded into two parts:
         ```
         npm start
         ```
-# Frontend
-
-The website's frontend is built upon React JS, HTML and CSS. The website's pages are based upon a Bootstrap + React JS template. The pages editted in the template are 'EventList.js', and 'style.scss'. The integration of the backend to frontend was particularly challenging but was solved by using nested 'fetch()' functions (to call Open AI's API). Additionally, the process of implementing colours and styles in buttons and page layouts to fit the Figma design was fun and rewarding. A problem faced in the early mornings before the demo was a race condition error for the quiz, which was solved by redefining and rewriting functions related to quiz generation and answer handling.
 
 # What's next?
+- [ ] Add a social aspect of sharing the flashcards and quizzes with others.
 - [ ] Add more educational content features assignemtn generation.
     - [ ] "fill the blanks" exercise
-- [ ] Add the recommended other materials to learn.
-- [ ] Add option to customize number of flashcards to generate.
-- [ ] Add option to customize number of quizzes to generate.
-- [ ] Add option to customize the difficulty level.
+- [ ] Add the recommended learning path.
+- [ ] Add option to
+    - [ ] Customize the number of flashcards to generate.
+    - [ ] Customize the number of quizzes to generate.
+    - [ ] Customize the difficulty level.
 - [ ] Extra pages (about, contact, etc.).
