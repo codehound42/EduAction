@@ -14,10 +14,8 @@ const InstructorPageOne = ({ wrapperClass }) => {
       <SEO title="About" />
       <Layout>
         <div className="container about-title-banner">
-          <h2 className="title">About</h2>
-          <h3 className="h3-non-padding-btm">
-            AI Hackathon project - 08-10 March 2024, London.
-          </h3>
+          <h2 className="stepsname">About</h2>
+          <h6>AI Hackathon project - 08-10 March 2024, London.</h6>
         </div>
 
         <div className="edu-elements-area edu-section-gap bg-color-white">
