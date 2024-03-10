@@ -98,7 +98,7 @@ The website's frontend is built upon React JS, HTML and CSS. The website's pages
 # What's next?
 - [ ] Add a social aspect of sharing the flashcards and quizzes with others.
 - [ ] Add more educational content features assignemtn generation.
-    - [ ] "fill the blanks" exercise
+    - [ ] "Fill the blanks" exercise
 - [ ] Add the recommended learning path.
 - [ ] Add option to
     - [ ] Customize the number of flashcards to generate.
