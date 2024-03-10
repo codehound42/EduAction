@@ -13,15 +13,17 @@ const InstructorPageOne = ({ wrapperClass }) => {
     <>
       <SEO title="About" />
       <Layout>
-        <div className="container about-title-banner">
-          <h2 className="stepsname">About</h2>
-          <h6>AI Hackathon project - 08-10 March 2024, London.</h6>
+        <div className="containersteps">
+          <div className="container">
+            <h2 className="stepsname">About</h2>
+            <h6>AI Hackathon project - 08-10 March 2024, London.</h6>
+          </div>
         </div>
 
         <div className="edu-elements-area edu-section-gap bg-color-white">
           <div className="container">
             <div className="about-content-wrapper">
-              <div className="profilewrapper">
+              <div className="prfilewrapper">
                 <div className="row row--20">
                   {TeamMembers.map((item) => (
                     <div
