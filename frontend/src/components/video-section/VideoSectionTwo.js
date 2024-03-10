@@ -14,8 +14,8 @@ const accordionItems = [
   },
   {
     id: 2,
-    title: "is there a limit to the lecture lenght?",
-    body: "1 hour is our limit [at this time]. We hope in the future to add longer videos, but at the moment we recommend lectures that are below 60 minutes.",
+    title: "is there a limit to the lecture length?",
+    body: "2 hours is around the limit [at this time] that we reliably support. We hope in the future to add longer videos, but at the moment we recommend lectures that are below 120 minutes.",
   },
   {
     id: 3,
@@ -71,7 +71,7 @@ const VideoSectionTwo = () => {
                     slogan = ""
                     title = "Frequently Asked Questions"
                 />
-                <ScrollAnimation 
+                <ScrollAnimation
                     animateIn="fadeInUp"
                     animateOut="fadeInOut"
                     className="accordion-style-1"
