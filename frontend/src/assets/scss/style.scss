@@ -316,3 +316,12 @@ img.loading{
 .flashcard-img{
     min-height: 75%;
 }
+.answer-flag{
+    margin-left: 5px;
+}
+.correct label{
+    color: green;
+}
+.incorrect label{
+    color: red;
+}

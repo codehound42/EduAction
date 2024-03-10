@@ -269,7 +269,9 @@ const EventList = () => {
               Q{index + 1}: {quiz.question}
             </h4>
             {quiz.answers.map((answer, answerIndex) => (
-              <div key={answerIndex}>
+              <div key={answerIndex}
+              className={`${evaluationResults && evaluationResults[index]?.answerIndex === answerIndex && (evaluationResults[index]?.isCorrect ? "correct" : "incorrect")}`}
+              >
                 <input
                   type="radio"
                   id={`question-${index}-option-${answerIndex}`}
@@ -286,18 +288,10 @@ const EventList = () => {
                   checked={selectedAnswers && selectedAnswers[index] === answer}
                 />
                 <label htmlFor={`question-${index}-option-${answerIndex}`}>
-                  {answer}
+                  {answer} {evaluationResults && evaluationResults[index]?.answerIndex === answerIndex && (evaluationResults[index]?.isCorrect ? <span className="answer-flag">✅</span> : <span className="answer-flag">❌</span>)}
                 </label>
               </div>
             ))}
-            {evaluationResults &&
-              evaluationResults[index]?.answerIndex !== undefined && (
-                <span>
-                  {evaluationResults[index].isCorrect
-                    ? "✅ Correct"
-                    : "❌ Incorrect"}
-                </span>
-              )}
           </div>
         ))}
       </form>
@@ -508,7 +502,7 @@ const EventList = () => {
             <div className={state.flashcardSelected ? "text-box2" : "text-box"}>
               {state.selectedText2}
             </div>
-            <CountCorrectAnswers />
+            {/* <CountCorrectAnswers /> */}
           </div>
         )}
       </Layout>
