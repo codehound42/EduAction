@@ -1,18 +1,10 @@
 # What is EduAction?
-![](cover.png)
-The EduAction project is specifically developed for the Encode Club AI Hackathon London 2024. It is an AI-powered application designed to output customizable educational content, quizzes, and interactive modules based on a simple YouTube link input.
-The main objective of this project is to enhance engagement for educators, students, and self-learners. By leveraging the power of artificial intelligence, EduAction aims to revolutionize the way educational content is created and consumed, providing a more interactive and personalized learning experience.
+![](imgs/landingpage.png)
+It is an AI-powered application designed to create customizable educational content, quizzes, and interactive modules. The main objective of this project is to enhance engagement for educators, students, and self-learners. By leveraging the power of artificial intelligence, EduAction aims to add to the way educational content is created and consumed, providing a more interactive and personalized learning experience. The EduAction project has been developed for the the Encode Club AI Hackathon London 2024.
+
 
 # How it works?
-![](imgs/architecture.png)
-
-EduAction takes the link to a YouTube video and generates sections such as quizzes, flashcards, summary, and topics.
-The architecture is divded into two parts:
-- **Backend**, which uses
-    - OpenAI API, and Langchain to generate the quizzes, flashcards, summary and topics.
-    - Supabase to store the generated materials.
-    - Stability.ai API to generate images for the flashcards.
-- **Frontend**, which is written in React and is responsible for the user interface and user experience.
+EduAction takes the link to a YouTube video and generates the quizzes, flashcards, summary, and topics.
 
 Here's a high-level description of the generation process:
 1) Download YouTube video transcript from the link.
@@ -21,6 +13,22 @@ Here's a high-level description of the generation process:
 4) Generate flashcards images using Stability.ai.
 5) Generate a quiz.
 6) Display the learning materials in the web app.
+
+![](imgs/quizzes.jpeg)
+![](imgs/flashcards1.jpeg)
+![](imgs/flashcards2.jpeg)
+
+
+# Tech Stack
+![](imgs/architecture.png)
+
+The architecture is divded into two parts:
+- **Backend**, which uses
+    - OpenAI API, and Langchain to generate the quizzes, flashcards, summary and topics.
+    - Supabase to store the generated materials.
+    - Stability.ai API to generate images for the flashcards.
+- **Frontend**, which is written in React and is responsible for the user interface and user experience.
+
 
 # Getting Started
 
@@ -48,7 +56,7 @@ Here's a high-level description of the generation process:
             ```bash
             uvicorn main:app --reload --port 8000 --log-level debug --host 0.0.0.0
             ```
-        - Run performance:
+        - For performance:
             ```bash
             gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
             ```
@@ -70,9 +78,10 @@ Here's a high-level description of the generation process:
 
 
 # What's next?
-- [ ] Add the assignment generation.
-- [ ] Add the fill the blanks exercises.
+- [ ] Add more educational content features assignemtn generation.
+    - [ ] "fill the blanks" exercise
 - [ ] Add the recommended other materials to learn.
 - [ ] Add option to customize number of flashcards to generate.
 - [ ] Add option to customize number of quizzes to generate.
 - [ ] Add option to customize the difficulty level.
+- [ ] Extra pages (about, contact, etc.).
