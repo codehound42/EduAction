@@ -3,15 +3,17 @@ import SEO from "../../common/SEO";
 import Layout from "../../common/Layout";
 import loadinggif from "../../assets/images/loading.gif";
 import robotarm from "../../assets/images/robotarm.svg";
-import flashcardsicon from "../../assets/images/flashcardsicon.svg";
-import quizicon from "../../assets/images/quizicon.svg";
-import summaryicon from "../../assets/images/summaryicon.svg";
-import topicsicon from "../../assets/images/topicsicon.svg";
+import final from "../../assets/images/final.svg";
 import { FlashcardArray } from "react-quizlet-flashcard";
 import summarywhiteicon from "../../assets/images/summarywhiteicon.svg"
 import summaryblueicon from "../../assets/images/summaryblueicon.svg"
 import originalIcon from "../../assets/images/original.svg"
-import whiteIcon from "../../assets/images/white.svg"    
+import whiteIcon from "../../assets/images/white.svg"
+import quizwhiteicon from "../../assets/images/quizwhiteicon.svg"
+import quizblueicon from "../../assets/images/quizblueicon.svg"
+import flashcardwhiteicon from "../../assets/images/flashcardwhiteicon.svg"
+import flashcardblueicon from "../../assets/images/flashcardblueicon.svg"
+
 
 const EventList = () => {
   const [state, setState] = useState({
@@ -27,6 +29,7 @@ const EventList = () => {
     selectedText: "",
     selectedText2: "",
     showStepThree: false,
+    showStepFour: false,
     showStepCooking: false,
     selectedAnswers: {},
     evaluationResults: {},
@@ -39,6 +42,7 @@ const EventList = () => {
   });
   const stepTwoRef = useRef(null);
   const stepThreeRef = useRef(null);
+  const stepFourRef = useRef(null);
   const stepCookingRef = useRef(null);
   const [icon, setIcon] = useState(originalIcon); // Start with the original icon
 
@@ -52,7 +56,7 @@ const EventList = () => {
     };
 
   const handleButtonClick = (text) => {
-        
+
     setState(prevState => ({
         ...prevState,
         summarySelected: true,
@@ -136,6 +140,25 @@ const EventList = () => {
         transcript: transcriptData,
         user_id: state.user_id,
       });
+
+      // Wait for all the other fetch operations to complete
+      const [summaryData, subjectsData] =
+        await Promise.all([
+          summaryDataPromise,
+          subjectsDataPromise
+        ]);
+
+      setState((prevState) => ({
+        ...prevState,
+        apiData: {
+          ...prevState.apiData,
+          transcript: transcriptData,
+          summary: summaryData,
+          subjects: subjectsData,
+        },
+        isLoading: false,
+      }));
+
       const quizzesDataPromise = fetchData("quiz", {
         transcript: transcriptData,
         user_id: state.user_id,
@@ -145,13 +168,10 @@ const EventList = () => {
         user_id: state.user_id,
       });
 
-      // Wait for all the other fetch operations to complete
-      const [summaryData, subjectsData, quizzesData, flashcardsData] =
+      const [quizzesData, flashcardsData] =
         await Promise.all([
-          summaryDataPromise,
-          subjectsDataPromise,
           quizzesDataPromise,
-          flashcardDataPromise,
+          flashcardDataPromise
         ]);
 
       const adaptedFlashcards = flashcardsData.questions.map((question, i) => ({
@@ -196,6 +216,7 @@ const EventList = () => {
         ),
       }));
 
+      
       setState((prevState) => ({
         ...prevState,
         apiData: {
@@ -218,6 +239,14 @@ const EventList = () => {
     setState((prevState) => ({ ...prevState, showStepThree: true }));
     setTimeout(() => {
       stepThreeRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
+
+  const handleFinalScreen = () => {
+    
+    setState((prevState) => ({ ...prevState, showStepFour: true }));
+    setTimeout(() => {
+      stepFourRef.current?.scrollIntoView({ behavior: "smooth" });
     }, 100);
   };
 
@@ -265,7 +294,7 @@ const EventList = () => {
       <form onSubmit={(e) => e.preventDefault()}>
         {quizzesData.map((quiz, index) => (
           <div key={index} className="quiz-block">
-            <h4>
+            <h4 className="question-heading">
               Q{index + 1}: {quiz.question}
             </h4>
             {quiz.answers.map((answer, answerIndex) => (
@@ -285,7 +314,6 @@ const EventList = () => {
                       answerIndex
                     )
                   }
-                  // checked={selectedAnswers && selectedAnswers[index] === answer}
                 />
                 <label htmlFor={`question-${index}-option-${answerIndex}`}>
                   {answer} {evaluationResults && evaluationResults[index]?.answerIndex === answerIndex && (evaluationResults[index]?.isCorrect ? <span className="answer-flag">✅</span> : <span className="answer-flag">❌</span>)}
@@ -439,6 +467,7 @@ const EventList = () => {
                 type="button"
                 className="buttons1"
                 onClick={handleGenerateQuizClick}
+                disabled={!state.apiData.quizzes?.data?.length || !state.apiData.flashcards?.length}
               >
                 Next
               </button>
@@ -458,7 +487,7 @@ const EventList = () => {
                 }`}
                 onClick={handleQuizzesClick}
               >
-                <img src={quizicon} alt="quizzes" className="button-icon" />
+                <img src={state.quizzesSelected ? quizwhiteicon : quizblueicon} alt="quizzes" className="button-icon" />
                 Quizzes
               </button>
               <button
@@ -492,7 +521,7 @@ const EventList = () => {
                 }}
               >
                 <img
-                  src={flashcardsicon}
+                  src={state.flashcardSelected ? flashcardwhiteicon : flashcardblueicon}
                   alt="flashcards"
                   className="button-icon"
                 />
@@ -502,7 +531,29 @@ const EventList = () => {
             <div className={state.flashcardSelected ? "text-box2" : "text-box"}>
               {state.selectedText2}
             </div>
-            {/* <CountCorrectAnswers /> */}
+            <div className="button-row">
+              <button
+                type="button"
+                className="buttons1"
+                onClick={handleFinalScreen}
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        )}
+        {state.showStepFour && (
+          <div
+            ref={stepFourRef}
+            className="containersteps2 containerstepscooking"
+          >
+            <div className="text-content">
+              <h2 className="stepsname">Enjoy!</h2>
+              <h5>Thank you for using our application!</h5>
+              <h5>Here is your user ID for saving and sharing your flashcards and quizzes. Happy Learning!</h5>
+              <h5>{state.user_id}</h5>
+            </div>
+            <img src={final} alt="Thanks!" className="robot-arm" />
           </div>
         )}
       </Layout>
