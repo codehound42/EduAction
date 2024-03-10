@@ -243,7 +243,6 @@ const EventList = () => {
   };
 
   const handleFinalScreen = () => {
-    
     setState((prevState) => ({ ...prevState, showStepFour: true }));
     setTimeout(() => {
       stepFourRef.current?.scrollIntoView({ behavior: "smooth" });
