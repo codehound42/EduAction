@@ -1,6 +1,6 @@
 # What is EduAction?
 ![](imgs/landingpage.png)
-It is an AI-powered application designed to create customizable educational content, quizzes, and interactive modules. The main objective of this project is to enhance engagement for educators, students, and self-learners. By leveraging the power of artificial intelligence, EduAction aims to add to the way educational content is created and consumed, providing a more interactive and personalized learning experience. The EduAction project has been developed for the the Encode Club AI Hackathon London 2024.
+It is an AI-powered application designed to output customizable educational content, quizzes, and interactive modules from a simple YouTube link input. The main objective of this project is to enhance engagement for educators, students, and self-learners. By leveraging the power of artificial intelligence, EduAction aims to add to the way educational content is created and consumed, providing a more interactive and personalized learning experience. The EduAction project has been developed for the the Encode Club AI Hackathon London 2024.
 
 
 # How it works?
@@ -75,7 +75,9 @@ The architecture is divded into two parts:
         ```
         npm start
         ```
+# Frontend
 
+The website's frontend is built upon React JS, HTML and CSS. The website's pages are based upon a Bootstrap + React JS template. The pages editted in the template are 'EventList.js', and 'style.scss'. The integration of the backend to frontend was particularly challenging but was solved by using nested 'fetch()' functions (to call Open AI's API). Additionally, the process of implementing colours and styles in buttons and page layouts to fit the Figma design was fun and rewarding. A problem faced in the early mornings before the demo was a race condition error for the quiz, which was solved by redefining and rewriting functions related to quiz generation and answer handling.
 
 # What's next?
 - [ ] Add more educational content features assignemtn generation.
