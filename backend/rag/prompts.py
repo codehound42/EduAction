@@ -60,7 +60,7 @@ Thank you for joining me on this brief journey through the history of the Aztec 
 
 # Subjects"""
 
-QUIZ_TEMPLATE = """Given the following lecture transcript. Generate a quiz based on the content. The format of the quiz should be a list of questions, answers and the correct answer. The correct answer should be the index of the correct answer in the list of answers (0-indexed). See the example format below:
+QUIZ_TEMPLATE = """Given the following lecture transcript. Generate a quiz based on the content. The format of the quiz should be a list of questions, answers and the correct answer. The correct answer should be the index of the correct answer in the list of answers (0-indexed). Generate between 8-10 questions. See the example format below:
 
 <example>
 {{
@@ -85,7 +85,7 @@ QUIZ_TEMPLATE = """Given the following lecture transcript. Generate a quiz based
 # Quiz"""
 
 
-FLASHCARDS_TEMPLATE = """Given the following lecture transcript. Generate a list of flashcards based on the content. The format of the flashcards should be a list of question, answer and an image prompt that will be sent to Stable Diffusion for image generation. An example of the format is shown below in example tags.
+FLASHCARDS_TEMPLATE = """Given the following lecture transcript. Generate a list of flashcards based on the content. The format of the flashcards should be a list of question, answer and an image prompt that will be sent to Stable Diffusion for image generation. An example of the format is shown below in example tags. Generate up to at most 5 flashcards.
 
 Make the questions specific to the topic and not too general. Don't ask about the professor and the general format of the course and things like that.
 
