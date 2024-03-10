@@ -46,26 +46,26 @@ const EventList = () => {
   const stepCookingRef = useRef(null);
   const [icon, setIcon] = useState(originalIcon); // Start with the original icon
 
-    const toggleIconColor = () => {
-        setIcon(icon === originalIcon ? whiteIcon : originalIcon);
-    };
+  const toggleIconColor = () => {
+    setIcon(icon === originalIcon ? whiteIcon : originalIcon);
+  };
 
-    const handleClick = () => {
-        handleSubjectsClick();
-        toggleIconColor();
-    };
+  const handleClick = () => {
+    handleSubjectsClick();
+    toggleIconColor();
+  };
 
   const handleButtonClick = (text) => {
 
     setState(prevState => ({
-        ...prevState,
-        summarySelected: true,
-        subjectsSelected: false,
-        selectedText: text,
+      ...prevState,
+      summarySelected: true,
+      subjectsSelected: false,
+      selectedText: text,
     }));
     setIcon(state.subjectsSelected ? whiteIcon : originalIcon); // If subjects was selected, now we set to white, otherwise to original
 
-};
+  };
 
   useEffect(() => {
     if (state.apiData.summary.data) {
@@ -270,8 +270,14 @@ const EventList = () => {
   const QuizzesContent = ({ quizzesData, showStepThree, selectedAnswers, setSelectedAnswers }) => {
     console.log("quizzesData", quizzesData)
     console.log("selectedAnswers", selectedAnswers)
+    let correctAnswersCount = 0;
+    quizzesData.forEach((quiz, index) => {
+        if (quiz.correct_answer === selectedAnswers[index]) {
+            correctAnswersCount += 1;
+        }
+    });
     return (
-        showStepThree && quizzesData && (
+      showStepThree && quizzesData && (
         <form onSubmit={(e) => e.preventDefault()}>
           {quizzesData.map((quiz, index) => (
             <div key={index} className="quiz-block">
@@ -286,7 +292,7 @@ const EventList = () => {
                     id={`question-${index}-option-${answerIndex}`}
                     name={`question-${index}`}
                     value={answerIndex}
-                    onChange={(e) => setSelectedAnswers(selectedAnswers => ({...selectedAnswers, [index]: answerIndex}))}
+                    onChange={(e) => setSelectedAnswers(selectedAnswers => ({ ...selectedAnswers, [index]: answerIndex }))}
                     checked={selectedAnswers[index] === answerIndex}
                   />
                   <label htmlFor={`question-${index}-option-${answerIndex}`}>
@@ -296,6 +302,9 @@ const EventList = () => {
               ))}
             </div>
           ))}
+          <div className="correct-answers-count">
+            Correct Answers: {correctAnswersCount}/{quizzesData.length}
+          </div>
         </form>
       )
     )
@@ -398,8 +407,8 @@ const EventList = () => {
           <div ref={stepTwoRef} className="containersteps2">
             <h2 className="stepsname">Step 2: Your Initial AI Outcome</h2>
             <div className="button-row">
-            <button type="button" className={`buttons1 ${state.summarySelected ? ' ' : 'unselected'}`} onClick={() => handleButtonClick(<div>{state.apiData.summary.data}</div>)}><img src={state.summarySelected ? summarywhiteicon : summaryblueicon} alt="summary" className="button-icon"/>Summary</button>
-            <button type="button" className={`buttons1 ${state.subjectsSelected ? ' ' : 'unselected'}`} onClick={handleSubjectsClick}><img src={state.subjectsSelected ? whiteIcon : originalIcon} alt="subjects" className="button-icon"/>Subjects</button>
+              <button type="button" className={`buttons1 ${state.summarySelected ? ' ' : 'unselected'}`} onClick={() => handleButtonClick(<div>{state.apiData.summary.data}</div>)}><img src={state.summarySelected ? summarywhiteicon : summaryblueicon} alt="summary" className="button-icon" />Summary</button>
+              <button type="button" className={`buttons1 ${state.subjectsSelected ? ' ' : 'unselected'}`} onClick={handleSubjectsClick}><img src={state.subjectsSelected ? whiteIcon : originalIcon} alt="subjects" className="button-icon" />Subjects</button>
 
             </div>
             {state.selectedText && (
@@ -425,9 +434,8 @@ const EventList = () => {
             <div className="button-row">
               <button
                 type="button"
-                className={`buttons1 ${
-                  state.quizzesSelected ? "" : "unselected"
-                }`}
+                className={`buttons1 ${state.quizzesSelected ? "" : "unselected"
+                  }`}
                 onClick={handleQuizzesClick}
               >
                 <img src={state.quizzesSelected ? quizwhiteicon : quizblueicon} alt="quizzes" className="button-icon" />
@@ -435,9 +443,8 @@ const EventList = () => {
               </button>
               <button
                 type="button"
-                className={`buttons1 ${
-                  state.flashcardSelected ? "" : "unselected"
-                }`}
+                className={`buttons1 ${state.flashcardSelected ? "" : "unselected"
+                  }`}
                 onClick={() => {
                   setState((prevState) => ({
                     ...prevState,
@@ -456,20 +463,20 @@ const EventList = () => {
             </div>
             <div className={state.flashcardSelected ? "text-box2" : "text-box"}>
               {state.quizzesSelected
-              ? <QuizzesContent quizzesData={state.apiData.quizzes.data} showStepThree={state.showStepThree} selectedAnswers={selectedAnswers} setSelectedAnswers={setSelectedAnswers}/>
-              : <FlashcardArray
-                      cards={state.apiData.flashcards}
-                      frontCardStyle={{ padding: 20 }}
-                      backCardStyle={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        padding: 20,
-                        height: "100%", // Set a specific height if necessary
-                        width: "100%",
-                      }}
-                      FlashcardArrayStyle={{ textAlign: "center" }}
-                    />}
+                ? <QuizzesContent quizzesData={state.apiData.quizzes.data} showStepThree={state.showStepThree} selectedAnswers={selectedAnswers} setSelectedAnswers={setSelectedAnswers} />
+                : <FlashcardArray
+                  cards={state.apiData.flashcards}
+                  frontCardStyle={{ padding: 20 }}
+                  backCardStyle={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: 20,
+                    height: "100%", // Set a specific height if necessary
+                    width: "100%",
+                  }}
+                  FlashcardArrayStyle={{ textAlign: "center" }}
+                />}
             </div>
             <div className="button-row">
               <button
