@@ -455,7 +455,7 @@ const EventList = () => {
                 type="button"
                 className="buttons1"
                 onClick={handleGenerateQuizClick}
-                disabled={!state.apiData.quizzes?.data.length || !state.apiData.flashcards?.length}
+                disabled={!state.apiData.quizzes?.data?.length || !state.apiData.flashcards?.length}
               >
                 Next
               </button>
