@@ -82,8 +82,8 @@ async def generate_image(prompt, stability_api=stability_api, stability_model=st
                 }
             ],
             "cfg_scale": 7,
-            "height": 512,
-            "width": 512,
+            "height": 320,
+            "width": 320,
             "samples": 1,
         },
     )
