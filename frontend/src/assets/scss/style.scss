@@ -205,7 +205,6 @@ img.loading {
   height: 20rem;
   width: 390%;
 
-<<<<<<< HEAD
   border-radius: 15px;
 
   background-color: rgb(165, 180, 244);
@@ -244,40 +243,64 @@ img.loading {
   margin-bottom: 2%;
   margin-top: 2%;
 }
-=======
-}
 
 .feedback {
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: 600;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .correct {
-    color: green;
+  color: green;
 }
 
 .incorrect {
-    color: red;
+  color: red;
 }
 
-.logo-light{
-    min-height: 75px;
+.logo-light {
+  min-height: 75px;
 }
 
-.buttons2{
-    background-color: blue;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 15px;
+.buttons2 {
+  background-color: blue;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 15px;
 }
 
 .buttons2:hover {
-    background-color:#8698cb;
-    transition: 0.7s;
+  background-color: #8698cb;
+  transition: 0.7s;
+}
+
+.about-content-wrapper {
+  display: flex;
+}
+
+.profilewrapper {
+  width: 70% !important;
+}
+
+.about-title-banner {
+  padding: 3rem;
+  padding-bottom: 0 !important;
+}
+
+.about-image-wrapper {
+  justify-content: center;
+  display: flex;
+}
+
+.about-image {
+  object-fit: contain;
+}
+
+.h3-non-padding-btm {
+  margin-bottom: -5px !important;
 }
