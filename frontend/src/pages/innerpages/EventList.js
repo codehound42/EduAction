@@ -3,15 +3,16 @@ import SEO from "../../common/SEO";
 import Layout from "../../common/Layout";
 import loadinggif from "../../assets/images/loading.gif";
 import robotarm from "../../assets/images/robotarm.svg";
-import flashcardsicon from "../../assets/images/flashcardsicon.svg";
-import quizicon from "../../assets/images/quizicon.svg";
-import summaryicon from "../../assets/images/summaryicon.svg";
-import topicsicon from "../../assets/images/topicsicon.svg";
 import { FlashcardArray } from "react-quizlet-flashcard";
 import summarywhiteicon from "../../assets/images/summarywhiteicon.svg"
 import summaryblueicon from "../../assets/images/summaryblueicon.svg"
 import originalIcon from "../../assets/images/original.svg"
-import whiteIcon from "../../assets/images/white.svg"    
+import whiteIcon from "../../assets/images/white.svg"
+import quizwhiteicon from "../../assets/images/summarywhiteicon.svg"
+import quizblueicon from "../../assets/images/summaryblueicon.svg"
+import flashcardwhiteicon from "../../assets/images/flashcardwhiteicon.svg"
+import flashcardblueicon from "../../assets/images/flashcardblueicon.svg"
+
 
 const EventList = () => {
   const [state, setState] = useState({
@@ -52,7 +53,7 @@ const EventList = () => {
     };
 
   const handleButtonClick = (text) => {
-        
+
     setState(prevState => ({
         ...prevState,
         summarySelected: true,
@@ -458,7 +459,7 @@ const EventList = () => {
                 }`}
                 onClick={handleQuizzesClick}
               >
-                <img src={quizicon} alt="quizzes" className="button-icon" />
+                <img src={state.quizzesSelected ? quizwhiteicon : quizblueicon} alt="quizzes" className="button-icon" />
                 Quizzes
               </button>
               <button
@@ -492,7 +493,7 @@ const EventList = () => {
                 }}
               >
                 <img
-                  src={flashcardsicon}
+                  src={state.flashcardSelected ? flashcardwhiteicon : flashcardblueicon}
                   alt="flashcards"
                   className="button-icon"
                 />
