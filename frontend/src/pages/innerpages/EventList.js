@@ -443,7 +443,6 @@ const EventList = () => {
                     ...prevState,
                     flashcardSelected: true,
                     quizzesSelected: false,
-                    selectedText: state.apiData.flashcards,
                   }));
                 }}
               >
@@ -456,7 +455,9 @@ const EventList = () => {
               </button>
             </div>
             <div className={state.flashcardSelected ? "text-box2" : "text-box"}>
-              {state.quizzesSelected ? <QuizzesContent quizzesData={state.apiData.quizzes.data} showStepThree={state.showStepThree} selectedAnswers={selectedAnswers} setSelectedAnswers={setSelectedAnswers}/> : <FlashcardArray
+              {state.quizzesSelected
+              ? <QuizzesContent quizzesData={state.apiData.quizzes.data} showStepThree={state.showStepThree} selectedAnswers={selectedAnswers} setSelectedAnswers={setSelectedAnswers}/>
+              : <FlashcardArray
                       cards={state.apiData.flashcards}
                       frontCardStyle={{ padding: 20 }}
                       backCardStyle={{
