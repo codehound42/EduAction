@@ -286,7 +286,6 @@ const EventList = () => {
                       answerIndex
                     )
                   }
-                  checked={selectedAnswers && selectedAnswers[index] === answer}
                 />
                 <label htmlFor={`question-${index}-option-${answerIndex}`}>
                   {answer} {evaluationResults && evaluationResults[index]?.answerIndex === answerIndex && (evaluationResults[index]?.isCorrect ? <span className="answer-flag">✅</span> : <span className="answer-flag">❌</span>)}
