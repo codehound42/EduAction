@@ -26,8 +26,9 @@ Here's a high-level description of the generation process:
 The architecture is divded into two parts:
 - **Backend**, which uses
     - OpenAI API, and Langchain to generate the quizzes, flashcards, summary and topics.
-    - Supabase to store the generated materials.
+    - Supabase file storage to store the generated materials.
     - Stability.ai API to generate images for the flashcards.
+    - FastAPI for the REST API
 - **Frontend**, which is written in React and is responsible for the user interface and user experience.
 
 ## Low-level
@@ -77,7 +78,7 @@ The website's frontend is built upon React JS, HTML and CSS. The website's pages
             ```
         - For performance:
             ```bash
-            gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
+            gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000 --timeout 1800
             ```
 
 3) Frontend:
