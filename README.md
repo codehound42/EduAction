@@ -1,6 +1,6 @@
 # What is EduAction?
 ![](imgs/landingpage.png)
-It is an AI-powered application designed to output customizable educational content, quizzes, and interactive modules from a simple YouTube link input. The main objective of this project is to enhance engagement for educators, students, and self-learners. By leveraging the power of artificial intelligence, EduAction aims to add to the way educational content is created and consumed, providing a more interactive and personalized learning experience. The EduAction project has been developed for the the Encode Club AI Hackathon London 2024.
+EduAction is an educational content generation application powered by GenAI developed during the Encode Club AI Hackathon London 2024. The user submits a youtube link for a video lecture, tutorial or other instructional video, which is then transcribed and educational content including summaries, quizzes and flash cards are automatically generated. The main objective of the project is to enhance engagement for educators, students, and self-learners. By leveraging the power of artificial intelligence, EduAction aims to add to the way educational content is created and consumed, providing a more interactive and personalized learning experience.
 
 
 # How it works?
